@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Капля — UI-аниматор nikitakustov123</title>
+<title>Drop — UI animator nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
 <style>
@@ -44,21 +44,21 @@ h1{overflow-wrap:anywhere}
 <svg width="0" height="0" style="position:absolute"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="18" result="b"/><feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -11" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>
 <section class="hero" style="padding:0">
   <div class="lava" id="lava" aria-hidden="true"><div class="b cur" id="cur"></div></div>
-  <div class="txt"><h1>Капля</h1><p>nikitakustov123 — UI-аниматор. Делаю переходы, загрузки и микровзаимодействия, которые текут, как жидкость. Двигайте курсором.</p></div>
+  <div class="txt"><h1>Drop</h1><p>nikitakustov123 — UI animator. Transitions, loaders and micro-interactions that flow like liquid. Move your cursor.</p></div>
 </section>
 <section>
-  <h2>Кнопки, которые хочется нажать</h2>
-  <div class="btns"><button class="gb">Наведи</button><button class="gb p">И на меня</button><button class="gb y">И сюда</button></div>
+  <h2>Buttons you want to press</h2>
+  <div class="btns"><button class="gb">Hover me</button><button class="gb p">Me too</button><button class="gb y">And here</button></div>
 </section>
 <section>
-  <h2>Проекты</h2>
+  <h2>Projects</h2>
   <div class="cases">
-    <article class="case"><div class="drop" style="background:var(--orange)"></div><h3>Загрузки магазина одежды</h3><p>Семь анимаций ожидания, после которых пользователи стали реже закрывать приложение.</p></article>
-    <article class="case"><div class="drop" style="background:var(--pink)"></div><h3>Жесты в детском приложении</h3><p>Свайпы и тянущиеся карточки для детского приложения — без единой кнопки «Назад».</p></article>
-    <article class="case"><div class="drop" style="background:var(--yellow)"></div><h3>Lottie-библиотека маркетплейса</h3><p>140 иконок в движении, которые весят меньше одной картинки.</p></article>
+    <article class="case"><div class="drop" style="background:var(--orange)"></div><h3>Fashion store loaders</h3><p>Seven loading animations that made users close the app less often.</p></article>
+    <article class="case"><div class="drop" style="background:var(--pink)"></div><h3>Gestures in a kids’ app</h3><p>Swipes and stretchy cards for a kids’ app — without a single Back button.</p></article>
+    <article class="case"><div class="drop" style="background:var(--yellow)"></div><h3>A marketplace Lottie library</h3><p>140 animated icons that weigh less than a single image.</p></article>
   </div>
 </section>
-<footer><a href="mailto:hello@example.com">Написать мне</a></footer>
+<footer><a href="mailto:hello@example.com">Write to me</a></footer>
 <script>
 const lava=document.getElementById('lava'),cur=document.getElementById('cur');
 const bl=[];const W=()=>lava.clientWidth,H=()=>lava.clientHeight;

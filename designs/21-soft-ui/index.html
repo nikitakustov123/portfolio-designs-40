@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Мягкий интерфейс — продуктовый дизайнер nikitakustov123</title>
+<title>Soft UI — product designer nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -49,25 +49,25 @@ h1{overflow-wrap:anywhere}
 </head>
 <body>
 <div class="wrap">
-<nav class="out"><b>nikitakustov123</b><div><a href="#cases">Кейсы</a><a href="#hi">Контакт</a></div></nav>
+<nav class="out"><b>nikitakustov123</b><div><a href="#cases">Cases</a><a href="#hi">Contact</a></div></nav>
 <section class="hero" style="padding:0">
-  <div><h1>Интерфейсы, к которым хочется прикоснуться</h1><p>Продуктовый дизайнер. Делаю приложения для умного дома, медицины и финансов — там, где спокойствие пользователя важнее эффектов.</p></div>
-  <div class="panel out" aria-label="Интерактивная панель управления">
-    <div class="knob out" id="knob" tabindex="0" role="slider" aria-label="Температура" aria-valuemin="16" aria-valuemax="30" aria-valuenow="22"><div class="cap" id="cap"></div><div class="val" id="val">22°</div></div>
-    <div><button class="tg in" aria-pressed="true" aria-label="Свет"><i></i></button><div class="lbl">Свет</div></div>
-    <div><button class="tg in" aria-pressed="false" aria-label="Шторы"><i></i></button><div class="lbl">Шторы</div></div>
+  <div><h1>Interfaces you want to touch</h1><p>Product designer. Apps for smart homes, health and finance — where the user’s calm matters more than effects.</p></div>
+  <div class="panel out" aria-label="Interactive control panel">
+    <div class="knob out" id="knob" tabindex="0" role="slider" aria-label="Temperature" aria-valuemin="16" aria-valuemax="30" aria-valuenow="22"><div class="cap" id="cap"></div><div class="val" id="val">22°</div></div>
+    <div><button class="tg in" aria-pressed="true" aria-label="Lights"><i></i></button><div class="lbl">Lights</div></div>
+    <div><button class="tg in" aria-pressed="false" aria-label="Blinds"><i></i></button><div class="lbl">Blinds</div></div>
     <div class="sl in" aria-hidden="true"><i></i></div>
   </div>
 </section>
 <section id="cases">
-  <h2>Кейсы</h2>
+  <h2>Cases</h2>
   <div class="cases">
-    <article class="case out"><div class="ic in">🏠</div><h3>Умный дом «Уют»</h3><p>Приложение для 300 тысяч квартир. Сценарии вместо сотни переключателей.</p><span class="res in">NPS +31</span></article>
-    <article class="case out"><div class="ic in">💊</div><h3>Таблетница «Вовремя»</h3><p>Напоминания о лекарствах для пожилых. Крупно, тихо, без ошибок.</p><span class="res in">−48% пропусков</span></article>
-    <article class="case out"><div class="ic in">💳</div><h3>Копилка «Капля»</h3><p>Накопления по чуть-чуть с каждой покупки. Без стресса и графиков.</p><span class="res in">1,2 млн пользователей</span></article>
+    <article class="case out"><div class="ic in">🏠</div><h3>Uyut smart home</h3><p>An app for 300,000 apartments. Scenes instead of a hundred switches.</p><span class="res in">NPS +31</span></article>
+    <article class="case out"><div class="ic in">💊</div><h3>OnTime pill reminder</h3><p>Medication reminders for older people. Large, quiet, error-free.</p><span class="res in">−48% missed doses</span></article>
+    <article class="case out"><div class="ic in">💳</div><h3>Drop savings</h3><p>Saving a little with every purchase. No stress, no charts.</p><span class="res in">1.2M users</span></article>
   </div>
 </section>
-<div class="contact out" id="hi"><div><h2 style="margin:0">Сделаем продукт спокойнее?</h2><p>Работаю с командами от стартапа до банка. Ответ в течение дня.</p></div><a class="btn out" href="mailto:hello@example.com">Написать мне</a></div>
+<div class="contact out" id="hi"><div><h2 style="margin:0">Shall we make your product calmer?</h2><p>I work with teams from startups to banks. Reply within a day.</p></div><a class="btn out" href="mailto:hello@example.com">Write to me</a></div>
 </div>
 <script>
 document.querySelectorAll('.tg').forEach(t=>t.onclick=()=>t.setAttribute('aria-pressed',t.getAttribute('aria-pressed')!=='true'));

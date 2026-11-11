@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>root@nikita — DevOps-инженер nikitakustov123</title>
+<title>root@nikita — DevOps engineer nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -38,36 +38,36 @@ h1{overflow-wrap:anywhere}
 </main>
 <script>
 const out=document.getElementById('out');
-const banner=`╔══════════════════════════════════╗
-║   n i k i t a k u s t o v 1 2 3   ║
-║   devops  ·  sre  ·  infra         ║
-╚══════════════════════════════════╝`;
+const banner=`╔══════════════════════════════════════╗
+║   n i k i t a k u s t o v 1 2 3      ║
+║   devops  ·  sre  ·  infra           ║
+╚══════════════════════════════════════╝`;
 const cmds={
- help:`Доступные команды:\n  <span class="p">about</span>     кто я\n  <span class="p">projects</span>  что построил\n  <span class="p">stack</span>     с чем работаю\n  <span class="p">uptime</span>    немного статистики\n  <span class="p">contact</span>   как связаться\n  <span class="p">clear</span>     очистить экран`,
- about:`nikitakustov123, DevOps / SRE, 11 лет в продакшене.\nДелаю так, чтобы ваши сервисы не падали, а если падали — то тихо и ненадолго.\nСейчас: ведущий SRE в финтехе, 400 микросервисов, 3 дата-центра.`,
- projects:`<span class="bar">1</span> Миграция 400 сервисов в Kubernetes без даунтайма — 2025\n<span class="bar">2</span> Свой оператор Postgres: failover за 6 секунд — 2024\n<span class="bar">3</span> CI на 9 000 сборок в день, медиана 4 мин 10 с — 2023\n<span class="bar">4</span> Доклад «Инциденты без виноватых» на профильной конференции — 2022`,
- stack:`[████████████████████] Kubernetes\n[██████████████████░░] Terraform\n[█████████████████░░░] Go\n[████████████████░░░░] Prometheus + Grafana\n[███████████████░░░░░] Ansible\n[██████████░░░░░░░░░░] Rust <span class="dim">(учу по вечерам)</span>`,
- uptime:`Аптайм за 2026 год: 99,993%\nИнцидентов SEV-1: 2\nСреднее время восстановления: 11 минут\nВыпито кофе во время дежурств: не считается`,
- contact:`Почта:    <a href="mailto:hello@example.com">hello@example.com</a>\nФормат:   консультации, аудит инфраструктуры, долгосрочный контракт\nОтвечаю:  в течение рабочего дня`
+ help:`Available commands:\n  <span class="p">about</span>     who I am\n  <span class="p">projects</span>  what I built\n  <span class="p">stack</span>     what I work with\n  <span class="p">uptime</span>    some numbers\n  <span class="p">contact</span>   how to reach me\n  <span class="p">clear</span>     clear the screen`,
+ about:`nikitakustov123, DevOps / SRE, 11 years in production.\nI keep your services up, and when they do go down — quietly and briefly.\nNow: lead SRE in fintech, 400 microservices, 3 data centres.`,
+ projects:`<span class="bar">1</span> Migrated 400 services to Kubernetes with zero downtime — 2025\n<span class="bar">2</span> Custom Postgres operator: 6-second failover — 2024\n<span class="bar">3</span> CI for 9,000 builds a day, median 4 min 10 s — 2023\n<span class="bar">4</span> Talk “Blameless incidents” at an industry conference — 2022`,
+ stack:`[████████████████████] Kubernetes\n[██████████████████░░] Terraform\n[█████████████████░░░] Go\n[████████████████░░░░] Prometheus + Grafana\n[███████████████░░░░░] Ansible\n[██████████░░░░░░░░░░] Rust <span class="dim">(learning in the evenings)</span>`,
+ uptime:`Uptime in 2026: 99.993%\nSEV-1 incidents: 2\nMean time to recovery: 11 minutes\nCoffee consumed on call: not counted`,
+ contact:`Email:    <a href="mailto:hello@example.com">hello@example.com</a>\nFormat:   consulting, infrastructure audit, long-term contract\nReply:    within one working day`
 };
 function line(html,cls){const d=document.createElement('div');if(cls)d.className=cls;d.innerHTML=html;out.insertBefore(d,prompt);out.scrollTop=out.scrollHeight;return d}
 const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
 async function type(el,text,speed=14){if(red){el.innerHTML=text;return}let i=0;while(i<=text.length){if(text[i]==='<'){i=text.indexOf('>',i)+1;continue}el.innerHTML=text.slice(0,i);i++;out.scrollTop=out.scrollHeight;await new Promise(r=>setTimeout(r,speed))}}
 const prompt=document.createElement('div');
-prompt.innerHTML=`<div class="chips">${Object.keys(cmds).map(k=>`<button data-c="${k}">${k}</button>`).join('')}<button data-c="clear">clear</button></div><label class="row"><span class="p">root@nikita:~$</span><input id="in" autocomplete="off" spellcheck="false" aria-label="Введите команду"></label>`;
+prompt.innerHTML=`<div class="chips">${Object.keys(cmds).map(k=>`<button data-c="${k}">${k}</button>`).join('')}<button data-c="clear">clear</button></div><label class="row"><span class="p">root@nikita:~$</span><input id="in" autocomplete="off" spellcheck="false" aria-label="Type a command"></label>`;
 out.appendChild(prompt);
 const inp=prompt.querySelector('#in');
 async function run(c){c=c.trim().toLowerCase();line(`<span class="p">root@nikita:~$</span> ${c}`);
  if(c==='clear'){[...out.children].forEach(n=>n!==prompt&&n.remove());return}
  const d=line('','');d.style.whiteSpace='pre-wrap';
- await type(d,cmds[c]||`bash: ${c.replace(/</g,'&lt;')}: команда не найдена. Наберите <span class="p">help</span>`);line('&nbsp;')}
+ await type(d,cmds[c]||`bash: ${c.replace(/</g,'&lt;')}: command not found. Type <span class="p">help</span>`);line('&nbsp;')}
 inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.value){run(inp.value);inp.value=''}});
 prompt.querySelectorAll('button').forEach(b=>b.onclick=()=>{run(b.dataset.c);inp.focus()});
 (async()=>{
  const b=line('','ascii');b.textContent=banner;
- const boot=['[ OK ] Монтирую /home/nikita','[ OK ] Запускаю kubelet','[ OK ] Прогреваю кэш кофе','[ OK ] Портфолио загружено'];
+ const boot=['[ OK ] Mounting /home/nikita','[ OK ] Starting kubelet','[ OK ] Warming up coffee cache','[ OK ] Portfolio loaded'];
  for(const s of boot){const d=line('','dim');await type(d,s,8)}
- line('&nbsp;');const d=line('');d.style.whiteSpace='pre-wrap';await type(d,'Добро пожаловать. Наберите <span class="p">help</span> или нажмите на команду ниже.');line('&nbsp;');
+ line('&nbsp;');const d=line('');d.style.whiteSpace='pre-wrap';await type(d,'Welcome. Type <span class="p">help</span> or click a command below.');line('&nbsp;');
  inp.focus({preventScroll:true});
 })();
 </script>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Изолиния — картограф nikitakustov123</title>
+<title>Isoline — cartographer nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,600;1,300&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -48,28 +48,28 @@ h1{overflow-wrap:anywhere}
 <body>
 <section class="hero" style="padding:0">
   <canvas id="topo" aria-hidden="true"></canvas>
-  <div class="coords">55°45′ с. ш. 37°37′ в. д.<br>Масштаб 1 : 25 000</div>
+  <div class="coords">55°45′ N 37°37′ E<br>Scale 1 : 25,000</div>
   <div class="legend">
-    <small>Лист N-37-4 · Картография и инфографика</small>
+    <small>Sheet N-37-4 · Cartography and infographics</small>
     <h1>nikitakustov123</h1>
-    <p>Рисую карты для путеводителей, музеев и туристических троп. Рельеф, который можно прочитать пальцем.</p>
-    <div class="key"><i></i>горизонталь через 10 м<i class="b"></i>утолщённая через 50 м<i class="w"></i>водоёмы и реки</div>
+    <p>I draw maps for guidebooks, museums and hiking trails. Terrain you can read with your finger.</p>
+    <div class="key"><i></i>contour every 10 m<i class="b"></i>index contour every 50 m<i class="w"></i>lakes and rivers</div>
   </div>
-  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L50 92 L42 50Z" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L42 50Z" fill="#8a5a3b"/><text x="46" y="6" font-size="10" font-family="PT Sans Narrow">С</text></svg>
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L50 92 L42 50Z" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L42 50Z" fill="#8a5a3b"/><text x="46" y="6" font-size="10" font-family="PT Sans Narrow">N</text></svg>
 </section>
 <section>
-  <h2>Изданные карты</h2>
+  <h2>Published maps</h2>
   <div class="maps">
-    <figure class="mp"><canvas data-s="3"></canvas><div><b>Хибины</b><small>Туристическая карта, 1 : 50 000</small></div></figure>
-    <figure class="mp"><canvas data-s="11"></canvas><div><b>Алтай, Катунский хребет</b><small>Для географического общества</small></div></figure>
-    <figure class="mp"><canvas data-s="27"></canvas><div><b>Остров Кижи</b><small>Музейная экспозиция, 1 : 10 000</small></div></figure>
+    <figure class="mp"><canvas data-s="3"></canvas><div><b>Khibiny Mountains</b><small>Hiking map, 1 : 50,000</small></div></figure>
+    <figure class="mp"><canvas data-s="11"></canvas><div><b>Altai, Katun Range</b><small>For a geographical society</small></div></figure>
+    <figure class="mp"><canvas data-s="27"></canvas><div><b>Kizhi Island</b><small>Museum display, 1 : 10,000</small></div></figure>
   </div>
 </section>
 <section class="about">
-  <h2>Карта — это история, рассказанная рельефом</h2>
-  <div><p>Работаю с данными ArcticDEM и полевыми GPS-треками, а потом вручную чищу каждую горизонталь. Ни одна моя карта не уходит в печать, пока я сам не прошёл по её главной тропе.</p><br><div class="scale"><div class="bar"><span></span><span></span><span></span><span></span></div><span style="font-family:'PT Sans Narrow';font-size:13px">0 — 2 км</span></div></div>
+  <h2>A map is a story told by the terrain</h2>
+  <div><p>I work with ArcticDEM data and field GPS tracks, then hand-clean every contour. None of my maps goes to print until I have walked its main trail myself.</p><br><div class="scale"><div class="bar"><span></span><span></span><span></span><span></span></div><span style="font-family:'PT Sans Narrow';font-size:13px">0 — 2 km</span></div></div>
 </section>
-<footer><span style="font-family:'PT Sans Narrow'">Тропы, музеи, издательства, туроператоры</span><a href="mailto:hello@example.com">Заказать карту</a></footer>
+<footer><span style="font-family:'PT Sans Narrow'">Trails, museums, publishers, tour operators</span><a href="mailto:hello@example.com">Commission a map</a></footer>
 <script>
 function hash(i,j,s){const n=Math.sin(i*127.1+j*311.7+s*74.7)*43758.5453;return n-Math.floor(n)}
 function vnoise(x,y,s){const i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);const a=hash(i,j,s),b=hash(i+1,j,s),c=hash(i,j+1,s),d=hash(i+1,j+1,s);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v}

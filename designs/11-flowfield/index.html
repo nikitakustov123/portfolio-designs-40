@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>nikitakustov123 — генеративное искусство</title>
+<title>nikitakustov123 — generative art</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&display=swap" rel="stylesheet">
 <style>
@@ -36,19 +36,19 @@ h1{overflow-wrap:anywhere}
 </head>
 <body>
 <section class="stage" style="padding:0">
-  <canvas id="field" aria-label="Генеративная картина из частиц, следующих по векторному полю"></canvas>
-  <div class="over"><h1>nikita<br>kustov123</h1><p>Пишу код, который рисует сам. Каждое обновление страницы — новая работа, которую никто, включая меня, ещё не видел.</p></div>
-  <div class="hint">Проведите курсором — поле отзовётся<br><button id="re">Новый сид</button></div>
+  <canvas id="field" aria-label="A generative painting of particles following a vector field"></canvas>
+  <div class="over"><h1>nikita<br>kustov123</h1><p>I write code that paints by itself. Every page refresh is a new piece nobody — including me — has seen before.</p></div>
+  <div class="hint">Move your cursor — the field responds<br><button id="re">New seed</button></div>
 </section>
 <section>
-  <div class="edition"><h2>Серии и коллекции</h2><p>Работы выходили на платформах генеративного искусства, печатались плоттером на хлопковой бумаге и проецировались на фасады домов.</p></div>
+  <div class="edition"><h2>Series and collections</h2><p>Works released on generative art platforms, pen-plotted on cotton paper and projected onto building facades.</p></div>
   <div class="minis">
-    <div class="mini"><canvas data-seed="7" data-pal="0"></canvas><h3>Тёплый ветер</h3><small>512 итераций, 2026</small></div>
-    <div class="mini"><canvas data-seed="21" data-pal="1"></canvas><h3>Шёлк</h3><small>Плоттер, тушь, 2025</small></div>
-    <div class="mini"><canvas data-seed="88" data-pal="2"></canvas><h3>Течение Лены</h3><small>Проекция на фасад, 2024</small></div>
+    <div class="mini"><canvas data-seed="7" data-pal="0"></canvas><h3>Warm Wind</h3><small>512 iterations, 2026</small></div>
+    <div class="mini"><canvas data-seed="21" data-pal="1"></canvas><h3>Silk</h3><small>Plotter, ink, 2025</small></div>
+    <div class="mini"><canvas data-seed="88" data-pal="2"></canvas><h3>Lena Current</h3><small>Facade projection, 2024</small></div>
   </div>
 </section>
-<footer><div>Коллекционерам, кураторам, брендам:</div><a href="mailto:hello@example.com">Написать мне</a></footer>
+<footer><div>Collectors, curators, brands:</div><a href="mailto:hello@example.com">Write to me</a></footer>
 <script>
 const PAL=[['#ff7849','#ffd166','#ef476f','#e8e4ff'],['#e8e4ff','#9b8cff','#5ce1e6','#ffffff'],['#06d6a0','#118ab2','#ffd166','#e8e4ff']];
 function noise(x,y,s){return Math.sin(x*1.7+s)*Math.cos(y*1.3-s*.7)+Math.sin((x+y)*.8+s*1.3)*.6+Math.cos(x*.5-y*2.1+s)*.4}

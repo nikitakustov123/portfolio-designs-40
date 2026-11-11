@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Эхо — саунд-дизайнер nikitakustov123</title>
+<title>Echo — sound designer nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
@@ -47,24 +47,24 @@ h1{overflow-wrap:anywhere}
 </head>
 <body>
 <section class="hero">
-  <header><span>Эхо</span><span>nikitakustov123 — звук для игр, кино и интерфейсов</span></header>
-  <div class="mid"><canvas id="osc" aria-hidden="true"></canvas><h1 aria-hidden="true">ЭХО</h1></div>
-  <div class="ctrl"><p>Пишу звуковые миры: шаги по снегу в инди-хорроре, гул космической станции, щелчок кнопки в банковском приложении. Нажмите — и услышите, как звучит эта страница.</p><button class="play" id="play"><i></i><span>Послушать страницу</span></button></div>
+  <header><span>Echo</span><span>nikitakustov123 — sound for games, film and interfaces</span></header>
+  <div class="mid"><canvas id="osc" aria-hidden="true"></canvas><h1 aria-hidden="true">ECHO</h1></div>
+  <div class="ctrl"><p>I build worlds of sound: footsteps on snow in an indie horror game, the hum of a space station, the click of a button in a banking app. Press play to hear how this page sounds.</p><button class="play" id="play"><i></i><span>Listen to the page</span></button></div>
 </section>
 <section>
-  <h2>Избранные треки</h2>
+  <h2>Selected tracks</h2>
   <div class="tracks" id="tracks">
-    <div class="tr"><span class="dot"></span><b>Станция «Мир-2»</b><small>Игра, 2026</small><div class="wave"></div><small>3:42</small></div>
-    <div class="tr"><span class="dot" style="background:var(--lilac)"></span><b>Тайга. Ночь</b><small>Документальное кино</small><div class="wave"></div><small>5:10</small></div>
-    <div class="tr"><span class="dot"></span><b>Звуки банка «Опора»</b><small>UI-саунд, 48 сэмплов</small><div class="wave"></div><small>0:58</small></div>
-    <div class="tr"><span class="dot" style="background:var(--lilac)"></span><b>Ледокол</b><small>Короткий метр, фестивальный показ</small><div class="wave"></div><small>4:27</small></div>
+    <div class="tr"><span class="dot"></span><b>Station Mir-2</b><small>Game, 2026</small><div class="wave"></div><small>3:42</small></div>
+    <div class="tr"><span class="dot" style="background:var(--lilac)"></span><b>Taiga. Night</b><small>Documentary</small><div class="wave"></div><small>5:10</small></div>
+    <div class="tr"><span class="dot"></span><b>Opora Bank UI sounds</b><small>UI sound, 48 samples</small><div class="wave"></div><small>0:58</small></div>
+    <div class="tr"><span class="dot" style="background:var(--lilac)"></span><b>Icebreaker</b><small>Short film, festival screening</small><div class="wave"></div><small>4:27</small></div>
   </div>
 </section>
 <section class="clients">
-  <h2>Работал с</h2>
-  <p>Инди- и AAA-студии, документальное кино, банки и музыкальные сервисы. Сведение в Dolby Atmos, полевая запись, процедурный звук в Wwise и FMOD.</p>
+  <h2>Worked with</h2>
+  <p>Indie and AAA studios, documentaries, banks and music services. Dolby Atmos mixing, field recording, procedural audio in Wwise and FMOD.</p>
 </section>
-<footer><a href="mailto:hello@example.com">Озвучим ваш мир</a></footer>
+<footer><a href="mailto:hello@example.com">Let’s give your world a sound</a></footer>
 <script>
 document.querySelectorAll('.wave').forEach(w=>{for(let i=0;i<42;i++){const s=document.createElement('span');s.style.height=(15+Math.abs(Math.sin(i*.7+w.offsetTop))*85)+'%';s.style.animationDelay=(i*.03)+'s';w.appendChild(s)}});
 const c=document.getElementById('osc'),x=c.getContext('2d'),d=devicePixelRatio||1;let on=false,w,h,t=0,amp=.25,target=.25,ac,an,data;
@@ -85,7 +85,7 @@ btn.onclick=()=>{
     const g=ac.createGain();g.gain.value=0;g.connect(an);an.connect(ac.destination);
     [110,164.81,220,277.18].forEach((f,i)=>{const o=ac.createOscillator();o.type=i%2?'sine':'triangle';o.frequency.value=f;const lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=.1+i*.07;lg.gain.value=3;lfo.connect(lg);lg.connect(o.frequency);o.connect(g);o.start();lfo.start()});
     nodes=g}
-  on=!on;btn.classList.toggle('on',on);btn.querySelector('span').textContent=on?'Остановить':'Послушать страницу';
+  on=!on;btn.classList.toggle('on',on);btn.querySelector('span').textContent=on?'Stop':'Listen to the page';
   nodes.gain.setTargetAtTime(on?.12:0,ac.currentTime,.4);if(on)ac.resume();
 };
 </script>

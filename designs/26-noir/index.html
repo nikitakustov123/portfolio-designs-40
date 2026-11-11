@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>nikitakustov123 — режиссёр</title>
+<title>nikitakustov123 — film director</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=PT+Mono&display=swap" rel="stylesheet">
 <style>
@@ -54,21 +54,21 @@ h1{overflow-wrap:anywhere}
 <canvas id="grain" aria-hidden="true"></canvas><div class="vign" aria-hidden="true"></div>
 <section class="screen">
   <div class="bars t"></div><div class="bars b"></div><div class="light"></div><div class="blinds"></div>
-  <div class="credits"><small>Портфолио режиссёра</small><h1>nikita<br>kustov123</h1><p>игровое кино, реклама, клипы</p><div class="type" id="type" aria-live="polite"></div></div>
+  <div class="credits"><small>Director’s portfolio</small><h1>nikita<br>kustov123</h1><p>feature films, commercials, music videos</p><div class="type" id="type" aria-live="polite"></div></div>
 </section>
 <section class="reel">
-  <h2>Фильмография</h2>
-  <div class="film"><div class="frame"><div class="f1"></div></div><div><span class="y">2026, 104 мин</span><h3>«Последний трамвай»</h3><p>Нуар о водителе ночного маршрута, который однажды не довёз пассажира до конечной.</p><div class="aw">Гран-при национального кинофестиваля</div></div></div>
-  <div class="film"><div class="frame"><div class="f2"></div></div><div><span class="y">2024, 18 мин</span><h3>«Решётка»</h3><p>Короткий метр, снятый одним кадром в коридоре бывшего НИИ.</p><div class="aw">Официальная программа фестиваля короткого метра</div></div></div>
-  <div class="film"><div class="frame"><div class="f3"></div></div><div><span class="y">2023, 3 мин</span><h3>«Дым» — клип</h3><p>Чёрно-белый клип для группы «Окраина», снят на плёнку Kodak Double-X.</p><div class="aw">Финалист фестиваля музыкальных клипов</div></div></div>
+  <h2>Filmography</h2>
+  <div class="film"><div class="frame"><div class="f1"></div></div><div><span class="y">2026, 104 min</span><h3>“The Last Tram”</h3><p>A noir about a night-route driver who one night fails to get a passenger to the last stop.</p><div class="aw">Grand Prix, national film festival</div></div></div>
+  <div class="film"><div class="frame"><div class="f2"></div></div><div><span class="y">2024, 18 min</span><h3>“The Grille”</h3><p>A short shot in a single take in the corridor of a former research institute.</p><div class="aw">Official selection, short film festival</div></div></div>
+  <div class="film"><div class="frame"><div class="f3"></div></div><div><span class="y">2023, 3 min</span><h3>“Smoke” — music video</h3><p>A black-and-white video for the band Outskirts, shot on Kodak Double-X.</p><div class="aw">Finalist, music video festival</div></div></div>
 </section>
-<section class="bio"><h2>О режиссёре</h2><p>Выпускник киношколы, режиссёрский факультет. Снимаю истории о людях, которые остались одни посреди большого города. Предпочитаю плёнку, длинные планы и тишину вместо музыки.</p></section>
-<section class="end"><div><h2>Конец?</h2><a href="mailto:hello@example.com">Продюсерам и агентствам: написать мне</a></div></section>
+<section class="bio"><h2>About the director</h2><p>Film school graduate, directing. I tell stories of people left alone in the middle of a big city. I prefer film stock, long takes and silence over music.</p></section>
+<section class="end"><div><h2>The end?</h2><a href="mailto:hello@example.com">Producers and agencies: write to me</a></div></section>
 <script>
 const g=document.getElementById('grain'),gx=g.getContext('2d');g.width=320;g.height=200;
 const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function grain(){const im=gx.createImageData(320,200);for(let i=0;i<im.data.length;i+=4){const v=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255}gx.putImageData(im,0,0);if(!red)setTimeout(()=>requestAnimationFrame(grain),60)}grain();
-const lines=['Режиссёр-постановщик: nikitakustov123','Оператор: свет из окна напротив','В ролях: город, ночь и тишина'];let li=0;
+const lines=['Directed by nikitakustov123','Cinematography: the window across the street','Starring: the city, the night and the silence'];let li=0;
 const el=document.getElementById('type');
 async function typeLoop(){while(true){const s=lines[li++%lines.length];for(let i=0;i<=s.length;i++){el.textContent=s.slice(0,i)+'▌';await new Promise(r=>setTimeout(r,red?0:55))}await new Promise(r=>setTimeout(r,1800));if(red)return}}
 typeLoop();

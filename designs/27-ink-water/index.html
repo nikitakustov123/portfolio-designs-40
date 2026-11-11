@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Тушь — каллиграф и леттерер nikitakustov123</title>
+<title>Ink — calligrapher and letterer nikitakustov123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,500;1,7..72,300&display=swap" rel="stylesheet">
 <style>
@@ -40,23 +40,23 @@ h1{overflow-wrap:anywhere}
 </head>
 <body>
 <section class="hero" style="padding:0">
-  <canvas id="ink" aria-label="Капли туши расплываются в воде"></canvas>
-  <div class="t"><h1>nikita<br>kustov123</h1><p>Каллиграф и леттерер. Пишу тушью и пером вывески, логотипы и свадебные приглашения.</p></div>
-  <div class="hint">Нажмите, чтобы уронить каплю</div>
+  <canvas id="ink" aria-label="Drops of ink spreading in water"></canvas>
+  <div class="t"><h1>nikita<br>kustov123</h1><p>Calligrapher and letterer. Signs, logos and wedding invitations in ink and pen.</p></div>
+  <div class="hint">Click to drop ink</div>
 </section>
 <section>
-  <h2>Буквы на заказ</h2>
+  <h2>Letters to order</h2>
   <div class="works">
-    <article class="wk"><div class="splash"></div><div class="word">Терпение</div><span class="seal" aria-hidden="true"></span><div><b>Логотип чайной «Терпение»</b><br><small>Кисть, тушь, 2026</small></div></article>
-    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 20% 70%,#d1442f 0 6%,transparent 26%)"></div><div class="word">Мы вместе</div><span class="seal" aria-hidden="true"></span><div><b>Свадебная полиграфия</b><br><small>Острое перо, 140 конвертов</small></div></article>
-    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 50% 50%,#101418 0 4%,transparent 30%)"></div><div class="word">Хлеб</div><span class="seal" aria-hidden="true"></span><div><b>Вывеска пекарни</b><br><small>Роспись по стеклу, Казань</small></div></article>
+    <article class="wk"><div class="splash"></div><div class="word">Patience</div><span class="seal" aria-hidden="true"></span><div><b>Logo for Patience tea house</b><br><small>Brush, ink, 2026</small></div></article>
+    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 20% 70%,#d1442f 0 6%,transparent 26%)"></div><div class="word">Together</div><span class="seal" aria-hidden="true"></span><div><b>Wedding stationery</b><br><small>Pointed pen, 140 envelopes</small></div></article>
+    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 50% 50%,#101418 0 4%,transparent 30%)"></div><div class="word">Bread</div><span class="seal" aria-hidden="true"></span><div><b>Bakery sign</b><br><small>Hand-painted glass, Kazan</small></div></article>
   </div>
 </section>
 <section class="serv">
-  <h2>Что пишу</h2>
-  <ul><li>Логотипы и леттеринг<span>от 40 000 ₽</span></li><li>Свадебная полиграфия<span>от 600 ₽ за конверт</span></li><li>Вывески и витрины<span>от 60 000 ₽</span></li><li>Мастер-классы для команд<span>по запросу</span></li></ul>
+  <h2>What I letter</h2>
+  <ul><li>Logos and lettering<span>from $450</span></li><li>Wedding stationery<span>from $7 per envelope</span></li><li>Signs and windows<span>from $700</span></li><li>Team workshops<span>on request</span></li></ul>
 </section>
-<footer><a href="mailto:hello@example.com">Написать письмо</a></footer>
+<footer><a href="mailto:hello@example.com">Send a letter</a></footer>
 <script>
 const c=document.getElementById('ink'),x=c.getContext('2d'),d=Math.min(2,devicePixelRatio||1);let w,h;
 function rs(){w=c.width=c.clientWidth*d;h=c.height=c.clientHeight*d;x.fillStyle='#f4f6f7';x.fillRect(0,0,w,h)}rs();addEventListener('resize',rs);

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Орбита — nikitakustov123, научная визуализация</title>
+<title>Orbit — nikitakustov123, scientific visualization</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
@@ -46,29 +46,29 @@ h1{overflow-wrap:anywhere}
 <body>
 <canvas id="c" aria-hidden="true"></canvas>
 <div class="ui">
-<header><b>ОРБИТА</b><span>nikitakustov123</span></header>
+<header><b>ORBIT</b><span>nikitakustov123</span></header>
 <section class="hero">
-  <h1>Я рисую то, что видят телескопы</h1>
-  <p>Научная визуализация для обсерваторий, музеев и космических миссий. Данные превращаю в изображения, которые понятны школьнику и точны для астрофизика.</p>
+  <h1>I draw what telescopes see</h1>
+  <p>Scientific visualization for observatories, museums and space missions. I turn data into images a schoolchild understands and an astrophysicist trusts.</p>
 </section>
-<div class="coord" aria-hidden="true">RA <b>05ч 35м 17с</b><br>DEC <b>−05° 23′ 28″</b><br>Туманность Ориона</div>
+<div class="coord" aria-hidden="true">RA <b>05h 35m 17s</b><br>DEC <b>−05° 23′ 28″</b><br>Orion Nebula</div>
 <section>
-  <h2>Миссии и проекты</h2>
+  <h2>Missions and projects</h2>
   <div class="objs">
-    <article class="obj"><div class="planet pl1"></div><h3>Солнце в ультрафиолете</h3><p>Интерактивная карта вспышек по данным SDO для городского планетария, 2026.</p></article>
-    <article class="obj"><div class="planet pl2"></div><h3>Кольца Нептуна</h3><p>Реконструкция по снимкам JWST для выставки «Ледяные гиганты», 2025.</p></article>
-    <article class="obj"><div class="planet pl3"></div><h3>Атмосфера Юпитера</h3><p>Анимация вихрей Большого красного пятна за 40 лет наблюдений, 2024.</p></article>
+    <article class="obj"><div class="planet pl1"></div><h3>The Sun in ultraviolet</h3><p>Interactive flare map from SDO data for a city planetarium, 2026.</p></article>
+    <article class="obj"><div class="planet pl2"></div><h3>Rings of Neptune</h3><p>A reconstruction from JWST images for the “Ice Giants” exhibition, 2025.</p></article>
+    <article class="obj"><div class="planet pl3"></div><h3>Jupiter’s atmosphere</h3><p>An animation of the Great Red Spot across 40 years of observations, 2024.</p></article>
   </div>
 </section>
 <section class="talks">
-  <h2>Выступления</h2>
+  <h2>Talks</h2>
   <ol>
-    <li><span>2026</span>Как показать тёмную материю — открытая лекция в обсерватории</li>
-    <li><span>2025</span>Данные как пейзаж — конференция по визуализации данных</li>
-    <li><span>2024</span>Цвет в астрофотографии — где кончается наука</li>
+    <li><span>2026</span>How to show dark matter — public lecture at an observatory</li>
+    <li><span>2025</span>Data as landscape — data visualization conference</li>
+    <li><span>2024</span>Colour in astrophotography — where science ends</li>
   </ol>
 </section>
-<footer><a href="mailto:hello@example.com">Обсудить визуализацию</a></footer>
+<footer><a href="mailto:hello@example.com">Discuss a visualization</a></footer>
 </div>
 <script>
 const c=document.getElementById('c'),x=c.getContext('2d');let w,h,d=devicePixelRatio||1,mx=0,my=0;

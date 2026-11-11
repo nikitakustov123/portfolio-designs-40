@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бумажный кит — иллюстратор детских книг nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#fdf1e3;--w1:#a8dcef;--w2:#6fbfe0;--w3:#3e95c4;--w4:#246a9b;--w5:#15466e;--coral:#ff8a73;--sun:#ffc857;--ink:#173450}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--sky);color:var(--ink);font-family:Nunito,sans-serif;font-size:18px;line-height:1.65;overflow-x:hidden}
+.hero{height:100vh;min-height:640px;position:relative;overflow:hidden}
+.layer{position:absolute;left:-5%;width:110%;will-change:transform}
+.layer svg{width:100%;height:100%;display:block;filter:drop-shadow(0 -6px 6px rgba(23,52,80,.18))}
+.sun{position:absolute;right:14%;top:12%;width:120px;height:120px;border-radius:50%;background:var(--sun);box-shadow:0 8px 0 #f0a92e,0 14px 20px rgba(23,52,80,.15)}
+.cl{position:absolute;background:#fff;border-radius:999px;height:36px;box-shadow:0 6px 0 #e9ddcf}
+.cl::before{content:'';position:absolute;width:50%;height:150%;left:18%;bottom:20%;background:#fff;border-radius:50%}
+.title{position:absolute;left:6vw;top:14vh;z-index:6;max-width:560px}
+.title h1{font-family:Neucha,cursive;font-weight:400;font-size:clamp(56px,9vw,130px);line-height:.95;color:var(--ink)}
+.title p{font-size:19px;margin-top:14px;max-width:420px}
+.whale{position:absolute;width:min(360px,46vw);left:52%;top:48%;z-index:4;animation:swim 6s ease-in-out infinite}
+@keyframes swim{50%{transform:translateY(-16px) rotate(-3deg)}}
+.boat{position:absolute;width:90px;left:24%;top:55%;z-index:3;animation:rock 3s ease-in-out infinite;transform-origin:bottom}
+@keyframes rock{50%{transform:rotate(6deg)}}
+section{padding:12vh 6vw}
+h2{font-family:Neucha;font-weight:400;font-size:clamp(40px,5.4vw,76px);line-height:1;margin-bottom:6vh}
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.book{perspective:900px}
+.cover{aspect-ratio:3/4;border-radius:6px 16px 16px 6px;position:relative;transform-origin:left;transition:transform .7s cubic-bezier(.3,1.2,.5,1);box-shadow:inset 10px 0 0 rgba(0,0,0,.12),0 18px 30px rgba(23,52,80,.25);overflow:hidden;display:flex;align-items:flex-end;padding:20px}
+.book:hover .cover{transform:rotateY(-24deg)}
+.cover b{font-family:Neucha;font-weight:400;font-size:30px;line-height:1;color:#fff;position:relative;text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.c1{background:linear-gradient(transparent 55%,var(--w3) 55%),var(--coral)}
+.c1::before{content:'';position:absolute;left:30%;top:30%;width:40%;aspect-ratio:1;border-radius:50%;background:var(--sun)}
+.c2{background:linear-gradient(var(--w5),var(--w3))}
+.c2::before{content:'';position:absolute;inset:20% 20% auto auto;width:30px;height:30px;border-radius:50%;background:#fff;box-shadow:-80px 40px 0 -10px #fff,-30px 90px 0 -14px #fff}
+.c3{background:radial-gradient(ellipse at 50% 110%,#7bc47f 0 40%,transparent 41%),var(--sun)}
+.book p{margin-top:16px}
+.book small{opacity:.7}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.paper{background:#fff;border-radius:20px;padding:34px;box-shadow:0 4px 0 #e9ddcf,0 18px 30px rgba(23,52,80,.1);transform:rotate(-1.5deg)}
+footer{background:var(--w4);color:#fff;text-align:center;padding:16vh 6vw 22vh;position:relative}
+footer::before{content:'';position:absolute;left:0;right:0;top:-40px;height:41px;background:radial-gradient(circle at 40px 0,transparent 40px,var(--w4) 41px) 0 0/80px 41px repeat-x}
+footer a{display:inline-block;font-family:Neucha;font-size:clamp(28px,4vw,46px);background:var(--coral);color:#fff;text-decoration:none;padding:14px 40px;border-radius:999px;box-shadow:0 6px 0 #d9604a;transition:transform .15s,box-shadow .15s}
+footer a:hover{transform:translateY(3px);box-shadow:0 3px 0 #d9604a}
+a:focus-visible{outline:3px dashed var(--sun);outline-offset:6px}
+@media(max-width:860px){.books,.about{grid-template-columns:1fr}.whale{left:40%;top:56%}}
+@media(prefers-reduced-motion:reduce){.whale,.boat{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" id="hero" style="padding:0">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="cl" style="width:140px;left:58%;top:22%" aria-hidden="true"></div>
+  <div class="cl" style="width:100px;left:8%;top:50%" aria-hidden="true"></div>
+  <div class="title"><h1>nikita<br>kustov123</h1><p>Рисую детские книги из бумаги: вырезаю, склеиваю слои и фотографирую. Получаются миры, которые хочется потрогать.</p></div>
+  <div class="layer" data-d="6" style="top:58%;height:42%;z-index:2"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path fill="#a8dcef" d="M0 60 Q 100 10 200 60 T 400 60 T 600 60 T 800 60 T 1000 60 T 1200 60 V200 H0Z"/></svg></div>
+  <svg class="boat" viewBox="0 0 90 90" aria-hidden="true"><path d="M45 10 V60 M45 12 L80 55 H45" fill="#fff" stroke="#173450" stroke-width="2"/><path d="M10 62 H80 L70 80 H20Z" fill="#ff8a73"/></svg>
+  <div class="layer" data-d="12" style="top:66%;height:34%;z-index:3"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path fill="#6fbfe0" d="M0 70 Q 150 20 300 70 T 600 70 T 900 70 T 1200 70 V200 H0Z"/></svg></div>
+  <svg class="whale" viewBox="0 0 360 200" aria-label="Бумажный кит"><path d="M20 120 C 20 60 120 40 200 60 C 260 75 300 110 320 100 C 340 80 330 50 350 40 C 352 80 345 120 320 130 C 280 170 200 180 120 175 C 60 170 20 160 20 120Z" fill="#3e95c4"/><path d="M20 120 C 60 150 160 160 260 140 C 230 170 150 180 100 172 C 50 165 22 150 20 120Z" fill="#fdf1e3"/><circle cx="80" cy="100" r="7" fill="#173450"/><path d="M60 50 q-6 -24 6 -40 M70 52 q4 -22 20 -30" fill="none" stroke="#6fbfe0" stroke-width="5" stroke-linecap="round"/><path d="M150 130 q20 30 50 26" fill="none" stroke="#246a9b" stroke-width="4" stroke-linecap="round"/></svg>
+  <div class="layer" data-d="20" style="top:76%;height:24%;z-index:5"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path fill="#3e95c4" d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 V200 H0Z"/></svg></div>
+  <div class="layer" data-d="30" style="top:86%;height:14%;z-index:6"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path fill="#246a9b" d="M0 80 Q 200 10 400 80 T 800 80 T 1200 80 V200 H0Z"/></svg></div>
+</section>
+<section>
+  <h2>Мои книги</h2>
+  <div class="books">
+    <div class="book"><div class="cover c1"><b>Кит, который боялся глубины</b></div><p><b>Издание 2026 года</b><br><small>Тираж 30 000, переведена на 6 языков</small></p></div>
+    <div class="book"><div class="cover c2"><b>Ночной маяк</b></div><p><b>Издание 2024 года</b><br><small>Премия за книжную иллюстрацию</small></p></div>
+    <div class="book"><div class="cover c3"><b>Холм, на котором живёт ветер</b></div><p><b>Издание 2023 года</b><br><small>Международная выставка детской книги</small></p></div>
+  </div>
+</section>
+<section class="about">
+  <div class="paper"><h2 style="margin-bottom:20px">Как я работаю</h2><p>Каждый разворот — это от 6 до 14 слоёв цветной бумаги, вырезанных скальпелем. Я подсвечиваю их сбоку, чтобы появились настоящие тени, и снимаю на камеру. Никакого 3D, только клей и терпение.</p></div>
+  <div><h2>Для издательств и музеев</h2><p>Иллюстрирую книги, делаю бумажные инсталляции и мастер-классы для детей от пяти лет.</p></div>
+</section>
+<footer><h2>Придумаем книгу вместе?</h2><a href="mailto:hello@example.com">Написать мне</a></footer>
+<script>
+const ls=[...document.querySelectorAll('.layer')];let t=0,mx=0;const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.getElementById('hero').addEventListener('pointermove',e=>mx=e.clientX/innerWidth-.5);
+function f(){t+=.02;ls.forEach((l,i)=>{const d=+l.dataset.d;l.style.transform=`translate(${Math.sin(t+i)*d*.6-mx*d}px,${Math.cos(t*.8+i)*d*.25+scrollY*d*.01}px)`});if(!red)requestAnimationFrame(f)}f();
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

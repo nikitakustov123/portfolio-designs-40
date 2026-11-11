@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>40 портфолио — дизайны nikitakustov123</title>
+<meta name="description" content="Сорок уникальных дизайнов сайтов-портфолио: от северного сияния до витражей.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;600;800&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101116;--card:#181a21;--line:#2a2d37;--txt:#eef0f6;--mut:#8b90a0;--hl:#9fe8ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:Manrope,sans-serif;font-size:16px;line-height:1.55}
+header{padding:10vh 4vw 6vh;display:grid;grid-template-columns:auto 1fr;gap:4vw;align-items:end}
+.forty{font-family:Unbounded;font-weight:800;font-size:clamp(120px,22vw,340px);line-height:.78;letter-spacing:-.07em;background:conic-gradient(from 200deg at 40% 60%,#3ef2c2,#7a5cff,#ff6ad5,#ffb347,#e3001b,#2d3cff,#3ef2c2);-webkit-background-clip:text;background-clip:text;color:transparent;animation:hue 14s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+header h1{font-family:Unbounded;font-weight:300;font-size:clamp(30px,3.6vw,56px);line-height:1.05;letter-spacing:-.03em}
+header p{color:var(--mut);max-width:560px;margin-top:16px}
+.bar{position:sticky;top:0;z-index:10;display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 4vw;background:rgba(16,17,22,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar button{font:600 14px Manrope;color:var(--txt);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+.bar button[aria-pressed=true]{background:var(--txt);color:var(--bg);border-color:var(--txt)}
+.bar span{margin-left:auto;color:var(--mut);font-size:14px}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:34px 26px;padding:5vh 4vw 14vh}
+.card{display:block;color:inherit;text-decoration:none}
+.pv{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.card:hover .pv,.card:focus-visible .pv{transform:translateY(-6px);border-color:#4a4f5e}
+.pv iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--s,.25));pointer-events:none;opacity:0;transition:opacity .6s}
+.pv iframe.ld{opacity:1}
+.pv .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:Unbounded;font-weight:300;font-size:56px;color:#2c2f3a}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:14px;align-items:baseline}
+.meta .n{font-family:Unbounded;font-weight:600;font-size:14px;color:var(--mut);grid-row:span 2}
+.meta b{font-family:Unbounded;font-weight:600;font-size:19px;letter-spacing:-.02em}
+.meta b small{font-family:Manrope;font-weight:400;font-size:14px;color:var(--mut);letter-spacing:0;margin-left:8px}
+.meta p{color:var(--mut);font-size:14.5px}
+.tag{display:inline-block;margin-left:6px;font-size:12px;font-weight:600;color:var(--hl);border:1px solid rgba(159,232,255,.35);border-radius:999px;padding:1px 8px;vertical-align:2px}
+footer{border-top:1px solid var(--line);padding:6vh 4vw 10vh;color:var(--mut);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.card:focus-visible{outline:none}
+.card:focus-visible .pv{outline:2px solid var(--hl);outline-offset:4px}
+button:focus-visible{outline:2px solid var(--hl);outline-offset:3px}
+@media(max-width:700px){header{grid-template-columns:1fr}main{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.forty{animation:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="forty" aria-hidden="true">40</div>
+  <div><h1>Сорок портфолио,<br>ни одного похожего</h1><p>Дизайны nikitakustov123. У каждого своя профессия, шрифты и фирменный эффект — от северного сияния на canvas до звучащей страницы и витража, который ловит свет. Превью ниже живые: наведите или откройте любой.</p></div>
+</header>
+<nav class="bar" aria-label="Фильтр">
+  <button aria-pressed="true" data-f="all">Все</button>
+  <button aria-pressed="false" data-f="dark">Тёмные</button>
+  <button aria-pressed="false" data-f="light">Светлые</button>
+  <button aria-pressed="false" data-f="inter">Интерактивные</button>
+  <span id="cnt">40 дизайнов</span>
+</nav>
+<main id="grid"></main>
+<footer><span>© 2026 nikitakustov123. Каждый дизайн — один HTML-файл без зависимостей.</span><a href="https://github.com/nikitakustov123/portfolio-designs-40" style="color:inherit">Исходники на GitHub</a></footer>
+<script>
+const DATA=[{"slug": "01-aurora", "name": "Аврора", "role": "Моушн-дизайнер", "effect": "Северное сияние на canvas и стеклянные карточки", "tone": "dark", "inter": false}, {"slug": "02-concrete", "name": "БЕТОН", "role": "Архитектурное бюро", "effect": "Брутализм: сетка, бегущая лента, превью-плита за курсором", "tone": "light", "inter": true}, {"slug": "03-swiss", "name": "Сетка", "role": "Типограф", "effect": "Швейцарский плакат: модульная сетка, красный и вращающийся круг", "tone": "light", "inter": false}, {"slug": "04-neon-grid", "name": "Неоновая сеть", "role": "Фуллстек-разработчица", "effect": "Киберпанк: глитч-заголовок, неон и сканлайны", "tone": "dark", "inter": false}, {"slug": "05-enso", "name": "Энсо", "role": "Фотограф", "effect": "Японский минимализм: рисуемый кистью энсо и печать", "tone": "light", "inter": false}, {"slug": "06-orbit", "name": "Орбита", "role": "Научная визуализация", "effect": "Звёздное небо с параллаксом и живой солнечной системой", "tone": "dark", "inter": true}, {"slug": "07-botanica", "name": "Ботаника", "role": "Ботанический иллюстратор", "effect": "Растущая лоза, распускающийся цветок и падающие лепестки", "tone": "dark", "inter": false}, {"slug": "08-sunset-exe", "name": "SUNSET.EXE", "role": "3D-художник", "effect": "Синтвейв: полосатое солнце и бесконечная неоновая сетка", "tone": "dark", "inter": true}, {"slug": "09-gazette", "name": "Вестник", "role": "Журналист", "effect": "Газетная полоса с буквицей, колонками и фотогравюрой", "tone": "light", "inter": false}, {"slug": "10-mercury", "name": "Mercury", "role": "3D-дизайнер материалов", "effect": "Живая капля жидкого хрома и сферы материалов", "tone": "light", "inter": false}, {"slug": "11-flowfield", "name": "Поток", "role": "Генеративный художник", "effect": "Векторное поле из тысяч частиц, отзывается на курсор", "tone": "dark", "inter": true}, {"slug": "12-bauhaus", "name": "Форма", "role": "Дизайн-школа", "effect": "Баухаус: геометрия, которая перестраивается при наведении", "tone": "light", "inter": true}, {"slug": "13-terminal", "name": "Терминал", "role": "DevOps-инженер", "effect": "Рабочий терминал на ЭЛТ-мониторе с командами", "tone": "dark", "inter": true}, {"slug": "14-margo", "name": "Лента", "role": "Фэшн-фотограф", "effect": "Горизонтальная лента-галерея с инерцией и плёночным зерном", "tone": "light", "inter": true}, {"slug": "15-blueprint", "name": "Чертёж", "role": "Архитектор", "effect": "Синька: план дома чертится на глазах", "tone": "dark", "inter": false}, {"slug": "16-echo", "name": "Эхо", "role": "Саунд-дизайнер", "effect": "Осциллограф и синтезатор на Web Audio — страница звучит", "tone": "dark", "inter": true}, {"slug": "17-kiln", "name": "Обжиг", "role": "Керамистка", "effect": "Гончарный круг: сосуд меняет форму по кнопке", "tone": "light", "inter": true}, {"slug": "18-kinetic", "name": "ТИПО", "role": "Моушн-типограф", "effect": "Кинетические строки, которые ускоряются от скролла", "tone": "light", "inter": true}, {"slug": "19-pixel", "name": "Пиксель", "role": "Инди-геймдев", "effect": "Пиксельный мир с лисёнком, кристаллами и 8-битным звуком", "tone": "dark", "inter": true}, {"slug": "20-sigma", "name": "Сигма", "role": "Data scientist", "effect": "Интерактивный график прогноза с доверительным интервалом", "tone": "dark", "inter": true}, {"slug": "21-soft-ui", "name": "Мягкий интерфейс", "role": "Продуктовый дизайнер", "effect": "Неоморфизм: крутящийся регулятор и мягкие тумблеры", "tone": "light", "inter": true}, {"slug": "22-prism", "name": "Призма", "role": "Бренд-дизайнер", "effect": "Голографическая визитка с 3D-наклоном за курсором", "tone": "light", "inter": true}, {"slug": "23-deco", "name": "Гэтсби и Ко", "role": "Дизайнер интерьеров", "effect": "Ар-деко: золотые лучи, арка и изумрудный бархат", "tone": "dark", "inter": false}, {"slug": "24-memphis", "name": "Мемфис", "role": "Иллюстратор", "effect": "Мемфис: фигуры разлетаются от курсора", "tone": "light", "inter": true}, {"slug": "25-depth", "name": "Глубина", "role": "Подводный фотограф", "effect": "Погружение со скроллом: глубиномер, пузыри, светящиеся медузы", "tone": "dark", "inter": true}, {"slug": "26-noir", "name": "Нуар", "role": "Кинорежиссёр", "effect": "Нуар: плёночное зерно, жалюзи и печатающиеся титры", "tone": "dark", "inter": false}, {"slug": "27-ink-water", "name": "Тушь", "role": "Каллиграф", "effect": "Капли туши растекаются в воде по клику", "tone": "light", "inter": true}, {"slug": "28-bento", "name": "Бенто", "role": "Продуктовый инженер", "effect": "Бенто-сетка с живыми виджетами: часы, тепловая карта, плеер", "tone": "dark", "inter": false}, {"slug": "29-isoline", "name": "Изолиния", "role": "Картограф", "effect": "Живые топографические изолинии (marching squares)", "tone": "light", "inter": false}, {"slug": "30-isoland", "name": "Isoland", "role": "Левел-дизайнер", "effect": "Изометрический CSS-остров, который поворачивается", "tone": "light", "inter": true}, {"slug": "31-goo", "name": "Капля", "role": "UI-аниматор", "effect": "Лавовая лампа из метаболов и тягучие кнопки", "tone": "dark", "inter": true}, {"slug": "32-paper-whale", "name": "Бумажный кит", "role": "Иллюстратор детских книг", "effect": "Слои бумажных волн с параллаксом и плывущий кит", "tone": "light", "inter": true}, {"slug": "33-y2k", "name": "bubble.fm", "role": "Веб-дизайнер", "effect": "Y2K: хромированные буквы, пузыри и искры за курсором", "tone": "light", "inter": true}, {"slug": "34-aurum", "name": "Аурум", "role": "Ювелир", "effect": "Золотая пыль и луч света, который ведёт курсор", "tone": "dark", "inter": true}, {"slug": "35-agit", "name": "Агитдизайн", "role": "Плакатист", "effect": "Конструктивизм: клин, круг и лучи собираются в плакат", "tone": "light", "inter": false}, {"slug": "36-cube", "name": "Грани", "role": "UX-дизайнер", "effect": "3D-куб поворачивается гранями при прокрутке", "tone": "dark", "inter": true}, {"slug": "37-neon-rain", "name": "Неон", "role": "Ночной фотограф", "effect": "Ливень с брызгами, мерцающие неоновые вывески, отражение в луже", "tone": "dark", "inter": false}, {"slug": "38-nordic", "name": "Тиха", "role": "Мебельный дизайнер", "effect": "Скандинавский пейзаж: солнце садится по мере скролла", "tone": "light", "inter": false}, {"slug": "39-vitrage", "name": "Витраж", "role": "Художник по стеклу", "effect": "Витраж Вороного, свет скользит за курсором", "tone": "dark", "inter": true}, {"slug": "40-origami", "name": "Складка", "role": "Бумажный инженер", "effect": "Журавлик из треугольников разворачивается при загрузке", "tone": "light", "inter": false}];
+const grid=document.getElementById('grid');
+DATA.forEach((d,i)=>{const a=document.createElement('a');a.className='card';a.href=`designs/${d.slug}/`;a.dataset.tone=d.tone;a.dataset.inter=d.inter;
+  a.innerHTML=`<div class="pv"><div class="ph">${String(i+1).padStart(2,'0')}</div></div><div class="meta"><span class="n">${String(i+1).padStart(2,'0')}</span><b>${d.name}<small>${d.role}</small></b><p>${d.effect}${d.inter?'<span class="tag">интерактив</span>':''}</p></div>`;
+  grid.appendChild(a)});
+const ro=new ResizeObserver(es=>es.forEach(e=>e.target.style.setProperty('--s',e.contentRect.width/1440)));
+document.querySelectorAll('.pv').forEach(p=>ro.observe(p));
+const io=new IntersectionObserver(es=>es.forEach(e=>{const pv=e.target,card=pv.parentElement;let f=pv.querySelector('iframe');
+  if(e.isIntersecting){if(!f){f=document.createElement('iframe');f.loading='lazy';f.tabIndex=-1;f.setAttribute('aria-hidden','true');f.title='';f.onload=()=>f.classList.add('ld');f.src=card.getAttribute('href');pv.appendChild(f)}}
+  else if(f){f.remove()}}),{rootMargin:'300px 0px'});
+document.querySelectorAll('.pv').forEach(p=>io.observe(p));
+const cnt=document.getElementById('cnt');
+document.querySelectorAll('.bar button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.bar button').forEach(o=>o.setAttribute('aria-pressed',o===b));const f=b.dataset.f;let n=0;
+  document.querySelectorAll('.card').forEach(c=>{const ok=f==='all'||(f==='inter'?c.dataset.inter==='true':c.dataset.tone===f);c.hidden=!ok;if(ok)n++});
+  cnt.textContent=n+' '+(n%10===1&&n%100!==11?'дизайн':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'дизайна':'дизайнов')});
+</script>
+</body>
+</html>

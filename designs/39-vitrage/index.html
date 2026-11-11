@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Витраж — мастерская стекла nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Alegreya:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--lead:#121212;--ruby:#b3122e;--cobalt:#1f3fa8;--amber:#e3a21a;--emerald:#1e7a4c;--parch:#efe6d2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--lead);color:var(--parch);font-family:Alegreya,serif;font-size:19px;line-height:1.7}
+.hero{height:100vh;min-height:620px;position:relative;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;background:var(--lead);padding:34px 54px 30px;border:6px solid var(--lead);box-shadow:0 0 0 2px #3a3a3a,0 30px 60px rgba(0,0,0,.6);max-width:90vw}
+.plate h1{font-family:'Ruslan Display',serif;font-weight:400;font-size:clamp(46px,8vw,120px);line-height:1;letter-spacing:.02em;background:linear-gradient(90deg,var(--amber),#fff3c4,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.plate p{font-style:italic;margin-top:10px}
+section{padding:14vh 6vw}
+h2{font-family:'Ruslan Display';font-weight:400;font-size:clamp(34px,5vw,68px);text-align:center;margin-bottom:8vh;color:var(--amber)}
+.windows{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.win{text-align:center}
+.arch{aspect-ratio:2/3;border-radius:999px 999px 6px 6px;overflow:hidden;border:8px solid #2a2a2a;position:relative;box-shadow:0 0 0 2px #444}
+.arch canvas{position:static;display:block;width:100%;height:100%}
+.win h3{font-weight:500;font-size:24px;margin-top:20px}
+.win small{color:#a99f8a}
+.craft{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:#333;border:2px solid #333}
+.craft div{background:var(--lead);padding:30px 24px}
+.craft b{display:block;font-family:'Ruslan Display';font-weight:400;font-size:44px;line-height:1;margin-bottom:10px}
+footer{text-align:center;padding:12vh 6vw 22vh}
+footer a{display:inline-block;margin-top:24px;padding:18px 40px;color:var(--parch);text-decoration:none;font-weight:500;font-size:20px;border:3px solid var(--parch);background:linear-gradient(135deg,rgba(179,18,46,.5),rgba(31,63,168,.5),rgba(227,162,26,.5));transition:background .4s}
+footer a:hover{background:linear-gradient(135deg,var(--ruby),var(--cobalt),var(--amber))}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:6px}
+@media(max-width:860px){.windows{grid-template-columns:1fr}.craft{grid-template-columns:1fr 1fr}.plate{padding:24px}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" style="padding:0">
+  <canvas id="glass" aria-hidden="true"></canvas>
+  <div class="plate"><h1>Витраж</h1><p>nikitakustov123 — художник по стеклу. Витражи для храмов, домов и ресторанов.</p></div>
+</section>
+<section>
+  <h2>Окна и панно</h2>
+  <div class="windows">
+    <figure class="win"><div class="arch"><canvas data-s="12" data-p="0"></canvas></div><h3>Окно «Рассвет»</h3><small>Частная капелла, Подмосковье, 2026</small></figure>
+    <figure class="win"><div class="arch"><canvas data-s="40" data-p="1"></canvas></div><h3>Панно «Северное море»</h3><small>Ресторан «Прибой», Мурманск</small></figure>
+    <figure class="win"><div class="arch"><canvas data-s="77" data-p="2"></canvas></div><h3>Окна библиотеки</h3><small>Реставрация, Ярославль, 1907 год</small></figure>
+  </div>
+</section>
+<section>
+  <h2>Ремесло</h2>
+  <div class="craft"><div><b>1</b>Эскиз в натуральную величину на картоне</div><div><b>2</b>Подбор стекла на просвет — из 400 оттенков</div><div><b>3</b>Резка и шлифовка каждого фрагмента</div><div><b>4</b>Сборка на свинцовый профиль и пайка</div></div>
+</section>
+<footer><h2>Свет, разложенный на цвета</h2><a href="mailto:hello@example.com">Заказать витраж</a></footer>
+<script>
+const PAL=[["#b3122e","#e3a21a","#f2d06b","#c2471d","#7a0c1f","#f6e3a8"],["#1f3fa8","#2d6fb8","#7fb6d9","#1e7a4c","#0f2a6b","#cfe6f2"],["#1e7a4c","#e3a21a","#b3122e","#1f3fa8","#6b2fa0","#efe6d2"]];
+function rng(s){return()=>(s=(s*16807)%2147483647)/2147483647}
+function hex(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
+function glass(cv,seed,pal,live){
+  const x=cv.getContext('2d');let W,H,pts,near,edge,img,mx=.5,my=.4,t=0;
+  function build(){const sc=live?.5:1;W=cv.width=Math.max(2,Math.round(cv.clientWidth*sc));H=cv.height=Math.max(2,Math.round(cv.clientHeight*sc));
+    const r=rng(seed*997+1),n=live?Math.max(40,Math.round(W*H/2600)):55;
+    pts=Array.from({length:n},()=>({x:r()*W,y:r()*H,c:hex(PAL[pal][Math.floor(r()*6)]),j:r()}));
+    near=new Uint16Array(W*H);edge=new Float32Array(W*H);
+    for(let y=0;y<H;y++)for(let xx=0;xx<W;xx++){let b=0,bd=1e18,sd=1e18;for(let k=0;k<n;k++){const dx=pts[k].x-xx,dy=pts[k].y-y,dd=dx*dx+dy*dy;if(dd<bd){sd=bd;bd=dd;b=k}else if(dd<sd)sd=dd}
+      const i=y*W+xx;near[i]=b;edge[i]=Math.sqrt(sd)-Math.sqrt(bd)}
+    img=x.createImageData(W,H)}
+  function draw(){const D=img.data,lw=live?1.6:1.4;
+    for(let i=0,p=0;i<W*H;i++,p+=4){const e=edge[i];if(e<lw){D[p]=D[p+1]=D[p+2]=18;D[p+3]=255;continue}
+      const k=near[i],c=pts[k].c,px=(i%W)/W-mx,py=((i/W)|0)/H-my;
+      let l=1.25-Math.sqrt(px*px+py*py)*1.3+Math.sin(t+pts[k].j*6)*.06;l=Math.max(.32,l);
+      const rim=Math.min(1,(e-lw)/3);l*= .7+.3*rim;
+      D[p]=Math.min(255,c[0]*l+(l>1?(l-1)*120:0));D[p+1]=Math.min(255,c[1]*l+(l>1?(l-1)*120:0));D[p+2]=Math.min(255,c[2]*l+(l>1?(l-1)*120:0));D[p+3]=255}
+    x.putImageData(img,0,0)}
+  build();draw();
+  if(live){addEventListener('resize',()=>{build();draw()});cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=(e.clientX-r.left)/r.width;my=(e.clientY-r.top)/r.height;cv._hover=1;draw()});
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{t+=.15;if(!cv._hover){mx=.5+Math.sin(t*.3)*.3;my=.4+Math.cos(t*.25)*.2}draw()},100)}
+}
+glass(document.getElementById('glass'),5,0,true);
+document.querySelectorAll('.arch canvas').forEach(c=>glass(c,+c.dataset.s,+c.dataset.p,false));
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

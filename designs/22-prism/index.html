@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Призма — бренд-дизайнер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;400;800&display=swap" rel="stylesheet">
+<style>
+:root{--pearl:#f4f1f8;--ink:#1e1b2e;--muted:#8a83a3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--pearl);color:var(--ink);font-family:Geologica,sans-serif;font-weight:200;font-size:17px;line-height:1.6;overflow-x:hidden}
+.bgholo{position:fixed;inset:-20%;z-index:-1;background:radial-gradient(circle at 20% 30%,rgba(255,180,230,.55),transparent 35%),radial-gradient(circle at 80% 20%,rgba(160,220,255,.6),transparent 35%),radial-gradient(circle at 60% 80%,rgba(190,255,220,.55),transparent 35%),radial-gradient(circle at 30% 85%,rgba(255,240,170,.5),transparent 30%);filter:blur(40px);animation:mv 20s ease-in-out infinite alternate}
+@keyframes mv{to{transform:rotate(25deg) scale(1.1)}}
+header{display:flex;justify-content:space-between;padding:26px 5vw;font-weight:400}
+.hero{min-height:86vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 5vw;gap:4vw;perspective:1200px}
+.hero h1{font-weight:800;font-size:clamp(54px,8vw,130px);line-height:.9;letter-spacing:-.05em}
+.hero p{max-width:420px;margin-top:26px;font-size:19px}
+.card{width:min(380px,80vw);aspect-ratio:5/7;border-radius:26px;justify-self:center;position:relative;transform-style:preserve-3d;transition:transform .15s ease-out;box-shadow:0 40px 80px rgba(30,27,46,.25);overflow:hidden;background:#d9d4e8}
+.card .foil{position:absolute;inset:0;background:conic-gradient(from var(--a,0deg) at var(--x,50%) var(--y,50%),#ffb3e6,#b3d9ff,#b3ffd9,#fff3b3,#ffb3e6);mix-blend-mode:normal;opacity:.95}
+.card .lines{position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.0) 0 12px,rgba(255,255,255,.45) 12px 14px);mix-blend-mode:overlay}
+.card .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.85),transparent 45%);mix-blend-mode:soft-light}
+.card .c{position:absolute;inset:0;padding:30px;display:flex;flex-direction:column;justify-content:space-between;transform:translateZ(40px)}
+.card .c b{font-weight:800;font-size:44px;letter-spacing:-.04em;line-height:.9}
+.card .c small{font-weight:400}
+section{padding:14vh 5vw}
+h2{font-weight:800;font-size:clamp(34px,5vw,72px);letter-spacing:-.04em;margin-bottom:8vh}
+.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.br{border-radius:24px;padding:28px;background:rgba(255,255,255,.5);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);min-height:320px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.br::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,179,230,.6),rgba(179,217,255,.6),rgba(179,255,217,.6),transparent 70%);background-size:300% 100%;background-position:100% 0;transition:background-position 1.2s;opacity:.9;z-index:-1}
+.br:hover::before{background-position:0 0}
+.br .logo{font-weight:800;font-size:40px;letter-spacing:-.05em}
+.br h3{font-weight:400;font-size:19px}
+.br small{color:var(--muted)}
+.prc{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start}
+.prc p{font-size:clamp(20px,2vw,28px);line-height:1.4}
+footer{text-align:center;padding:12vh 5vw 22vh}
+footer a{display:inline-block;font-weight:800;font-size:clamp(28px,5vw,64px);letter-spacing:-.04em;color:var(--ink);text-decoration:none;padding:24px 56px;border-radius:999px;background:conic-gradient(from 0deg,#ffb3e6,#b3d9ff,#b3ffd9,#fff3b3,#ffb3e6);box-shadow:0 20px 50px rgba(179,140,230,.35);transition:transform .3s}
+footer a:hover{transform:scale(1.04) rotate(-1deg)}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
+@media(max-width:860px){.hero,.brands,.prc{grid-template-columns:1fr}.card{margin:6vh 0}}
+@media(prefers-reduced-motion:reduce){.bgholo{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="bgholo" aria-hidden="true"></div>
+<header><b>Призма</b><span>nikitakustov123</span></header>
+<section class="hero" style="padding-top:0;padding-bottom:0">
+  <div><h1>Бренды, которые переливаются</h1><p>Айдентика для косметики, музыки и технологий. Работаю с голографической фольгой, тиснением и цветом, который меняется под углом взгляда.</p></div>
+  <div class="card" id="card" aria-label="Голографическая визитка, реагирует на курсор"><div class="foil"></div><div class="lines"></div><div class="glare"></div><div class="c"><small>Визитка, голографическая фольга</small><b>nikita<br>kustov123</b><small>Бренд-дизайнер</small></div></div>
+</section>
+<section>
+  <h2>Бренды</h2>
+  <div class="brands">
+    <article class="br"><div class="logo">Opal</div><div><h3>Косметика с перламутром</h3><small>Айдентика и упаковка, 2026</small></div></article>
+    <article class="br"><div class="logo">ЛУЧ</div><div><h3>Фестиваль электронной музыки</h3><small>Фирменный стиль и мерч, 2025</small></div></article>
+    <article class="br"><div class="logo">Spectra Pay</div><div><h3>Платёжная карта с голограммой</h3><small>Дизайн карты и приложения, 2025</small></div></article>
+  </div>
+</section>
+<section class="prc">
+  <h2>Как я работаю</h2>
+  <p>Сначала стратегия и слова, потом цвет. Я печатаю каждую версию логотипа на реальной фольге, прежде чем показать клиенту: на экране голограмма всегда врёт.</p>
+</section>
+<footer><a href="mailto:hello@example.com">Обсудить бренд</a></footer>
+<script>
+const c=document.getElementById('card');
+function move(px,py){c.style.transform=`rotateY(${(px-.5)*30}deg) rotateX(${(.5-py)*30}deg)`;c.style.setProperty('--x',px*100+'%');c.style.setProperty('--y',py*100+'%');c.style.setProperty('--a',(px*360)+'deg')}
+addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();move(Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),Math.max(0,Math.min(1,(e.clientY-r.top)/r.height)))});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){let t=0;const idle=()=>{if(!c.matches(':hover')&&!window._m){t+=.01;move(.5+Math.sin(t)*.3,.5+Math.cos(t*.8)*.3)}requestAnimationFrame(idle)};addEventListener('pointermove',()=>window._m=1,{once:true});idle()}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

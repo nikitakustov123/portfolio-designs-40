@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Складка — бумажный инженер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f4ef;--indigo:#27306b;--coral:#f26d5b;--saffron:#f4b942;--teal:#2a9d8f;--fold:#e4e0d6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--indigo);font-family:Manrope,sans-serif;font-size:17px;line-height:1.65;overflow-x:hidden}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;padding:0 6vw;gap:3vw}
+.hero h1{font-family:Unbounded;font-weight:300;font-size:clamp(50px,7.5vw,118px);line-height:.95;letter-spacing:-.05em}
+.hero h1 b{font-weight:600;display:block}
+.hero p{max-width:440px;margin-top:22px}
+.crane{width:100%;max-height:82vh;overflow:visible}
+.crane polygon{transform-box:fill-box;transform-origin:center;stroke:var(--paper);stroke-width:1;stroke-linejoin:round;opacity:0;animation:unfold .9s cubic-bezier(.3,1.4,.5,1) forwards;animation-delay:calc(var(--i)*55ms)}
+@keyframes unfold{from{opacity:0;transform:rotate3d(1,1,0,95deg) scale(.4)}to{opacity:1;transform:none}}
+.crane:hover polygon{animation:none;opacity:1;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.crane polygon:hover{transform:translateY(-6px) rotate(-4deg)}
+section{padding:14vh 6vw}
+h2{font-family:Unbounded;font-weight:300;font-size:clamp(34px,5vw,72px);letter-spacing:-.04em;line-height:1;margin-bottom:8vh}
+.models{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.md{background:#fff;padding:24px;position:relative;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%);transition:transform .4s}
+.md::after{content:'';position:absolute;right:0;top:0;width:34px;height:34px;background:linear-gradient(225deg,transparent 50%,var(--fold) 50%);transition:width .4s,height .4s}
+.md:hover{transform:translateY(-8px)}
+.md:hover::after{width:60px;height:60px}
+.md svg{width:100%;aspect-ratio:1;margin-bottom:14px}
+.md h3{font-family:Unbounded;font-weight:600;font-size:18px;letter-spacing:-.02em}
+.md small{color:#6b7096}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px dashed var(--indigo)}
+.st{padding:26px 22px 0 0;position:relative}
+.st::before{content:'';position:absolute;left:0;top:-7px;width:13px;height:13px;background:var(--coral);transform:rotate(45deg)}
+.st b{font-family:Unbounded;font-weight:600;display:block;margin:10px 0 6px}
+footer{background:var(--indigo);color:var(--paper);padding:14vh 6vw 20vh;display:grid;grid-template-columns:1.3fr 1fr;gap:4vw;align-items:end;clip-path:polygon(0 8vh,30% 0,60% 6vh,100% 0,100% 100%,0 100%)}
+footer h2{margin:0}
+footer a{display:inline-block;background:var(--saffron);color:var(--indigo);font-weight:600;padding:18px 34px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%)}
+footer a:hover{background:var(--coral);color:var(--paper)}
+a:focus-visible{outline:2px solid var(--coral);outline-offset:6px}
+@media(max-width:860px){.hero,footer{grid-template-columns:1fr}.models,.steps{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.crane polygon{animation:none;opacity:1}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div><h1>nikita<br>kustov123<b>бумажный инженер</b></h1><p>Складываю из одного листа то, что обычно клеят из десяти: поп-ап открытки, упаковку без клея, витрины и декорации для съёмок.</p></div>
+  <svg class="crane" id="crane" viewBox="0 0 600 460" aria-label="Журавлик из треугольников"></svg>
+</section>
+<section>
+  <h2>Модели и проекты</h2>
+  <div class="models">
+    <article class="md"><svg viewBox="0 0 100 100"><polygon points="50,10 90,50 50,50" fill="#f26d5b"/><polygon points="50,10 10,50 50,50" fill="#c9503f"/><polygon points="10,50 50,50 50,90" fill="#f4b942"/><polygon points="90,50 50,50 50,90" fill="#d99a2b"/></svg><h3>Поп-ап книга</h3><small>Книга-раскладушка, 12 разворотов</small></article>
+    <article class="md"><svg viewBox="0 0 100 100"><polygon points="20,80 50,20 80,80" fill="#2a9d8f"/><polygon points="50,20 80,80 50,60" fill="#1f7a6f"/><polygon points="20,80 50,60 80,80" fill="#27306b"/></svg><h3>Упаковка чая «Гора»</h3><small>Без клея, один лист картона</small></article>
+    <article class="md"><svg viewBox="0 0 100 100"><polygon points="10,30 50,10 90,30 50,50" fill="#f4b942"/><polygon points="10,30 50,50 50,90 10,70" fill="#f26d5b"/><polygon points="90,30 50,50 50,90 90,70" fill="#c9503f"/></svg><h3>Витрина универмага</h3><small>3 000 бумажных кубов, Новый год</small></article>
+    <article class="md"><svg viewBox="0 0 100 100"><polygon points="50,10 65,45 50,90 35,45" fill="#27306b"/><polygon points="50,10 65,45 50,50" fill="#3d4a99"/><polygon points="10,50 35,45 50,50 35,58" fill="#2a9d8f"/><polygon points="90,50 65,45 50,50 65,58" fill="#1f7a6f"/></svg><h3>Логотип «Складки»</h3><small>Собственная мастерская</small></article>
+  </div>
+</section>
+<section>
+  <h2>Как появляется модель</h2>
+  <div class="steps"><div class="st"><b>Развёртка</b>Рассчитываю линии сгиба в Rhino и проверяю на бумаге</div><div class="st"><b>Прототип</b>От пяти до тридцати версий, пока складка не ляжет сама</div><div class="st"><b>Плоттер</b>Режу и биговую линию наношу на плоттере</div><div class="st"><b>Тираж</b>Передаю в типографию с инструкцией по сборке</div></div>
+</section>
+<footer><h2>Сложим вашу идею?</h2><div><p style="margin-bottom:22px">Открытки, упаковка, витрины, декорации. Мастерская в Москве, работаю по всей России.</p><a href="mailto:hello@example.com">Написать мне</a></div></footer>
+<script>
+// Журавлик: набор треугольников (координаты + цвет)
+const T=[
+[[300,200],[200,140],[300,120],'#f26d5b'],[[300,200],[300,120],[410,90],'#c9503f'],[[300,200],[410,90],[460,170],'#f4b942'],
+[[300,200],[200,140],[150,230],'#d99a2b'],[[300,200],[150,230],[260,300],'#2a9d8f'],[[300,200],[260,300],[360,290],'#1f7a6f'],
+[[300,200],[360,290],[460,170],'#27306b'],[[360,290],[460,170],[520,260],'#3d4a99'],[[460,170],[540,110],[520,260],'#f26d5b'],
+[[540,110],[590,70],[560,130],'#c9503f'],[[150,230],[60,200],[110,280],'#f4b942'],[[60,200],[20,140],[80,220],'#d99a2b'],
+[[20,140],[40,120],[45,170],'#27306b'],[[260,300],[300,400],[330,300],'#2a9d8f'],[[300,400],[280,420],[310,420],'#1f7a6f'],
+[[200,140],[240,60],[300,120],'#f4b942'],[[240,60],[300,20],[300,120],'#d99a2b'],[[300,20],[360,40],[300,120],'#f26d5b'],[[360,40],[410,90],[300,120],'#c9503f']];
+const svg=document.getElementById('crane');
+T.forEach((t,i)=>{const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');p.setAttribute('points',t.slice(0,3).map(q=>q.join(',')).join(' '));p.setAttribute('fill',t[3]);p.style.setProperty('--i',i);svg.appendChild(p)});
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — фотография тишины</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#e8e6e1;--sumi:#1d1d1f;--mist:#9aa1a6;--seal:#c8102e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--sumi);font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.7}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .1 0 0 0 0 .1 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{height:100vh;min-height:620px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 6vw}
+.vert{writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:22px;letter-spacing:.5em;color:var(--mist);justify-self:start}
+.enso{width:min(60vh,70vw);position:relative}
+.enso svg{width:100%;overflow:visible}
+.enso path{fill:none;stroke:var(--sumi);stroke-width:22;stroke-linecap:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 3.2s cubic-bezier(.6,.05,.3,1) .4s forwards;filter:url(#brush)}
+@keyframes draw{to{stroke-dashoffset:60}}
+.enso h1{position:absolute;inset:0;display:grid;place-items:center;font-weight:300;font-size:clamp(28px,3.4vw,48px);letter-spacing:.08em;opacity:0;animation:fade 2s 2.6s forwards}
+@keyframes fade{to{opacity:1}}
+.seal{justify-self:end;align-self:end;margin-bottom:12vh;width:64px;height:64px;background:var(--seal);color:var(--paper);font-family:'Shippori Mincho';display:grid;place-items:center;font-size:26px;border-radius:6px;transform:rotate(-4deg);opacity:0;animation:stamp .5s 3.4s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes stamp{from{transform:scale(1.8) rotate(-4deg);opacity:0}to{transform:scale(1) rotate(-4deg);opacity:1}}
+.intro{max-width:640px;margin:0 auto;padding:16vh 24px;text-align:center}
+.intro p{font-size:26px;font-weight:300;font-style:italic}
+.series{padding:0 6vw 20vh;display:grid;grid-template-columns:repeat(12,1fr);gap:4vw 2vw}
+.ph{position:relative}
+.ph .img{aspect-ratio:4/5;overflow:hidden;filter:grayscale(1) contrast(1.05);transition:filter 1.2s}
+.ph:hover .img{filter:grayscale(.3)}
+.ph figcaption{display:flex;justify-content:space-between;margin-top:12px;font-size:17px;color:#555}
+.ph figcaption b{font-weight:500;color:var(--sumi)}
+.p1{grid-column:2/7}.p2{grid-column:8/12;margin-top:22vh}.p3{grid-column:4/10}
+.p3 .img{aspect-ratio:16/9}
+.s1{background:linear-gradient(180deg,#c9ccce 0%,#d8d9d7 55%,#5b6064 56%,#2a2d30 100%)}
+.s1::after{content:'';position:absolute;left:58%;top:42%;width:3px;height:12%;background:#1d1d1f;box-shadow:0 0 0 1px #1d1d1f}
+.s2{background:radial-gradient(ellipse at 50% 120%,#3a3d40 0 30%,transparent 31%),radial-gradient(circle at 70% 25%,#f3f3f1 0 6%,transparent 7%),linear-gradient(#a9adb0,#e3e3e0)}
+.s3{background:repeating-linear-gradient(90deg,#26292b 0 2px,transparent 2px 46px),linear-gradient(180deg,#e4e4e1 0 40%,#bfc3c5 40% 100%)}
+.img{position:relative}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw;padding:0 12vw 20vh}
+.about h2{font-weight:300;font-size:44px;line-height:1.2}
+footer{text-align:center;padding:12vh 24px 20vh;border-top:1px solid rgba(29,29,31,.15);margin:0 6vw}
+footer a{color:var(--sumi);font-size:clamp(30px,5vw,64px);font-weight:300;text-decoration:none;border-bottom:1px solid var(--seal)}
+footer a:hover{color:var(--seal)}
+a:focus-visible{outline:2px solid var(--seal);outline-offset:6px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;justify-items:center}.vert,.seal{display:none}.series>*{grid-column:1/13!important;margin-top:0!important}.about{grid-template-columns:1fr;padding:0 24px 16vh}}
+@media(prefers-reduced-motion:reduce){.enso path,.enso h1,.seal{animation:none;opacity:1;stroke-dashoffset:60}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><filter id="brush"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="10"/></filter></svg>
+<section class="hero">
+  <div class="vert" lang="ja">静けさを撮る</div>
+  <div class="enso">
+    <svg viewBox="0 0 400 400" aria-hidden="true"><path d="M250 62 C 120 30, 40 140, 70 240 C 100 340, 250 370, 320 290 C 380 220, 360 110, 270 80"/></svg>
+    <h1>nikitakustov123</h1>
+  </div>
+  <div class="seal" aria-hidden="true">写</div>
+</section>
+<section class="intro"><p>Я фотографирую то, что остаётся, когда всё остальное уходит: туман над рисовым полем, пустую станцию, одну птицу на проводе.</p></section>
+<section class="series">
+  <figure class="ph p1"><div class="img s1"></div><figcaption><b>Причал, Хоккайдо</b><span>2025</span></figcaption></figure>
+  <figure class="ph p2"><div class="img s2"></div><figcaption><b>Луна над Фудзи</b><span>2024</span></figcaption></figure>
+  <figure class="ph p3"><div class="img s3"></div><figcaption><b>Бамбуковая роща, Киото</b><span>2023</span></figcaption></figure>
+</section>
+<section class="about">
+  <h2>Одна плёнка, один объектив, много терпения</h2>
+  <div><p>Снимаю на среднеформатную камеру Mamiya 7 и проявляю сам. Выставки в Токио, Хельсинки и Москве. Книга «Белое между» вышла в 2025 году тиражом 800 экземпляров.</p><p style="margin-top:18px">Беру заказы на архитектурную и пейзажную съёмку. Медленно и только по любви.</p></div>
+</section>
+<footer><a href="mailto:hello@example.com">Написать мне</a></footer>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

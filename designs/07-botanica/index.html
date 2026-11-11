@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — ботаническая иллюстрация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#0f2a1d;--moss:#7fa36b;--petal:#f3b6c4;--sheet:#f2efe6;--pollen:#e8c547}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--forest);color:var(--sheet);font-family:Lora,serif;font-size:18px;line-height:1.75;overflow-x:hidden}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;padding:0 6vw;position:relative}
+.hero h1{font-weight:400;font-style:italic;font-size:clamp(52px,8vw,124px);line-height:.95;letter-spacing:-.02em}
+.hero h1 small{display:block;font-style:normal;font-size:.22em;letter-spacing:.02em;color:var(--moss);margin-top:24px;line-height:1.4;max-width:420px}
+.vine{width:100%;max-height:92vh}
+.vine path.stem{fill:none;stroke:var(--moss);stroke-width:3;stroke-linecap:round;stroke-dasharray:1600;stroke-dashoffset:1600;animation:grow 4s ease-out forwards}
+.vine .leaf{fill:var(--moss);transform-box:fill-box;transform-origin:0% 50%;transform:scale(0);animation:leaf 1s cubic-bezier(.3,1.5,.5,1) forwards}
+.vine .bloom{transform-box:fill-box;transform-origin:center;transform:scale(0) rotate(-90deg);animation:bloom 1.4s cubic-bezier(.3,1.4,.5,1) 3.4s forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+@keyframes leaf{to{transform:scale(1)}}
+@keyframes bloom{to{transform:scale(1) rotate(0)}}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.petals i{position:absolute;top:-20px;width:12px;height:16px;background:var(--petal);border-radius:80% 0 80% 0;opacity:.85;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(120px,110vh) rotate(720deg)}}
+.plates{background:var(--sheet);color:var(--forest);padding:14vh 6vw}
+.plates h2{font-weight:400;font-size:clamp(34px,4.5vw,64px);font-style:italic;margin-bottom:8vh;max-width:760px;line-height:1.1}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.plate{border:1px solid rgba(15,42,29,.25);padding:22px 22px 18px;background:#f8f6ef;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.plate:hover{transform:rotate(-1.5deg) translateY(-6px)}
+.plate svg{width:100%;aspect-ratio:3/4;display:block}
+.plate p{font-style:italic;margin-top:12px;font-size:16px}
+.plate p span{display:block;font-style:normal;font-size:13px;opacity:.6}
+.about{padding:16vh 6vw;display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.about h2{font-weight:400;font-style:italic;font-size:44px;line-height:1.15;color:var(--petal)}
+.about ul{list-style:none;margin-top:20px}
+.about li{padding:10px 0;border-bottom:1px solid rgba(242,239,230,.18);display:flex;justify-content:space-between;gap:20px}
+.about li span{color:var(--moss)}
+footer{text-align:center;padding:12vh 6vw 20vh}
+footer a{display:inline-block;background:var(--petal);color:var(--forest);font-size:22px;padding:18px 44px;border-radius:999px 999px 999px 0;text-decoration:none;transition:border-radius .5s}
+footer a:hover{border-radius:0 999px 999px 999px}
+a:focus-visible{outline:2px solid var(--pollen);outline-offset:4px}
+@media(max-width:860px){.hero,.about{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.vine{max-height:50vh}}
+@media(prefers-reduced-motion:reduce){.vine *{animation:none!important;stroke-dashoffset:0!important;transform:none!important}.petals{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="petals" id="pt" aria-hidden="true"></div>
+<section class="hero">
+  <h1>Каждый лист — портрет<small>nikitakustov123, ботанический иллюстратор. Акварель, тушь и сорок часов наблюдения за одним растением.</small></h1>
+  <svg class="vine" viewBox="0 0 400 600" aria-hidden="true">
+    <path class="stem" d="M200 600 C 180 500, 260 450, 220 360 C 180 270, 120 260, 170 170 C 210 100, 260 120, 240 60"/>
+    <path class="leaf" style="animation-delay:.8s" d="M205 520 q 60 -40 110 -10 q -50 40 -110 10z"/>
+    <path class="leaf" style="animation-delay:1.3s;fill:#5e8452" d="M230 420 q -70 -30 -120 10 q 60 30 120 -10z"/>
+    <path class="leaf" style="animation-delay:1.8s" d="M195 300 q 70 -50 130 -20 q -60 50 -130 20z"/>
+    <path class="leaf" style="animation-delay:2.3s;fill:#5e8452" d="M150 220 q -60 -40 -110 -5 q 55 35 110 5z"/>
+    <path class="leaf" style="animation-delay:2.8s" d="M200 130 q 50 -45 100 -25 q -45 45 -100 25z"/>
+    <g class="bloom"><circle cx="240" cy="58" r="14" fill="#e8c547"/><g fill="#f3b6c4"><ellipse cx="240" cy="22" rx="14" ry="24"/><ellipse cx="276" cy="58" rx="24" ry="14"/><ellipse cx="240" cy="94" rx="14" ry="24"/><ellipse cx="204" cy="58" rx="24" ry="14"/></g><circle cx="240" cy="58" r="10" fill="#e8c547"/></g>
+  </svg>
+</section>
+<section class="plates">
+  <h2>Таблицы для атласа «Флора Приморья»</h2>
+  <div class="pgrid">
+    <figure class="plate"><svg viewBox="0 0 300 400"><path d="M150 380 C 150 300 140 220 150 120" stroke="#3c5c3a" stroke-width="2" fill="none"/><g fill="#7fa36b" opacity=".9"><path d="M150 300 q-70-20-90-70 q60 10 90 70z"/><path d="M150 250 q70-20 90-70 q-60 10-90 70z"/></g><g fill="#c94f7c"><ellipse cx="150" cy="95" rx="22" ry="40"/><ellipse cx="125" cy="110" rx="18" ry="34" transform="rotate(-30 125 110)"/><ellipse cx="175" cy="110" rx="18" ry="34" transform="rotate(30 175 110)"/></g></svg><p>Lilium cernuum<span>Лилия поникающая, таблица 12</span></p></figure>
+    <figure class="plate"><svg viewBox="0 0 300 400"><g stroke="#3c5c3a" stroke-width="2" fill="none"><path d="M150 390 L150 60"/><path d="M150 330 L90 280"/><path d="M150 270 L215 220"/><path d="M150 200 L95 160"/></g><g fill="#7fa36b"><circle cx="90" cy="280" r="26"/><circle cx="215" cy="220" r="30"/><circle cx="95" cy="160" r="22"/></g><g fill="#e8c547"><circle cx="150" cy="60" r="16"/><circle cx="135" cy="80" r="10"/><circle cx="168" cy="82" r="11"/></g></svg><p>Panax ginseng<span>Женьшень настоящий, таблица 7</span></p></figure>
+    <figure class="plate"><svg viewBox="0 0 300 400"><path d="M150 390 C 120 300 190 240 150 150" stroke="#3c5c3a" stroke-width="2" fill="none"/><g fill="#5e8452"><path d="M150 360 q-90-10-110-80 q80 20 110 80z"/><path d="M155 300 q90-10 110-80 q-80 20-110 80z"/></g><g fill="#6a5acd" opacity=".85"><path d="M150 150 q-40-60 0-110 q40 50 0 110z"/><path d="M150 150 q-70-20-80-80 q60 10 80 80z"/><path d="M150 150 q70-20 80-80 q-60 10-80 80z"/></g></svg><p>Iris ensata<span>Ирис мечевидный, таблица 21</span></p></figure>
+  </div>
+</section>
+<section class="about">
+  <h2>Рисую с натуры в экспедициях и в ботаническом саду</h2>
+  <div><p>Пятнадцать лет работаю с ботаническими садами и экспедициями. Мои таблицы — в определителях, на почтовых марках и в частных коллекциях.</p>
+  <ul><li>Марки «Редкие растения Дальнего Востока»<span>2025</span></li><li>Золотая медаль выставки ботанической иллюстрации<span>2023</span></li><li>Атлас «Флора Приморья», 140 таблиц<span>2022</span></li></ul></div>
+</section>
+<footer><a href="mailto:hello@example.com">Заказать иллюстрацию</a></footer>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const p=document.getElementById('pt');for(let i=0;i<18;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.animationDuration=(9+Math.random()*10)+'s';e.style.animationDelay=(-Math.random()*18)+'s';e.style.transform=`scale(${.5+Math.random()})`;p.appendChild(e)}}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

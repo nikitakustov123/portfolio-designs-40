@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — инди-геймдев</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#3a2e6e;--ground:#5a3a2e;--brick:#9b5de5;--white:#fcfcfc;--black:#000;--green:#3ec46d;--yellow:#ffd166}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--white);font-family:'Press Start 2P',monospace;font-size:12px;line-height:2;image-rendering:pixelated}
+.world{position:relative;height:100vh;min-height:560px;background:linear-gradient(180deg,#1b1640 0 18%,#3a2e6e 18% 36%,#7a4f9a 36% 52%,#e07a9b 52% 64%,#ffb38a 64%);overflow:hidden}
+.sunpx{position:absolute;left:62%;top:44%;width:120px;height:120px;background:#ffd166;box-shadow:0 0 0 8px rgba(255,209,102,.35),0 0 0 16px rgba(255,209,102,.15);clip-path:polygon(25% 0,75% 0,75% 8%,92% 8%,92% 25%,100% 25%,100% 75%,92% 75%,92% 92%,75% 92%,75% 100%,25% 100%,25% 92%,8% 92%,8% 75%,0 75%,0 25%,8% 25%,8% 8%,25% 8%)}
+.star{position:absolute;width:4px;height:4px;background:#fff;animation:bl 2s steps(1) infinite}
+.hud{position:absolute;top:20px;left:0;right:0;display:flex;justify-content:space-around;font-size:12px;z-index:5;text-shadow:2px 2px 0 #000}
+.cloud{position:absolute;width:96px;height:32px;background:var(--white);box-shadow:16px -16px 0 var(--white),48px -16px 0 var(--white),32px -24px 0 var(--white);animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(110vw)}to{transform:translateX(-200px)}}
+.title{position:absolute;top:22%;left:50%;transform:translateX(-50%);text-align:center;width:90%}
+.title h1{font-size:clamp(22px,5vw,60px);line-height:1.2;color:var(--yellow);text-shadow:4px 4px 0 #e0567f,8px 8px 0 #000}
+.title p{margin-top:24px;font-size:11px;color:var(--black)}
+.blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.qblocks{position:absolute;bottom:38%;left:50%;transform:translateX(-50%);display:flex;gap:0}
+.q{width:48px;height:48px;background:var(--brick);border:4px solid #000;display:grid;place-items:center;color:#fff;font-size:16px;cursor:pointer;position:relative;box-shadow:inset -6px -6px 0 #5b2a9e,inset 6px 6px 0 #d0a8ff}
+.q.used{background:#4a3f5c;box-shadow:inset -6px -6px 0 #2a2236}
+.q.hit{animation:bump .2s}
+@keyframes bump{50%{transform:translateY(-14px)}}
+.coin{position:absolute;left:50%;top:-10px;width:20px;height:20px;margin-left:-10px;background:#7ff0ff;border:3px solid #000;transform:rotate(45deg);animation:coin .6s forwards}
+@keyframes coin{to{transform:translateY(-90px) rotate(45deg);opacity:0}}
+.ground{position:absolute;bottom:0;left:0;right:0;height:22%;background:linear-gradient(#3ec46d 0 16px,#1f8a4c 16px 24px,transparent 24px),repeating-linear-gradient(90deg,#4a2f25 0 24px,#5a3a2e 24px 48px),#5a3a2e;border-top:4px solid #000}
+.pipe{position:absolute;bottom:22%;right:12%;width:28px;height:120px;background:#6b4226;border:4px solid #000}
+.pipe::before{content:'';position:absolute;left:-60px;width:148px;top:-110px;height:120px;background:#2d9e5a;border:4px solid #000;clip-path:polygon(30% 0,70% 0,70% 15%,85% 15%,85% 30%,100% 30%,100% 85%,0 85%,0 30%,15% 30%,15% 15%,30% 15%);box-shadow:inset -12px -12px 0 #1f7a44}
+.hero{position:absolute;bottom:22%;left:14%;width:48px;height:64px;transition:bottom .25s cubic-bezier(.2,.8,.4,1)}
+.hero.jump{bottom:40%}
+.hero i{position:absolute;display:block}
+.hint{position:absolute;bottom:6%;left:0;right:0;text-align:center;font-size:10px;z-index:3}
+section{padding:12vh 6vw;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(18px,3vw,30px);color:var(--yellow);margin-bottom:6vh;line-height:1.4}
+.games{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cart{background:#2a2236;border:4px solid var(--white);padding:16px;box-shadow:8px 8px 0 #e0567f;transition:transform .1s}
+.cart:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 #e0567f}
+.cart .lbl{height:140px;border:4px solid #000;margin-bottom:14px;display:grid;place-items:center;font-size:28px}
+.cart h3{font-size:13px;line-height:1.6;color:var(--white)}
+.cart p{font-size:9px;color:#e0e0e0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stats b{display:block;font-size:24px;color:var(--green);margin-bottom:8px}
+.dialog{border:4px solid var(--white);padding:24px;margin-top:20px;font-size:11px;position:relative;background:#000;box-shadow:0 0 0 4px #000,0 0 0 8px var(--white)}
+.dialog a{color:var(--yellow)}
+a:focus-visible,.q:focus-visible{outline:4px solid var(--yellow);outline-offset:2px}
+@media(max-width:760px){.games,.stats{grid-template-columns:1fr 1fr}.pipe{display:none}}
+@media(prefers-reduced-motion:reduce){.cloud,.blink{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="world" style="padding:0;max-width:none">
+  <div class="hud"><span>ЛИСЁНОК<br>009800</span><span>✦ × <b id="coins">00</b></span><span>МИР<br>1-1</span><span>ВРЕМЯ<br>2026</span></div>
+  <div class="cloud" style="top:14%;animation-duration:38s"></div>
+  <div class="cloud" style="top:30%;animation-duration:52s;animation-delay:-20s"></div>
+  <div class="sunpx" aria-hidden="true"></div><div class="star" style="left:12%;top:8%"></div><div class="star" style="left:34%;top:14%;animation-delay:.6s"></div><div class="star" style="left:80%;top:10%;animation-delay:1.1s"></div><div class="star" style="left:55%;top:5%;animation-delay:.3s"></div>
+  <div class="title"><h1>NIKITAKUSTOV123</h1><p style="color:#fff">Инди-разработчик игр. Делаю маленькие миры<br>с большим сердцем.</p></div>
+  <div class="qblocks"><div class="q" tabindex="0" role="button" aria-label="Кристальный блок">✦</div><div class="q" tabindex="0" role="button" aria-label="Кристальный блок">✦</div><div class="q" tabindex="0" role="button" aria-label="Кристальный блок">✦</div></div>
+  <div class="pipe" aria-hidden="true"></div>
+  <div class="hero" id="hero" aria-hidden="true"></div>
+  <div class="ground" aria-hidden="true"></div>
+  <div class="hint blink">ЖМИТЕ ПРОБЕЛ ИЛИ НА КРИСТАЛЛЫ ✦</div>
+</section>
+<section>
+  <h2>► ВЫПУЩЕННЫЕ ИГРЫ</h2>
+  <div class="games">
+    <article class="cart"><div class="lbl" style="background:#3ec46d">🐸</div><h3>Болото 2</h3><p>Платформер. ПК, 94% положительных. 2026</p></article>
+    <article class="cart"><div class="lbl" style="background:#9b5de5">🚀</div><h3>Кот-космонавт</h3><p>Рогалик. Консоли и ПК. 2024</p></article>
+    <article class="cart"><div class="lbl" style="background:#e0567f">🏰</div><h3>Башня из пикселей</h3><p>Головоломка. Гейм-джем, 1 место. 2023</p></article>
+  </div>
+</section>
+<section>
+  <h2>► СТАТИСТИКА ИГРОКА</h2>
+  <div class="stats"><div><b>3</b>игры</div><div><b>210K</b>игроков</div><div><b>12</b>джемов</div><div><b>∞</b>багов</div></div>
+  <div class="dialog">NIKITA: Ищете разработчика, пиксель-артиста или геймдизайнера на проект? Пишите: <a href="mailto:hello@example.com">hello@example.com</a><span class="blink">▼</span></div>
+</section>
+<script>
+const hero=document.getElementById('hero');
+const S=["..K......K..",".KOK....KOK.",".KOOK..KOOK.",".KOOOKKOOOK.","KOOOOOOOOOOK","KOWKOOOOKWOK","KOWKOOOOKWOK","KOOOOPPOOOOK",".KWWWKKWWWK.","..KWWWWWWK..","..KTTTTTTK..",".KOKTTTTKOK.",".KOOTTTTOOK.","..KKOOOOKK..","..KOK..KOK..","..KK....KK.."];
+const C={K:'#000',O:'#ff8c42',W:'#fff3e0',P:'#2a1a12',T:'#3ec46d'};
+S.forEach((r,y)=>[...r].forEach((ch,x)=>{if(C[ch]){const i=document.createElement('i');i.style.cssText=`left:${x*4}px;top:${y*4}px;width:4px;height:4px;background:${C[ch]}`;hero.appendChild(i)}}));
+let coins=0;const cEl=document.getElementById('coins');
+function jump(){hero.classList.add('jump');setTimeout(()=>hero.classList.remove('jump'),300)}
+function hit(q){q.classList.remove('hit');void q.offsetWidth;q.classList.add('hit');if(!q.classList.contains('used')){q.classList.add('used');q.textContent='';const c=document.createElement('span');c.className='coin';q.appendChild(c);coins++;cEl.textContent=String(coins).padStart(2,'0');beep(988,.08);setTimeout(()=>beep(1319,.25),80)}else beep(160,.06)}
+let ac;function beep(f,d){try{ac=ac||new AudioContext();const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;g.gain.value=.05;g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}}
+document.querySelectorAll('.q').forEach(q=>{q.onclick=()=>{jump();hit(q)};q.onkeydown=e=>{if(e.key==='Enter'){jump();hit(q)}}});
+addEventListener('keydown',e=>{if(e.code==='Space'&&scrollY<innerHeight*.5&&document.activeElement===document.body){e.preventDefault();jump();beep(523,.1)}});
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUNSET.EXE — 3D-художник nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#1b0b3a;--pink:#ff4fd8;--sun:#ffb13b;--cyan:#38f5ff;--lav:#c9b6ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--plum);color:#fff;font-family:Rubik,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+.scene{height:100vh;min-height:620px;position:relative;overflow:hidden;background:linear-gradient(180deg,#0d0524 0%,#2b0f5c 40%,#7a1d78 58%,#ff4fd8 62%,#1b0b3a 62.2%)}
+.sun{position:absolute;left:50%;top:18%;width:min(46vw,440px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:linear-gradient(180deg,#fff27a 0%,var(--sun) 40%,var(--pink) 85%);
+mask-image:linear-gradient(180deg,#000 50%,transparent 50% 54%,#000 54% 62%,transparent 62% 67%,#000 67% 73%,transparent 73% 79%,#000 79% 84%,transparent 84% 91%,#000 91%);
+-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 50% 54%,#000 54% 62%,transparent 62% 67%,#000 67% 73%,transparent 73% 79%,#000 79% 84%,transparent 84% 91%,#000 91%);
+filter:drop-shadow(0 0 60px rgba(255,79,216,.7))}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:38%;perspective:300px;overflow:hidden}
+.floor div{position:absolute;inset:-100% 0 0 0;transform:rotateX(70deg);transform-origin:bottom;background-image:linear-gradient(var(--cyan) 2px,transparent 2px),linear-gradient(90deg,var(--cyan) 2px,transparent 2px);background-size:60px 60px;animation:move 1.2s linear infinite;box-shadow:inset 0 0 120px var(--plum);filter:drop-shadow(0 0 4px var(--cyan))}
+@keyframes move{to{background-position:0 60px}}
+.mts{position:absolute;bottom:38%;left:0;width:100%;height:16%}
+.scene h1{position:absolute;bottom:42%;left:0;right:0;text-align:center;font-family:'Rubik Mono One';font-size:clamp(40px,9vw,140px);line-height:1;color:transparent;-webkit-text-stroke:2px #fff;text-shadow:6px 6px 0 var(--pink),12px 12px 0 rgba(56,245,255,.6);letter-spacing:-.02em}
+.scene p{position:absolute;bottom:6%;left:0;right:0;text-align:center;font-weight:600;letter-spacing:.04em;color:var(--lav);z-index:2;text-shadow:0 2px 10px var(--plum)}
+section{padding:14vh 6vw}
+h2{font-family:'Rubik Mono One';font-size:clamp(26px,4vw,52px);margin-bottom:8vh;background:linear-gradient(90deg,var(--sun),var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.renders{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.r{aspect-ratio:1;border-radius:4px;position:relative;overflow:hidden;cursor:pointer;transform-style:preserve-3d;transition:transform .4s}
+.r:hover{transform:perspective(600px) rotateY(-12deg) rotateX(6deg) scale(1.03)}
+.r b{position:absolute;left:14px;bottom:12px;font-weight:600;text-shadow:0 2px 8px #000}
+.r1{background:radial-gradient(circle at 50% 60%,#fff27a 0 18%,transparent 19%),linear-gradient(#2b0f5c,#ff4fd8)}
+.r1::after{content:'';position:absolute;left:30%;top:25%;width:40%;height:50%;border:3px solid var(--cyan);transform:rotate(45deg);box-shadow:0 0 20px var(--cyan)}
+.r2{background:conic-gradient(from 90deg at 50% 50%,#38f5ff,#c9b6ff,#ff4fd8,#ffb13b,#38f5ff)}
+.r2::after{content:'';position:absolute;inset:22%;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#c9b6ff 40%,#1b0b3a)}
+.r3{background:linear-gradient(180deg,#0d0524 55%,#38f5ff 55.5%,#1b0b3a 56%);}
+.r3::before{content:'';position:absolute;left:20%;bottom:44%;width:14%;height:40%;background:linear-gradient(#ff4fd8,#7a1d78);box-shadow:60px 20px 0 -4px #c9b6ff,120px -10px 0 2px #ffb13b}
+.r4{background:repeating-radial-gradient(circle at 50% 120%,#ff4fd8 0 10px,#1b0b3a 10px 22px)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.win{border:2px solid var(--lav);background:rgba(13,5,36,.7);box-shadow:8px 8px 0 var(--pink)}
+.win .bar{background:linear-gradient(90deg,var(--pink),var(--cyan));padding:6px 12px;font-weight:600;color:var(--plum);display:flex;justify-content:space-between}
+.win .body{padding:24px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.tools span{border:1px solid var(--cyan);color:var(--cyan);padding:4px 12px;border-radius:999px;font-size:14px}
+footer{text-align:center;padding:10vh 6vw 22vh}
+footer a{font-family:'Rubik Mono One';font-size:clamp(22px,4vw,48px);color:var(--plum);background:var(--sun);padding:20px 40px;text-decoration:none;display:inline-block;box-shadow:8px 8px 0 var(--pink),16px 16px 0 var(--cyan);transition:transform .2s,box-shadow .2s}
+footer a:hover{transform:translate(8px,8px);box-shadow:0 0 0 var(--pink),0 0 0 var(--cyan)}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:6px}
+@media(max-width:860px){.renders{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.floor div{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="scene" style="padding:0">
+  <div class="sun" aria-hidden="true"></div>
+  <svg class="mts" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100 L120 30 L220 80 L340 10 L470 70 L560 40 L680 90 L800 20 L900 60 L1000 35 L1000 100Z" fill="#14072e" stroke="#ff4fd8" stroke-width="1.5"/></svg>
+  <div class="floor" aria-hidden="true"><div></div></div>
+  <h1>SUNSET.EXE</h1>
+  <p>nikitakustov123 — 3D-художник и ретрофутурист</p>
+</section>
+<section>
+  <h2>Рендеры</h2>
+  <div class="renders">
+    <div class="r r1"><b>Портал 1986</b></div>
+    <div class="r r2"><b>Жемчужина синтвейва</b></div>
+    <div class="r r3"><b>Город-хром</b></div>
+    <div class="r r4"><b>Кассета вечности</b></div>
+  </div>
+</section>
+<section class="about">
+  <div><h2>Кто я</h2><p>Делаю 3D-обложки для музыкантов, заставки для стримов и визуалы для синтвейв-фестивалей. Вырос на кассетах и «Денди», теперь превращаю ностальгию в рендеры с трассировкой лучей.</p></div>
+  <div class="win"><div class="bar"><span>about_me.txt</span><span>✕</span></div><div class="body">Клиенты: независимые синтвейв-лейблы, фестиваль «Неон-Сити».<br>Обложек сделано: 230+<br>Любимый цвет: #FF4FD8<div class="tools"><span>Blender</span><span>Cinema 4D</span><span>Octane</span><span>Houdini</span></div></div></div>
+</section>
+<footer><a href="mailto:hello@example.com">Заказать обложку</a></footer>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

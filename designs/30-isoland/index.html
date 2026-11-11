@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isoland — левел-дизайнер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#dff3ff;--grass:#7bd389;--grassD:#52a862;--soil:#c98b5b;--soilD:#9c6440;--water:#5ec8ff;--ink:#22304a;--roof:#ff7a7a;--wall:#fff6e6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(180deg,var(--sky),#fef6ff);color:var(--ink);font-family:Rubik,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1.2fr;align-items:center;padding:0 5vw;gap:2vw;overflow:hidden}
+.hero h1{font-weight:800;font-size:clamp(50px,7vw,110px);line-height:.92;letter-spacing:-.03em}
+.hero p{max-width:440px;margin-top:20px}
+.btn{display:inline-block;margin-top:28px;background:var(--ink);color:#fff;text-decoration:none;padding:14px 26px;border-radius:14px;font-weight:600;box-shadow:0 6px 0 #0f1a2e;transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(6px);box-shadow:0 0 0 #0f1a2e}
+.scene{height:80vh;position:relative;display:grid;place-items:center}
+.iso{position:relative;width:360px;height:360px;transform:rotateX(60deg) rotateZ(-45deg);transform-style:preserve-3d;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:rotateX(60deg) rotateZ(-45deg) translateZ(14px)}}
+.blk{position:absolute;width:var(--w);height:var(--d);left:var(--x);top:var(--y);transform-style:preserve-3d;transform:translateZ(var(--z,0))}
+.blk>.top{position:absolute;inset:0;background:var(--c,var(--grass));transform:translateZ(var(--h))}
+.blk>.s1{position:absolute;left:0;bottom:0;width:100%;height:var(--h);background:var(--cs,var(--soil));transform-origin:bottom;transform:rotateX(-90deg)}
+.blk>.s2{position:absolute;right:0;top:0;width:var(--h);height:100%;background:var(--cd,var(--soilD));transform-origin:right;transform:rotateY(90deg)}
+.blk.pop{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.blk.pop:hover{transform:translateZ(calc(var(--z,0px) + 20px))}
+.tag{position:absolute;padding:8px 14px;background:#fff;border-radius:12px;font-weight:600;font-size:14px;box-shadow:0 8px 20px rgba(34,48,74,.15)}
+section{padding:12vh 5vw}
+h2{font-weight:800;font-size:clamp(34px,5vw,64px);letter-spacing:-.03em;margin-bottom:6vh}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.lv{background:#fff;border-radius:24px;padding:24px;box-shadow:0 10px 0 #c9d9ea;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.lv:hover{transform:translateY(-8px) rotate(-1deg)}
+.mini{height:170px;display:grid;place-items:center;perspective:600px}
+.cube{width:80px;height:80px;position:relative;transform-style:preserve-3d;transform:rotateX(-30deg) rotateY(45deg);transition:transform 1s}
+.lv:hover .cube{transform:rotateX(-30deg) rotateY(225deg)}
+.cube i{position:absolute;inset:0;border-radius:6px}
+.cube i:nth-child(1){transform:translateZ(40px)}.cube i:nth-child(2){transform:rotateY(90deg) translateZ(40px)}.cube i:nth-child(3){transform:rotateX(90deg) translateZ(40px)}.cube i:nth-child(4){transform:rotateY(180deg) translateZ(40px)}.cube i:nth-child(5){transform:rotateY(-90deg) translateZ(40px)}.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(40px)}
+.lv h3{font-weight:800;font-size:24px}
+.lv small{color:#6a7a96}
+.xp{display:flex;gap:12px;flex-wrap:wrap}
+.xp span{background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;box-shadow:0 4px 0 #c9d9ea}
+footer{text-align:center;padding:10vh 5vw 20vh}
+a:focus-visible{outline:3px solid var(--roof);outline-offset:4px}
+@media(max-width:900px){.hero,.levels{grid-template-columns:1fr}.iso{width:240px;height:240px}.scene{height:60vh}}
+@media(prefers-reduced-motion:reduce){.iso{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" style="padding-top:0;padding-bottom:0">
+  <div><h1>Строю миры кубик за кубиком</h1><p>nikitakustov123, левел-дизайнер. Проектирую уровни для мобильных головоломок и уютных симуляторов. Наведите на постройки на острове.</p><a class="btn" href="#lv">Смотреть уровни</a></div>
+  <div class="scene">
+    <div class="iso" id="iso" aria-label="Изометрический остров с домиками">
+      <div class="blk" style="--x:0;--y:0;--w:360px;--d:360px;--h:40px"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk" style="--x:20px;--y:220px;--w:120px;--d:120px;--h:4px;--z:40px;--c:var(--water);--cs:#3aa7e0;--cd:#2b8fc4"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk pop" style="--x:200px;--y:40px;--w:110px;--d:90px;--h:80px;--z:40px;--c:var(--roof);--cs:var(--wall);--cd:#f0dcc0"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk pop" style="--x:60px;--y:50px;--w:70px;--d:70px;--h:130px;--z:40px;--c:#ffd36e;--cs:#bfe0ff;--cd:#9fc7ef"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk pop" style="--x:230px;--y:220px;--w:40px;--d:40px;--h:60px;--z:40px;--c:var(--grassD);--cs:#3e8a4c;--cd:#2f6f3b"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk pop" style="--x:290px;--y:270px;--w:36px;--d:36px;--h:44px;--z:40px;--c:var(--grassD);--cs:#3e8a4c;--cd:#2f6f3b"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+      <div class="blk pop" style="--x:170px;--y:170px;--w:30px;--d:30px;--h:24px;--z:40px;--c:#b993ff;--cs:#9a74e6;--cd:#7f5bcc"><div class="top"></div><div class="s1"></div><div class="s2"></div></div>
+    </div>
+    <span class="tag" style="right:6%;top:16%">🏠 Пекарня, ур. 12</span>
+    <span class="tag" style="left:8%;top:30%">🗼 Маяк, ур. 30</span>
+  </div>
+</section>
+<section id="lv">
+  <h2>Уровни и игры</h2>
+  <div class="levels">
+    <article class="lv"><div class="mini"><div class="cube"><i style="background:#7bd389"></i><i style="background:#52a862"></i><i style="background:#9be3a6"></i><i style="background:#52a862"></i><i style="background:#3e8a4c"></i><i style="background:#3e8a4c"></i></div></div><h3>Tiny Harbor</h3><small>120 уровней, 5 млн установок</small></article>
+    <article class="lv"><div class="mini"><div class="cube"><i style="background:#ff7a7a"></i><i style="background:#e65c5c"></i><i style="background:#ff9e9e"></i><i style="background:#e65c5c"></i><i style="background:#c94545"></i><i style="background:#c94545"></i></div></div><h3>Пекарня на холме</h3><small>Уютный симулятор, мобильные платформы</small></article>
+    <article class="lv"><div class="mini"><div class="cube"><i style="background:#5ec8ff"></i><i style="background:#3aa7e0"></i><i style="background:#8fdaff"></i><i style="background:#3aa7e0"></i><i style="background:#2b8fc4"></i><i style="background:#2b8fc4"></i></div></div><h3>Мосты</h3><small>Головоломка, финалист инди-фестиваля</small></article>
+  </div>
+</section>
+<section>
+  <h2>Чем помогу команде</h2>
+  <div class="xp"><span>Блокинг уровней</span><span>Кривая сложности</span><span>Плейтесты</span><span>Unity и Godot</span><span>Генерация уровней</span><span>Аналитика прохождения</span></div>
+</section>
+<footer><h2>Построим ваш мир?</h2><a class="btn" href="mailto:hello@example.com">Написать мне</a></footer>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const iso=document.getElementById('iso');document.querySelector('.scene').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5;iso.style.animation='none';iso.style.transform=`rotateX(60deg) rotateZ(${-45+x*30}deg)`})}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

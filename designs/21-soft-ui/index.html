@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мягкий интерфейс — продуктовый дизайнер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--base:#e4e9f0;--hi:#ffffff;--lo:#b8c1cf;--text:#4b5568;--accent:#6c7cff;--mint:#5fd3b4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--base);color:var(--text);font-family:Nunito,sans-serif;font-size:17px;line-height:1.6}
+.out{box-shadow:10px 10px 24px var(--lo),-10px -10px 24px var(--hi)}
+.in{box-shadow:inset 8px 8px 16px var(--lo),inset -8px -8px 16px var(--hi)}
+.wrap{max-width:1180px;margin:0 auto;padding:4vh 4vw}
+nav{display:flex;justify-content:space-between;align-items:center;border-radius:28px;padding:16px 26px;margin-bottom:8vh}
+nav b{font-weight:900;font-size:20px}
+nav a{color:var(--text);text-decoration:none;margin-left:12px;padding:10px 18px;border-radius:16px;display:inline-block;transition:box-shadow .3s}
+nav a:hover{box-shadow:inset 4px 4px 8px var(--lo),inset -4px -4px 8px var(--hi)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:5vw;align-items:center;min-height:70vh}
+.hero h1{font-weight:900;font-size:clamp(44px,6vw,86px);line-height:1;letter-spacing:-.03em;color:#3a4252}
+.hero p{margin-top:22px;max-width:440px}
+.panel{border-radius:40px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;justify-items:center}
+.knob{width:170px;height:170px;border-radius:50%;position:relative;grid-column:1/3;cursor:grab;touch-action:none}
+.knob .cap{position:absolute;inset:22px;border-radius:50%;background:linear-gradient(145deg,#f0f4f9,#cfd6e0)}
+.knob .cap::after{content:'';position:absolute;left:50%;top:12px;width:8px;height:22px;margin-left:-4px;border-radius:4px;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.knob .val{position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:26px;pointer-events:none;color:#3a4252}
+.tg{width:96px;height:48px;border-radius:24px;position:relative;cursor:pointer;border:0;background:var(--base)}
+.tg i{position:absolute;top:6px;left:6px;width:36px;height:36px;border-radius:50%;background:var(--base);box-shadow:4px 4px 8px var(--lo),-4px -4px 8px var(--hi);transition:left .35s cubic-bezier(.3,1.5,.5,1),background .3s}
+.tg[aria-pressed=true] i{left:54px;background:var(--mint)}
+.lbl{font-size:13px;text-align:center;margin-top:8px}
+.sl{grid-column:1/3;width:100%;height:18px;border-radius:9px;position:relative}
+.sl i{position:absolute;left:0;top:0;bottom:0;border-radius:9px;background:linear-gradient(90deg,var(--mint),var(--accent));width:62%}
+section{padding:12vh 0 0}
+h2{font-weight:900;font-size:clamp(32px,4vw,52px);color:#3a4252;margin-bottom:5vh;letter-spacing:-.02em}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.case{border-radius:32px;padding:28px;transition:box-shadow .4s}
+.case:hover{box-shadow:inset 8px 8px 16px var(--lo),inset -8px -8px 16px var(--hi)}
+.case .ic{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:28px;margin-bottom:20px}
+.case h3{font-weight:900;font-size:22px;color:#3a4252}
+.case .res{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:12px;font-weight:700;color:var(--accent)}
+.contact{border-radius:40px;padding:6vw;margin:12vh 0 14vh;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.btn{display:inline-block;padding:22px 40px;border-radius:24px;font-weight:900;font-size:20px;color:var(--accent);text-decoration:none;transition:box-shadow .2s}
+.btn:active{box-shadow:inset 6px 6px 12px var(--lo),inset -6px -6px 12px var(--hi)}
+a:focus-visible,button:focus-visible,.knob:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:860px){.hero,.cases,.contact{grid-template-columns:1fr}nav a{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="out"><b>nikitakustov123</b><div><a href="#cases">Кейсы</a><a href="#hi">Контакт</a></div></nav>
+<section class="hero" style="padding:0">
+  <div><h1>Интерфейсы, к которым хочется прикоснуться</h1><p>Продуктовый дизайнер. Делаю приложения для умного дома, медицины и финансов — там, где спокойствие пользователя важнее эффектов.</p></div>
+  <div class="panel out" aria-label="Интерактивная панель управления">
+    <div class="knob out" id="knob" tabindex="0" role="slider" aria-label="Температура" aria-valuemin="16" aria-valuemax="30" aria-valuenow="22"><div class="cap" id="cap"></div><div class="val" id="val">22°</div></div>
+    <div><button class="tg in" aria-pressed="true" aria-label="Свет"><i></i></button><div class="lbl">Свет</div></div>
+    <div><button class="tg in" aria-pressed="false" aria-label="Шторы"><i></i></button><div class="lbl">Шторы</div></div>
+    <div class="sl in" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+<section id="cases">
+  <h2>Кейсы</h2>
+  <div class="cases">
+    <article class="case out"><div class="ic in">🏠</div><h3>Умный дом «Уют»</h3><p>Приложение для 300 тысяч квартир. Сценарии вместо сотни переключателей.</p><span class="res in">NPS +31</span></article>
+    <article class="case out"><div class="ic in">💊</div><h3>Таблетница «Вовремя»</h3><p>Напоминания о лекарствах для пожилых. Крупно, тихо, без ошибок.</p><span class="res in">−48% пропусков</span></article>
+    <article class="case out"><div class="ic in">💳</div><h3>Копилка «Капля»</h3><p>Накопления по чуть-чуть с каждой покупки. Без стресса и графиков.</p><span class="res in">1,2 млн пользователей</span></article>
+  </div>
+</section>
+<div class="contact out" id="hi"><div><h2 style="margin:0">Сделаем продукт спокойнее?</h2><p>Работаю с командами от стартапа до банка. Ответ в течение дня.</p></div><a class="btn out" href="mailto:hello@example.com">Написать мне</a></div>
+</div>
+<script>
+document.querySelectorAll('.tg').forEach(t=>t.onclick=()=>t.setAttribute('aria-pressed',t.getAttribute('aria-pressed')!=='true'));
+const k=document.getElementById('knob'),cap=document.getElementById('cap'),val=document.getElementById('val');let ang=-30,drag=false;
+function set(a){ang=Math.max(-135,Math.min(135,a));cap.style.transform=`rotate(${ang}deg)`;const v=Math.round(16+(ang+135)/270*14);val.textContent=v+'°';k.setAttribute('aria-valuenow',v)}
+set(ang);
+k.addEventListener('pointerdown',e=>{drag=true;k.setPointerCapture(e.pointerId)});
+k.addEventListener('pointerup',()=>drag=false);
+k.addEventListener('pointermove',e=>{if(!drag)return;const r=k.getBoundingClientRect();set(Math.atan2(e.clientX-r.left-r.width/2,-(e.clientY-r.top-r.height/2))*180/Math.PI)});
+k.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowUp')set(ang+19.3);if(e.key==='ArrowLeft'||e.key==='ArrowDown')set(ang-19.3)});
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

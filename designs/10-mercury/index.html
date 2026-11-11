@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercury — nikitakustov123, 3D и материалы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--fog:#d9dde3;--steel:#8a929e;--lead:#2a2e35;--white:#f7f8fa;--blue:#9fb7ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(ellipse at 50% 0%,#f4f6f9,var(--fog) 60%,#c3c8d0);color:var(--lead);font-family:Unbounded,sans-serif;font-weight:200;font-size:16px;line-height:1.7;min-height:100vh;overflow-x:hidden}
+nav{display:flex;justify-content:space-between;padding:26px 5vw;font-weight:400;font-size:14px}
+nav a{color:var(--lead);text-decoration:none;margin-left:24px}
+.hero{height:88vh;min-height:600px;position:relative;display:grid;place-items:center}
+.blob{width:min(64vh,80vw);aspect-ratio:1;filter:drop-shadow(0 40px 60px rgba(42,46,53,.35))}
+.hero h1{position:absolute;font-weight:700;font-size:clamp(60px,15vw,230px);letter-spacing:-.06em;line-height:1;mix-blend-mode:difference;color:#fff;pointer-events:none}
+.hero p{position:absolute;bottom:6vh;left:5vw;max-width:340px;font-size:14px}
+.hero .r{left:auto;right:5vw;text-align:right}
+section{padding:14vh 5vw}
+h2{font-weight:200;font-size:clamp(32px,5vw,72px);letter-spacing:-.04em;line-height:1.05;margin-bottom:8vh;max-width:900px}
+.mats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.mat{text-align:center}
+.sph{aspect-ratio:1;border-radius:50%;margin-bottom:18px;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.mat:hover .sph{transform:scale(1.07) rotate(25deg)}
+.m1{background:radial-gradient(circle at 32% 28%,#fff 0 6%,#e9ecf0 12%,#9aa1ac 38%,#3a3f47 62%,#cfd4db 78%,#5a606a 100%)}
+.m2{background:radial-gradient(circle at 32% 28%,#fff 0 5%,#ffe7b0 12%,#d4a03a 40%,#5c3c08 70%,#e8c27a 90%)}
+.m3{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95) 0 6%,rgba(159,183,255,.5) 20%,rgba(42,46,53,.2) 60%,rgba(159,183,255,.7) 95%);box-shadow:inset 0 0 40px rgba(255,255,255,.6)}
+.m4{background:conic-gradient(from 200deg,#ff9ad5,#9fb7ff,#9dffe0,#fff2a8,#ff9ad5);-webkit-mask:radial-gradient(circle,#000 69%,transparent 70%);mask:radial-gradient(circle,#000 69%,transparent 70%);filter:saturate(.6) brightness(1.1)}
+.mat b{font-weight:400}
+.mat small{display:block;color:var(--steel)}
+.clients{display:flex;flex-wrap:wrap;gap:6vw;align-items:center;font-weight:700;font-size:clamp(20px,2.4vw,32px);letter-spacing:-.03em;color:var(--steel)}
+footer{padding:16vh 5vw 22vh;text-align:center}
+.chrome{display:inline-block;font-weight:700;font-size:clamp(26px,5vw,64px);letter-spacing:-.04em;text-decoration:none;padding:22px 52px;border-radius:999px;color:var(--lead);background:linear-gradient(180deg,#fff 0%,#c9ced6 45%,#8a929e 50%,#e6e9ee 100%);box-shadow:inset 0 2px 0 #fff,inset 0 -3px 6px rgba(0,0,0,.25),0 20px 40px rgba(42,46,53,.25);transition:transform .3s}
+.chrome:hover{transform:translateY(-4px) scale(1.02)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:6px}
+@media(max-width:860px){.mats{grid-template-columns:1fr 1fr}.hero p{position:static;margin-top:20px}nav a{display:none}}
+@media(prefers-reduced-motion:reduce){svg animate{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<nav><b>Mercury</b><div><a href="#mat">Материалы</a><a href="#hi">Связаться</a></div></nav>
+<section class="hero" style="padding:0">
+  <svg class="blob" viewBox="0 0 400 400" aria-hidden="true">
+    <defs>
+      <linearGradient id="chr" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".18" stop-color="#9aa3af"/><stop offset=".3" stop-color="#f4f6f8"/><stop offset=".46" stop-color="#3b414b"/><stop offset=".5" stop-color="#14171c"/><stop offset=".56" stop-color="#7d8794"/><stop offset=".7" stop-color="#eef1f4"/><stop offset=".84" stop-color="#4b525d"/><stop offset="1" stop-color="#c9d3ff"/>
+      </linearGradient>
+      <filter id="liq"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="18s" values="0.012;0.02;0.012" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="46"/></filter>
+      <radialGradient id="hl" cx=".35" cy=".25" r=".35"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <g filter="url(#liq)">
+      <path fill="url(#chr)"><animate attributeName="d" dur="12s" repeatCount="indefinite" values="M200 40 C 300 40 360 120 350 210 C 340 300 270 360 190 355 C 100 350 40 290 45 200 C 50 110 110 40 200 40Z;M210 50 C 320 60 345 150 340 230 C 330 320 250 350 180 345 C 90 340 55 270 60 190 C 70 100 120 45 210 50Z;M200 40 C 300 40 360 120 350 210 C 340 300 270 360 190 355 C 100 350 40 290 45 200 C 50 110 110 40 200 40Z"/></path>
+      <ellipse cx="150" cy="120" rx="80" ry="50" fill="url(#hl)"/>
+    </g>
+  </svg>
+  <h1>Ртуть</h1>
+  <p>nikitakustov123 — 3D-дизайнер. Специализация: металлы, стекло, жидкости и всё, что отражает.</p>
+  <p class="r">Москва — удалённо по миру<br>Свободен с января 2027</p>
+</section>
+<section id="mat">
+  <h2>Материалы, которые хочется потрогать через экран</h2>
+  <div class="mats">
+    <div class="mat"><div class="sph m1"></div><b>Хром</b><small>Рекламная кампания часов «Полюс»</small></div>
+    <div class="mat"><div class="sph m2"></div><b>Золото</b><small>Упаковка парфюма «Янтарь»</small></div>
+    <div class="mat"><div class="sph m3"></div><b>Стекло</b><small>Промо смартфона «Мира»</small></div>
+    <div class="mat"><div class="sph m4"></div><b>Перламутр</b><small>Айдентика бренда Pearl Lab</small></div>
+  </div>
+</section>
+<section>
+  <h2>С кем работал</h2>
+  <div class="clients"><span>Полюс</span><span>Мира</span><span>Pearl Lab</span><span>Ветер</span><span>Кварц</span><span>Север</span></div>
+</section>
+<footer id="hi"><a class="chrome" href="mailto:hello@example.com">Обсудить проект</a></footer>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

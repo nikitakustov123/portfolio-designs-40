@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тушь — каллиграф и леттерер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,500;1,7..72,300&display=swap" rel="stylesheet">
+<style>
+:root{--water:#f4f6f7;--ink:#101418;--indigo:#283a6b;--cinnabar:#d1442f;--wash:#c8d0d6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--water);color:var(--ink);font-family:Literata,serif;font-weight:300;font-size:18px;line-height:1.75}
+.hero{height:100vh;min-height:620px;position:relative;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%;cursor:pointer}
+.hero .t{position:absolute;left:6vw;bottom:9vh;max-width:560px;pointer-events:none}
+.hero h1{font-family:'Marck Script',cursive;font-weight:400;font-size:clamp(54px,8vw,124px);line-height:.9;color:var(--ink)}
+.hero p{margin-top:14px;font-size:19px;background:rgba(244,246,247,.7);display:inline}
+.hint{position:absolute;right:6vw;bottom:9vh;font-style:italic;font-size:15px;color:#555;pointer-events:none}
+section{padding:14vh 6vw}
+h2{font-family:'Marck Script';font-weight:400;font-size:clamp(50px,7vw,100px);line-height:1;margin-bottom:6vh}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.wk{background:#fff;padding:30px;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 0 var(--wash),0 20px 40px -20px rgba(16,20,24,.2);position:relative;transition:transform .5s}
+.wk:hover{transform:translateY(-8px) rotate(-.8deg)}
+.wk .word{font-family:'Marck Script';font-size:clamp(46px,5vw,80px);line-height:1;color:var(--ink);text-align:center;margin:auto 0}
+.wk .seal{position:absolute;right:22px;bottom:70px;width:34px;height:34px;background:var(--cinnabar);border-radius:4px;transform:rotate(6deg)}
+.wk small{color:#666}
+.wk b{font-weight:500}
+.splash{position:absolute;inset:0;pointer-events:none;opacity:.12;background:radial-gradient(circle at 70% 30%,var(--indigo) 0 10%,transparent 30%)}
+.serv{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.serv ul{list-style:none}
+.serv li{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--wash);font-size:20px}
+.serv li span{font-style:italic;color:var(--indigo)}
+footer{text-align:center;padding:12vh 6vw 22vh}
+footer a{font-family:'Marck Script';font-size:clamp(46px,7vw,96px);color:var(--ink);text-decoration:none;background:linear-gradient(var(--cinnabar),var(--cinnabar)) 0 92%/0 6px no-repeat;transition:background-size .6s}
+footer a:hover{background-size:100% 6px}
+a:focus-visible{outline:2px solid var(--cinnabar);outline-offset:6px}
+@media(max-width:860px){.works,.serv{grid-template-columns:1fr}.hint{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" style="padding:0">
+  <canvas id="ink" aria-label="Капли туши расплываются в воде"></canvas>
+  <div class="t"><h1>nikita<br>kustov123</h1><p>Каллиграф и леттерер. Пишу тушью и пером вывески, логотипы и свадебные приглашения.</p></div>
+  <div class="hint">Нажмите, чтобы уронить каплю</div>
+</section>
+<section>
+  <h2>Буквы на заказ</h2>
+  <div class="works">
+    <article class="wk"><div class="splash"></div><div class="word">Терпение</div><span class="seal" aria-hidden="true"></span><div><b>Логотип чайной «Терпение»</b><br><small>Кисть, тушь, 2026</small></div></article>
+    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 20% 70%,#d1442f 0 6%,transparent 26%)"></div><div class="word">Мы вместе</div><span class="seal" aria-hidden="true"></span><div><b>Свадебная полиграфия</b><br><small>Острое перо, 140 конвертов</small></div></article>
+    <article class="wk"><div class="splash" style="background:radial-gradient(circle at 50% 50%,#101418 0 4%,transparent 30%)"></div><div class="word">Хлеб</div><span class="seal" aria-hidden="true"></span><div><b>Вывеска пекарни</b><br><small>Роспись по стеклу, Казань</small></div></article>
+  </div>
+</section>
+<section class="serv">
+  <h2>Что пишу</h2>
+  <ul><li>Логотипы и леттеринг<span>от 40 000 ₽</span></li><li>Свадебная полиграфия<span>от 600 ₽ за конверт</span></li><li>Вывески и витрины<span>от 60 000 ₽</span></li><li>Мастер-классы для команд<span>по запросу</span></li></ul>
+</section>
+<footer><a href="mailto:hello@example.com">Написать письмо</a></footer>
+<script>
+const c=document.getElementById('ink'),x=c.getContext('2d'),d=Math.min(2,devicePixelRatio||1);let w,h;
+function rs(){w=c.width=c.clientWidth*d;h=c.height=c.clientHeight*d;x.fillStyle='#f4f6f7';x.fillRect(0,0,w,h)}rs();addEventListener('resize',rs);
+const drops=[];const cols=[[16,20,24],[40,58,107],[209,68,47]];
+function drop(px,py,col){const n=26;for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2;drops.push({x:px,y:py,vx:Math.cos(a)*(.4+Math.random()*1.6)*d,vy:Math.sin(a)*(.4+Math.random()*1.6)*d+.3*d,r:(6+Math.random()*18)*d,life:1,c:col,ph:Math.random()*6})}}
+c.addEventListener('pointerdown',e=>{const r=c.getBoundingClientRect();drop((e.clientX-r.left)*d,(e.clientY-r.top)*d,cols[Math.random()<.2?2:Math.random()<.5?1:0])});
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function f(){
+  x.fillStyle='rgba(244,246,247,0.012)';x.fillRect(0,0,w,h);
+  for(let i=drops.length-1;i>=0;i--){const p=drops[i];p.ph+=.05;p.x+=p.vx+Math.sin(p.ph)*.4*d;p.y+=p.vy;p.vx*=.985;p.vy=p.vy*.985+.008*d;p.r*=1.006;p.life-=.004;
+    const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(${p.c},${.06*p.life})`);g.addColorStop(1,`rgba(${p.c},0)`);x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();
+    if(p.life<=0)drops.splice(i,1)}
+  requestAnimationFrame(f)}
+f();
+if(!red){let k=0;const auto=()=>{drop(w*(.55+Math.random()*.4),h*(.12+Math.random()*.4),cols[k++%3===2?2:0]);if(k<5)setTimeout(auto,900)};setTimeout(auto,300)}
+else{for(let k=0;k<3;k++)drop(w*(.6+k*.1),h*.3,cols[k])}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

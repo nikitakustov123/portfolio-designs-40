@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>root@nikita — DevOps-инженер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#031a07;--g:#33ff66;--dg:#1a8a36;--amber:#ffcc33}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#000;color:var(--g);font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.55;display:grid;place-items:center;padding:3vh 3vw}
+.crt{width:min(1100px,100%);height:min(88vh,860px);background:radial-gradient(ellipse at center,#063a12 0%,var(--bg) 70%,#010a03 100%);border-radius:28px/22px;position:relative;overflow:hidden;box-shadow:0 0 0 14px #1b1d1a,0 0 0 16px #2c2f2b,0 30px 80px rgba(51,255,102,.12),inset 0 0 120px rgba(0,0,0,.8)}
+.crt::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 2px,transparent 2px 4px);pointer-events:none;z-index:3}
+.crt::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 0%,rgba(51,255,102,.06) 50%,transparent 100%);height:30%;animation:roll 7s linear infinite;pointer-events:none;z-index:4}
+@keyframes roll{from{transform:translateY(-100%)}to{transform:translateY(400%)}}
+#out{position:absolute;inset:0;padding:34px 40px;overflow-y:auto;text-shadow:0 0 6px rgba(51,255,102,.75),0 0 18px rgba(51,255,102,.25);animation:flick .12s infinite alternate;scrollbar-width:none}
+#out::-webkit-scrollbar{display:none}
+@keyframes flick{from{opacity:.97}to{opacity:1}}
+.ascii{white-space:pre;font-size:clamp(7px,1.25vw,14px);line-height:1.1;color:var(--g);margin-bottom:14px}
+.p{color:var(--amber)}
+.dim{color:var(--dg)}
+a{color:var(--g)}
+.row{display:flex;gap:10px;align-items:center}
+input{flex:1;background:none;border:0;color:var(--g);font:inherit;outline:none;caret-color:var(--g);text-shadow:inherit}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.chips button{background:none;border:1px solid var(--dg);color:var(--g);font:inherit;padding:2px 10px;cursor:pointer}
+.chips button:hover,.chips button:focus-visible{background:var(--g);color:var(--bg);outline:none}
+.bar{display:inline-block;background:var(--g);color:var(--bg);padding:0 6px}
+@media(prefers-reduced-motion:reduce){.crt::after,#out{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main class="crt">
+  <div id="out" aria-live="polite"></div>
+</main>
+<script>
+const out=document.getElementById('out');
+const banner=`╔══════════════════════════════════╗
+║   n i k i t a k u s t o v 1 2 3   ║
+║   devops  ·  sre  ·  infra         ║
+╚══════════════════════════════════╝`;
+const cmds={
+ help:`Доступные команды:\n  <span class="p">about</span>     кто я\n  <span class="p">projects</span>  что построил\n  <span class="p">stack</span>     с чем работаю\n  <span class="p">uptime</span>    немного статистики\n  <span class="p">contact</span>   как связаться\n  <span class="p">clear</span>     очистить экран`,
+ about:`nikitakustov123, DevOps / SRE, 11 лет в продакшене.\nДелаю так, чтобы ваши сервисы не падали, а если падали — то тихо и ненадолго.\nСейчас: ведущий SRE в финтехе, 400 микросервисов, 3 дата-центра.`,
+ projects:`<span class="bar">1</span> Миграция 400 сервисов в Kubernetes без даунтайма — 2025\n<span class="bar">2</span> Свой оператор Postgres: failover за 6 секунд — 2024\n<span class="bar">3</span> CI на 9 000 сборок в день, медиана 4 мин 10 с — 2023\n<span class="bar">4</span> Доклад «Инциденты без виноватых» на профильной конференции — 2022`,
+ stack:`[████████████████████] Kubernetes\n[██████████████████░░] Terraform\n[█████████████████░░░] Go\n[████████████████░░░░] Prometheus + Grafana\n[███████████████░░░░░] Ansible\n[██████████░░░░░░░░░░] Rust <span class="dim">(учу по вечерам)</span>`,
+ uptime:`Аптайм за 2026 год: 99,993%\nИнцидентов SEV-1: 2\nСреднее время восстановления: 11 минут\nВыпито кофе во время дежурств: не считается`,
+ contact:`Почта:    <a href="mailto:hello@example.com">hello@example.com</a>\nФормат:   консультации, аудит инфраструктуры, долгосрочный контракт\nОтвечаю:  в течение рабочего дня`
+};
+function line(html,cls){const d=document.createElement('div');if(cls)d.className=cls;d.innerHTML=html;out.insertBefore(d,prompt);out.scrollTop=out.scrollHeight;return d}
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+async function type(el,text,speed=14){if(red){el.innerHTML=text;return}let i=0;while(i<=text.length){if(text[i]==='<'){i=text.indexOf('>',i)+1;continue}el.innerHTML=text.slice(0,i);i++;out.scrollTop=out.scrollHeight;await new Promise(r=>setTimeout(r,speed))}}
+const prompt=document.createElement('div');
+prompt.innerHTML=`<div class="chips">${Object.keys(cmds).map(k=>`<button data-c="${k}">${k}</button>`).join('')}<button data-c="clear">clear</button></div><label class="row"><span class="p">root@nikita:~$</span><input id="in" autocomplete="off" spellcheck="false" aria-label="Введите команду"></label>`;
+out.appendChild(prompt);
+const inp=prompt.querySelector('#in');
+async function run(c){c=c.trim().toLowerCase();line(`<span class="p">root@nikita:~$</span> ${c}`);
+ if(c==='clear'){[...out.children].forEach(n=>n!==prompt&&n.remove());return}
+ const d=line('','');d.style.whiteSpace='pre-wrap';
+ await type(d,cmds[c]||`bash: ${c.replace(/</g,'&lt;')}: команда не найдена. Наберите <span class="p">help</span>`);line('&nbsp;')}
+inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.value){run(inp.value);inp.value=''}});
+prompt.querySelectorAll('button').forEach(b=>b.onclick=()=>{run(b.dataset.c);inp.focus()});
+(async()=>{
+ const b=line('','ascii');b.textContent=banner;
+ const boot=['[ OK ] Монтирую /home/nikita','[ OK ] Запускаю kubelet','[ OK ] Прогреваю кэш кофе','[ OK ] Портфолио загружено'];
+ for(const s of boot){const d=line('','dim');await type(d,s,8)}
+ line('&nbsp;');const d=line('');d.style.whiteSpace='pre-wrap';await type(d,'Добро пожаловать. Наберите <span class="p">help</span> или нажмите на команду ниже.');line('&nbsp;');
+ inp.focus({preventScroll:true});
+})();
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

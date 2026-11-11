@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — фуллстек из 2077</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0014;--cy:#00f0ff;--mg:#ff2a6d;--yl:#f5ff00;--tx:#d1f7ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'JetBrains Mono',monospace;font-size:15px;line-height:1.6;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px);z-index:50}
+.bggrid{position:fixed;inset:0;background-image:linear-gradient(rgba(0,240,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px}
+.top{display:flex;justify-content:space-between;padding:22px 0;font-size:13px;color:var(--cy)}
+.top i{color:var(--yl);font-style:normal}
+.hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center}
+.glitch{font-family:'Russo One';font-size:clamp(34px,8.6vw,132px);line-height:.9;position:relative;color:var(--tx);text-shadow:0 0 30px rgba(0,240,255,.4)}
+.glitch::before,.glitch::after{content:attr(data-t);position:absolute;inset:0}
+.glitch::before{color:var(--mg);clip-path:inset(0 0 60% 0);animation:g1 2.6s infinite steps(1)}
+.glitch::after{color:var(--cy);clip-path:inset(55% 0 0 0);animation:g2 3.1s infinite steps(1)}
+@keyframes g1{0%,92%{transform:none}93%{transform:translate(-6px,-2px)}96%{transform:translate(5px,1px)}}
+@keyframes g2{0%,88%{transform:none}89%{transform:translate(7px,2px)}94%{transform:translate(-4px,0)}}
+.sub{margin-top:24px;font-size:18px;max-width:640px}
+.sub b{color:var(--yl)}
+.cursor{display:inline-block;width:10px;height:1.1em;background:var(--cy);vertical-align:middle;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.btns{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.btn{font-family:'Russo One';font-size:18px;padding:16px 30px;text-decoration:none;color:var(--bg);background:var(--yl);clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));transition:background .2s}
+.btn.o{background:var(--cy)}
+.btn:hover{background:var(--mg);color:var(--tx)}
+h2{font-family:'Russo One';font-size:clamp(30px,5vw,60px);margin:14vh 0 30px;display:flex;align-items:center;gap:20px}
+h2::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--mg),transparent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{position:relative;padding:28px;background:linear-gradient(135deg,rgba(0,240,255,.08),rgba(255,42,109,.06));border:1px solid rgba(0,240,255,.3);clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--mg);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--mg)}
+.card .id{color:var(--mg);font-size:12px}
+.card h3{font-family:'Russo One';font-size:26px;margin:10px 0;color:var(--cy)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tags span{font-size:12px;border:1px solid var(--yl);color:var(--yl);padding:2px 8px}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.sk{padding:14px 0}
+.sk div{height:8px;background:rgba(255,255,255,.08);margin-top:8px;position:relative;overflow:hidden}
+.sk div i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--cy),var(--mg));box-shadow:0 0 14px var(--cy)}
+.term{margin:14vh 0 18vh;border:1px solid var(--cy);background:rgba(0,0,0,.5);padding:26px;font-size:16px}
+.term p{color:var(--cy)}
+.term a{color:var(--yl)}
+a:focus-visible{outline:2px solid var(--yl);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.glitch::before,.glitch::after,.cursor{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="bggrid" aria-hidden="true"></div>
+<main>
+<div class="top"><span>nikitakustov123 // НЕО-ПИТЕР</span><span>СТАТУС: <i>ОТКРЫТ ДЛЯ ЗАКАЗОВ</i></span></div>
+<section class="hero">
+  <h1 class="glitch" data-t="nikitakustov123">nikitakustov123</h1>
+  <p class="sub">Фуллстек-разработчик. Пишу на <b>Rust</b> и <b>TypeScript</b>, собираю реалтайм-системы, которые держат миллион соединений и не падают в пятницу вечером.<span class="cursor"></span></p>
+  <div class="btns"><a class="btn" href="#proj">Смотреть проекты</a><a class="btn o" href="#ping">Отправить пинг</a></div>
+</section>
+<h2 id="proj">Проекты</h2>
+<div class="cards">
+  <article class="card"><span class="id">#001 / 2026</span><h3>Synapse</h3><p>Брокер сообщений на Rust. 1,2 млн событий в секунду на одном узле, задержка p99 — 3 мс.</p><div class="tags"><span>Rust</span><span>Tokio</span><span>QUIC</span></div></article>
+  <article class="card"><span class="id">#002 / 2025</span><h3>Ghostline</h3><p>Совместный редактор кода с CRDT. Работает офлайн и сливает правки без конфликтов.</p><div class="tags"><span>TypeScript</span><span>Yjs</span><span>WebRTC</span></div></article>
+  <article class="card"><span class="id">#003 / 2024</span><h3>Neon Ledger</h3><p>Платёжный шлюз для инди-игр. Принимает 40 валют, выплачивает разработчикам каждый час.</p><div class="tags"><span>Go</span><span>Postgres</span><span>Kafka</span></div></article>
+</div>
+<h2>Стек</h2>
+<div class="stack">
+  <div class="sk">Rust<div><i style="width:94%"></i></div></div>
+  <div class="sk">TypeScript<div><i style="width:90%"></i></div></div>
+  <div class="sk">Go<div><i style="width:76%"></i></div></div>
+  <div class="sk">Kubernetes<div><i style="width:70%"></i></div></div>
+</div>
+<div class="term" id="ping">
+  <p>nikita@neo-piter:~$ ./contact --mode=human</p><br>
+  Почта: <a href="mailto:hello@example.com">hello@example.com</a><br>
+  Ответ: обычно в течение 12 часов<br>
+  Формат: контракт, консалтинг, архитектурный аудит<span class="cursor"></span>
+</div>
+</main>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

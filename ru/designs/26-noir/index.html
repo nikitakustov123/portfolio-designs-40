@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — режиссёр</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--silver:#cfcfcf;--white:#f5f5f0;--dim:#6b6b6b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--silver);font-family:'PT Mono',monospace;font-size:15px;line-height:1.7}
+canvas#grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40;opacity:.13;mix-blend-mode:screen}
+.vign{position:fixed;inset:0;pointer-events:none;z-index:39;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.85) 100%)}
+.screen{height:100vh;min-height:600px;display:grid;place-items:center;position:relative;overflow:hidden}
+.bars{position:absolute;left:0;right:0;height:12vh;background:#000;z-index:3}
+.bars.t{top:0}.bars.b{bottom:0}
+.light{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 50% 40%,rgba(245,245,240,.16),transparent 70%);animation:flick 4s infinite}
+@keyframes flick{0%,100%{opacity:1}42%{opacity:.85}44%{opacity:1}71%{opacity:.9}}
+.blinds{position:absolute;inset:0;background:repeating-linear-gradient(-28deg,transparent 0 46px,rgba(245,245,240,.07) 46px 74px);mask:linear-gradient(90deg,transparent 30%,#000 60%);-webkit-mask:linear-gradient(90deg,transparent 30%,#000 60%)}
+.credits{position:relative;z-index:2;text-align:center}
+.credits small{letter-spacing:.4em;color:var(--dim);display:block;margin-bottom:24px}
+.credits h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(70px,13vw,210px);line-height:.85;color:var(--white);letter-spacing:-.02em}
+.credits p{font-family:'Playfair Display';font-style:italic;font-size:clamp(18px,2vw,26px);margin-top:20px}
+.type{min-height:1.7em;margin-top:30px;color:var(--white)}
+.reel{padding:14vh 6vw}
+.reel h2,.bio h2{font-family:'Playfair Display';font-weight:400;font-style:italic;font-size:clamp(36px,5vw,70px);color:var(--white);margin-bottom:8vh}
+.film{display:grid;grid-template-columns:1fr 1.4fr;gap:5vw;align-items:center;margin-bottom:14vh}
+.film:nth-child(odd){grid-template-columns:1.4fr 1fr}
+.film:nth-child(odd) .frame{order:2}
+.frame{aspect-ratio:2.39/1;position:relative;overflow:hidden;filter:grayscale(1) contrast(1.3);border:1px solid #222}
+.frame>div{position:absolute;inset:0;transition:transform 4s ease}
+.film:hover .frame>div{transform:scale(1.08)}
+.f1{background:radial-gradient(ellipse 8% 40% at 62% 60%,#000 0 70%,transparent 72%),radial-gradient(ellipse 30% 90% at 62% 0%,rgba(255,255,255,.7),transparent 70%),linear-gradient(#333,#0a0a0a)}
+.f2{background:repeating-linear-gradient(90deg,#0a0a0a 0 3%,#3a3a3a 3% 3.6%),linear-gradient(transparent 60%,#555 60% 62%,#111 62%)}
+.f3{background:radial-gradient(circle at 30% 50%,#ddd 0 3%,transparent 3.5%),radial-gradient(circle at 70% 46%,#999 0 2%,transparent 2.5%),linear-gradient(180deg,#000 0 40%,#1f1f1f 40% 100%)}
+.film h3{font-family:'Playfair Display';font-weight:900;font-size:clamp(30px,3.6vw,52px);color:var(--white);line-height:1}
+.film .y{color:var(--dim)}
+.film p{margin-top:16px;max-width:420px}
+.film .aw{margin-top:16px;color:var(--white);border-left:1px solid var(--white);padding-left:12px}
+.bio{padding:10vh 6vw;display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.bio p{font-family:'Playfair Display';font-size:22px;line-height:1.55}
+.end{height:80vh;display:grid;place-items:center;text-align:center}
+.end h2{font-family:'Playfair Display';font-weight:900;font-size:clamp(70px,14vw,200px);color:var(--white);line-height:1}
+.end a{color:var(--silver);border-bottom:1px solid var(--silver);text-decoration:none;font-size:18px}
+.end a:hover{color:var(--white)}
+a:focus-visible{outline:1px solid var(--white);outline-offset:6px}
+@media(max-width:860px){.film,.film:nth-child(odd),.bio{grid-template-columns:1fr}.film:nth-child(odd) .frame{order:0}}
+@media(prefers-reduced-motion:reduce){.light{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<canvas id="grain" aria-hidden="true"></canvas><div class="vign" aria-hidden="true"></div>
+<section class="screen">
+  <div class="bars t"></div><div class="bars b"></div><div class="light"></div><div class="blinds"></div>
+  <div class="credits"><small>Портфолио режиссёра</small><h1>nikita<br>kustov123</h1><p>игровое кино, реклама, клипы</p><div class="type" id="type" aria-live="polite"></div></div>
+</section>
+<section class="reel">
+  <h2>Фильмография</h2>
+  <div class="film"><div class="frame"><div class="f1"></div></div><div><span class="y">2026, 104 мин</span><h3>«Последний трамвай»</h3><p>Нуар о водителе ночного маршрута, который однажды не довёз пассажира до конечной.</p><div class="aw">Гран-при национального кинофестиваля</div></div></div>
+  <div class="film"><div class="frame"><div class="f2"></div></div><div><span class="y">2024, 18 мин</span><h3>«Решётка»</h3><p>Короткий метр, снятый одним кадром в коридоре бывшего НИИ.</p><div class="aw">Официальная программа фестиваля короткого метра</div></div></div>
+  <div class="film"><div class="frame"><div class="f3"></div></div><div><span class="y">2023, 3 мин</span><h3>«Дым» — клип</h3><p>Чёрно-белый клип для группы «Окраина», снят на плёнку Kodak Double-X.</p><div class="aw">Финалист фестиваля музыкальных клипов</div></div></div>
+</section>
+<section class="bio"><h2>О режиссёре</h2><p>Выпускник киношколы, режиссёрский факультет. Снимаю истории о людях, которые остались одни посреди большого города. Предпочитаю плёнку, длинные планы и тишину вместо музыки.</p></section>
+<section class="end"><div><h2>Конец?</h2><a href="mailto:hello@example.com">Продюсерам и агентствам: написать мне</a></div></section>
+<script>
+const g=document.getElementById('grain'),gx=g.getContext('2d');g.width=320;g.height=200;
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function grain(){const im=gx.createImageData(320,200);for(let i=0;i<im.data.length;i+=4){const v=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255}gx.putImageData(im,0,0);if(!red)setTimeout(()=>requestAnimationFrame(grain),60)}grain();
+const lines=['Режиссёр-постановщик: nikitakustov123','Оператор: свет из окна напротив','В ролях: город, ночь и тишина'];let li=0;
+const el=document.getElementById('type');
+async function typeLoop(){while(true){const s=lines[li++%lines.length];for(let i=0;i<=s.length;i++){el.textContent=s.slice(0,i)+'▌';await new Promise(r=>setTimeout(r,red?0:55))}await new Promise(r=>setTimeout(r,1800));if(red)return}}
+typeLoop();
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

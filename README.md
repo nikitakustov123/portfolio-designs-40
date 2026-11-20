@@ -8,6 +8,8 @@ Forty standalone portfolio website designs. Each has its own profession, palette
 
 Live gallery: https://nikitakustov123.github.io/portfolio-designs-40/
 
+Russian version (Русская версия): https://nikitakustov123.github.io/portfolio-designs-40/ru/
+
 ## Viewing
 
 - **GitHub Pages:** the gallery is published from the `main` branch at the link above.

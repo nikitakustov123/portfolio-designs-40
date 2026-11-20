@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nikitakustov123 — продуктовый инженер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16171b;--tile:#212329;--line:#2e3138;--txt:#eceef2;--mut:#8b919c;--lime:#c6f432;--sky:#7cc4ff;--peach:#ffb38a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Golos Text',sans-serif;font-size:16px;line-height:1.55;padding:4vh 3vw 10vh}
+.grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:14px;grid-auto-flow:dense}
+.t{background:var(--tile);border:1px solid var(--line);padding:22px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.t:hover{transform:scale(1.015);border-color:#454a54}
+.k{color:var(--mut);font-size:13px}
+.me{grid-column:span 3;grid-row:span 3;border-radius:36px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 85% 15%,rgba(198,244,50,.18),transparent 45%),var(--tile)}
+.me h1{font-weight:900;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.04em}
+.me p{color:var(--mut);max-width:400px;margin-top:14px}
+.ava{width:76px;height:76px;border-radius:50%;background:conic-gradient(var(--lime),var(--sky),var(--peach),var(--lime));display:grid;place-items:center;font-weight:900;font-size:28px;color:var(--bg)}
+.clock{grid-column:span 1;grid-row:span 1;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between}
+.clock b{font-weight:700;font-size:34px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.status{grid-column:span 2;border-radius:24px;display:flex;align-items:center;gap:14px}
+.status i{width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(198,244,50,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 14px rgba(198,244,50,0)}100%{box-shadow:0 0 0 0 rgba(198,244,50,0)}}
+.status b{font-weight:500}
+.heat{grid-column:span 3;grid-row:span 1;border-radius:24px}
+.cells{display:grid;grid-template-columns:repeat(32,1fr);grid-template-rows:repeat(5,1fr);gap:3px;margin-top:12px;height:66px}
+.cells span{border-radius:2px;background:#2b2e35}
+.proj{grid-column:span 2;grid-row:span 2;border-radius:28px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer}
+.proj .art{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.proj:hover .art{transform:scale(1.08) rotate(2deg)}
+.proj h3{font-weight:700;font-size:24px;position:relative;letter-spacing:-.02em}
+.proj p{position:relative;color:var(--txt);opacity:.8;font-size:14px}
+.a1{background:radial-gradient(circle at 70% 30%,var(--lime),transparent 45%),linear-gradient(160deg,#2a3a12,#16171b 70%)}
+.a2{background:radial-gradient(circle at 30% 30%,var(--sky),transparent 45%),linear-gradient(200deg,#12283a,#16171b 70%)}
+.a3{background:radial-gradient(circle at 60% 40%,var(--peach),transparent 45%),linear-gradient(140deg,#3a2012,#16171b 70%)}
+.music{grid-column:span 2;border-radius:24px;display:flex;align-items:center;gap:16px}
+.cover{width:84px;height:84px;border-radius:14px;flex:none;background:conic-gradient(from 45deg,var(--peach),#ff5d8f,var(--sky),var(--peach));animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.music .eq{display:flex;gap:3px;align-items:flex-end;height:22px;margin-top:6px}
+.music .eq i{width:4px;background:var(--lime);border-radius:2px;animation:eq 1s ease-in-out infinite alternate}
+@keyframes eq{from{height:20%}to{height:100%}}
+.stack{grid-column:span 2;border-radius:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{background:#2b2e35;border-radius:999px;padding:4px 12px;font-size:14px}
+.mail{grid-column:span 2;border-radius:24px;background:var(--lime);color:var(--bg);text-decoration:none;display:flex;flex-direction:column;justify-content:space-between}
+.mail b{font-weight:900;font-size:30px;letter-spacing:-.03em;line-height:1}
+.mail .k{color:#3a4a0a}
+.mail:hover{background:#d8ff5c}
+.num{grid-column:span 1;border-radius:24px;display:flex;flex-direction:column;justify-content:space-between}
+.num b{font-weight:900;font-size:40px;letter-spacing:-.04em;line-height:1}
+.map{grid-column:span 2;border-radius:24px;background:repeating-linear-gradient(0deg,transparent 0 22px,#2a2d34 22px 23px),repeating-linear-gradient(90deg,transparent 0 22px,#2a2d34 22px 23px),var(--tile)}
+.map .pin{position:absolute;left:58%;top:46%;width:18px;height:18px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 8px rgba(124,196,255,.25),0 0 0 18px rgba(124,196,255,.1)}
+.map .rv{position:absolute;left:-10%;top:30%;width:120%;height:40px;border-top:6px solid #2f4a63;border-radius:50%;transform:rotate(-8deg)}
+a:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}.me,.heat{grid-column:span 2}.me{grid-row:span 3}.clock,.num{grid-column:span 1}.status,.proj,.music,.stack,.mail,.map{grid-column:span 2}.cells{grid-template-columns:repeat(20,1fr)}}
+@media(prefers-reduced-motion:reduce){.cover,.music .eq i,.status i{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main class="grid">
+  <section class="t me"><div class="ava" aria-hidden="true">N</div><div><h1>nikitakustov123<br>продуктовый инженер</h1><p>Беру фичу от идеи до продакшена: дизайн, фронтенд, бэкенд и метрики после релиза. Девять лет, четыре стартапа, один экзит.</p></div></section>
+  <div class="t clock"><span class="k">Новосибирск</span><b id="clk">--:--</b></div>
+  <div class="t num"><span class="k">Коммитов в 2026</span><b>2 418</b></div>
+  <div class="t status"><i aria-hidden="true"></i><div><b>Открыт к новым проектам</b><br><span class="k">с декабря, 3 дня в неделю</span></div></div>
+  <article class="t proj"><div class="art a1"></div><h3>Плюс Чек</h3><p>Сканер чеков с кешбэком. 900 тыс. пользователей</p></article>
+  <article class="t proj"><div class="art a2"></div><h3>Rentflow</h3><p>CRM для арендодателей. Куплена маркетплейсом в 2025</p></article>
+  <div class="t music"><div class="cover" aria-hidden="true"></div><div><span class="k">Сейчас играет</span><br><b>Кино — «Звезда»</b><div class="eq" aria-hidden="true"><i></i><i style="animation-delay:.2s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.3s"></i></div></div></div>
+  <section class="t heat"><span class="k">Активность за полгода</span><div class="cells" id="cells" aria-hidden="true"></div></section>
+  <div class="t stack"><span class="k">Стек</span><div class="chips"><span>TypeScript</span><span>React</span><span>Node</span><span>Postgres</span><span>Swift</span><span>Figma</span></div></div>
+  <article class="t proj"><div class="art a3"></div><h3>Тёплый пол</h3><p>Приложение для умного отопления. 4,8★ в App Store</p></article>
+  <div class="t map"><div class="rv"></div><div class="pin"></div><span class="k" style="position:relative">Академгородок</span></div>
+  <a class="t mail" href="mailto:hello@example.com"><span class="k">Ответ за 24 часа</span><b>Написать мне</b></a>
+</main>
+<script>
+const clk=document.getElementById('clk');function tick(){clk.textContent=new Date().toLocaleTimeString('ru-RU',{timeZone:'Asia/Novosibirsk',hour:'2-digit',minute:'2-digit'})}tick();setInterval(tick,10000);
+const cells=document.getElementById('cells');const L=['#2b2e35','#3d5216','#6b8f1e','#9bc527','#c6f432'];let s=7;
+for(let i=0;i<160;i++){s=(s*9301+49297)%233280;const v=Math.floor(Math.pow(s/233280,1.6)*5);const e=document.createElement('span');e.style.background=L[v];cells.appendChild(e)}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

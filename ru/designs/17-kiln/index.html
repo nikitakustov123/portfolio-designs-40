@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Глина и огонь — керамист nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--stone:#d8d2c4;--kiln:#2b2522;--glaze:#3f6e8c;--celadon:#9fb8a8;--ash:#8d857a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--stone);color:var(--kiln);font-family:Manrope,sans-serif;font-size:17px;line-height:1.65}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .14 0 0 0 0 .13 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 6vw;gap:4vw}
+.hero h1{font-family:Forum,serif;font-weight:400;font-size:clamp(56px,8vw,128px);line-height:.95}
+.hero p{max-width:440px;margin-top:26px;color:#4a423c}
+.wheel{position:relative;display:grid;place-items:center;height:80vh}
+.vessel{width:min(380px,70%);filter:drop-shadow(0 40px 30px rgba(43,37,34,.3));position:relative;z-index:2}
+.vessel path{transition:d .9s cubic-bezier(.5,0,.2,1)}
+.disc{position:absolute;bottom:12%;width:min(460px,86%);height:60px;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,#6d645a,#2b2522);box-shadow:0 18px 30px rgba(0,0,0,.25)}
+.disc::after{content:'';position:absolute;inset:8px 20%;border-radius:50%;border:1px solid rgba(255,255,255,.18);animation:sp 1.4s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.forms{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.forms button{font:600 14px Manrope;background:transparent;border:1.5px solid var(--kiln);color:var(--kiln);padding:9px 18px;border-radius:999px 999px 999px 4px;cursor:pointer}
+.forms button[aria-pressed=true],.forms button:hover{background:var(--kiln);color:var(--stone)}
+section{padding:14vh 6vw}
+h2{font-family:Forum;font-weight:400;font-size:clamp(36px,5vw,68px);line-height:1;margin-bottom:7vh}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:3vw;align-items:end;border-bottom:14px solid #a39887;padding-bottom:0;position:relative}
+.shelf::after{content:'';position:absolute;left:0;right:0;bottom:-28px;height:14px;background:rgba(43,37,34,.15);filter:blur(8px)}
+.pot{text-align:center}
+.pot svg{width:100%;max-height:260px;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.pot:hover svg{transform:translateY(-10px) rotate(-3deg)}
+.lab{display:grid;grid-template-columns:repeat(4,1fr);gap:3vw;margin-top:44px}
+.lab b{font-family:Forum;font-weight:400;font-size:24px;display:block}
+.lab small{color:var(--ash)}
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:2vw}
+.step{border-top:2px solid var(--kiln);padding-top:16px}
+.step b{font-family:Forum;font-size:46px;font-weight:400;display:block;line-height:1;color:var(--glaze)}
+footer{background:var(--kiln);color:var(--stone);padding:14vh 6vw;display:grid;grid-template-columns:1.4fr 1fr;gap:4vw;align-items:end}
+footer h2{margin:0}
+footer a{display:inline-block;background:var(--celadon);color:var(--kiln);padding:16px 32px;border-radius:999px 999px 999px 6px;text-decoration:none;font-weight:600}
+footer a:hover{background:var(--stone)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--glaze);outline-offset:4px}
+@media(max-width:860px){.hero,footer{grid-template-columns:1fr}.wheel{height:60vh}.shelf,.lab{grid-template-columns:1fr 1fr}.proc{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.disc::after{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div><h1>Глина помнит руки</h1><p>nikitakustov123 — керамист из Суздаля. Делаю посуду для ресторанов и предметы для дома: тяжёлые, тёплые, с глазурью, которая каждый раз ложится по-своему.</p>
+  <div class="forms" role="group" aria-label="Форма сосуда на круге"><button aria-pressed="true" data-f="0">Ваза</button><button aria-pressed="false" data-f="1">Чаша</button><button aria-pressed="false" data-f="2">Кувшин</button><button aria-pressed="false" data-f="3">Тарелка</button></div></div>
+  <div class="wheel">
+    <svg class="vessel" viewBox="0 0 300 340" aria-label="Сосуд на гончарном круге"><defs><linearGradient id="gz" x1="0" x2="1"><stop offset="0" stop-color="#2c5068"/><stop offset=".45" stop-color="#5d8fae"/><stop offset=".55" stop-color="#3f6e8c"/><stop offset="1" stop-color="#1f3a4c"/></linearGradient><linearGradient id="drip" x1="0" y1="0" x2="0" y2="1"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset=".62" stop-color="#b48a6a"/><stop offset="1" stop-color="#8c6648"/></linearGradient></defs>
+      <path id="v" fill="url(#gz)" d="M120 20 L180 20 C 182 60 160 80 175 120 C 210 190 230 250 200 310 C 190 330 110 330 100 310 C 70 250 90 190 125 120 C 140 80 118 60 120 20Z"/>
+      <path id="v2" fill="url(#drip)" d="M120 20 L180 20 C 182 60 160 80 175 120 C 210 190 230 250 200 310 C 190 330 110 330 100 310 C 70 250 90 190 125 120 C 140 80 118 60 120 20Z"/>
+    </svg>
+    <div class="disc" aria-hidden="true"></div>
+  </div>
+</section>
+<section>
+  <h2>С полки мастерской</h2>
+  <div class="shelf">
+    <div class="pot"><svg viewBox="0 0 120 160"><path fill="#9fb8a8" d="M35 20 H85 C 90 60 110 80 105 120 C 100 150 20 150 15 120 C 10 80 30 60 35 20Z"/><path fill="#7d9686" d="M35 20 H85 v6 H35z"/></svg></div>
+    <div class="pot"><svg viewBox="0 0 120 160"><path fill="#2b2522" d="M10 90 H110 C 105 140 75 150 60 150 C 45 150 15 140 10 90Z"/><path fill="#c9a37c" d="M10 90 H110 C 109 98 107 104 104 108 C 80 100 40 112 16 106 C 13 101 11 96 10 90Z"/></svg></div>
+    <div class="pot"><svg viewBox="0 0 120 160"><path fill="#3f6e8c" d="M45 10 H75 L72 40 C 100 60 110 110 95 140 C 85 152 35 152 25 140 C 10 110 20 60 48 40Z"/><path fill="none" stroke="#3f6e8c" stroke-width="8" d="M95 60 C 120 70 118 110 98 115"/></svg></div>
+    <div class="pot"><svg viewBox="0 0 120 160"><ellipse cx="60" cy="140" rx="56" ry="12" fill="#d9c7ae"/><ellipse cx="60" cy="136" rx="40" ry="7" fill="#b39d80"/></svg></div>
+  </div>
+  <div class="lab"><div><b>Ваза «Мох»</b><small>Селадон, 32 см</small></div><div><b>Чаша «Пепел»</b><small>Тэммоку и шамот</small></div><div><b>Кувшин «Клязьма»</b><small>Кобальтовая глазурь</small></div><div><b>Тарелки для ресторана «Печь»</b><small>Сет на 120 гостей</small></div></div>
+</section>
+<section>
+  <h2>Как рождается предмет</h2>
+  <div class="proc"><div class="step"><b>1</b>Замес и центровка глины на круге</div><div class="step"><b>2</b>Формовка и сушка три недели</div><div class="step"><b>3</b>Утильный обжиг при 900 °C</div><div class="step"><b>4</b>Глазурь и финальный обжиг при 1 280 °C</div></div>
+</section>
+<footer><h2>Посуда для вашего ресторана или дома</h2><div><p style="margin-bottom:22px">Серии от 20 предметов делаю за 8–10 недель. Мастер-классы по субботам.</p><a href="mailto:hello@example.com">Заказать посуду</a></div></footer>
+<script>
+const F=["M120 20 L180 20 C 182 60 160 80 175 120 C 210 190 230 250 200 310 C 190 330 110 330 100 310 C 70 250 90 190 125 120 C 140 80 118 60 120 20Z",
+"M40 150 L260 150 C 262 170 250 230 220 280 C 200 320 100 320 80 280 C 50 230 38 170 40 150 C 40 150 40 150 40 150 C 40 150 40 150 40 150Z",
+"M125 40 L170 40 C 170 70 165 90 190 120 C 230 170 230 260 200 310 C 190 330 110 330 100 310 C 70 260 70 170 110 120 C 135 90 125 70 125 40Z",
+"M20 270 L280 270 C 280 280 270 300 250 310 C 220 322 80 322 50 310 C 30 300 20 280 20 270 C 20 270 20 270 20 270 C 20 270 20 270 20 270Z"];
+const v=document.getElementById('v'),v2=document.getElementById('v2');
+document.querySelectorAll('.forms button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.forms button').forEach(o=>o.setAttribute('aria-pressed',o===b));v.setAttribute('d',F[b.dataset.f]);v2.setAttribute('d',F[b.dataset.f]);v.style.d=v2.style.d=`path("${F[b.dataset.f]}")`});
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

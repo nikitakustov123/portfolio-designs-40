@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Изолиния — картограф nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,600;1,300&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#ebe7dc;--contour:#8a5a3b;--water:#4f7ea8;--forest:#6c8a5a;--ink:#2b2420}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Spectral,serif;font-weight:300;font-size:18px;line-height:1.7}
+.hero{height:100vh;min-height:620px;position:relative;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.legend{position:absolute;left:5vw;top:50%;transform:translateY(-50%);background:var(--paper);border:1.5px solid var(--ink);padding:34px 36px;max-width:500px;box-shadow:8px 8px 0 rgba(43,36,32,.12)}
+.legend small{font-family:'PT Sans Narrow';font-size:14px;color:var(--contour);letter-spacing:.04em}
+.legend h1{font-weight:600;font-size:clamp(34px,3.6vw,54px);line-height:1;margin:6px 0 16px;letter-spacing:-.01em}
+.legend p{font-size:17px}
+.legend .key{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin-top:20px;font-family:'PT Sans Narrow';font-size:14px;align-items:center}
+.legend .key i{width:30px;height:2px;background:var(--contour)}
+.legend .key i.b{height:3px}
+.legend .key i.w{background:var(--water);height:8px}
+.compass{position:absolute;right:5vw;bottom:6vh;width:110px}
+.coords{position:absolute;right:5vw;top:4vh;font-family:'PT Sans Narrow';font-size:14px;text-align:right}
+section{padding:14vh 5vw}
+h2{font-weight:600;font-size:clamp(34px,4.6vw,64px);line-height:1.05;margin-bottom:7vh}
+.maps{display:grid;grid-template-columns:repeat(3,1fr);gap:3vw}
+.mp{border:1.5px solid var(--ink);background:#f3f0e8;transition:transform .5s}
+.mp:hover{transform:rotate(-1deg) translateY(-6px)}
+.mp canvas{position:static;display:block;width:100%;aspect-ratio:1;border-bottom:1.5px solid var(--ink)}
+.mp div{padding:16px 18px}
+.mp b{font-weight:600;font-size:21px;display:block}
+.mp small{font-family:'PT Sans Narrow';color:var(--contour);font-size:15px}
+.scale{display:flex;align-items:end;gap:30px;flex-wrap:wrap}
+.bar{display:flex;font-family:'PT Sans Narrow';font-size:13px}
+.bar span{width:70px;height:10px;border:1.5px solid var(--ink);border-right:0}
+.bar span:nth-child(odd){background:var(--ink)}
+.bar span:last-child{border-right:1.5px solid var(--ink)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+footer{padding:12vh 5vw 20vh;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:30px}
+footer a{font-weight:600;font-size:clamp(34px,5vw,72px);color:var(--ink);text-decoration:none;font-style:italic}
+footer a:hover{color:var(--water)}
+a:focus-visible{outline:2px solid var(--water);outline-offset:4px}
+@media(max-width:860px){.maps,.about{grid-template-columns:1fr}.legend{left:5vw;right:5vw}.compass,.coords{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" style="padding:0">
+  <canvas id="topo" aria-hidden="true"></canvas>
+  <div class="coords">55°45′ с. ш. 37°37′ в. д.<br>Масштаб 1 : 25 000</div>
+  <div class="legend">
+    <small>Лист N-37-4 · Картография и инфографика</small>
+    <h1>nikitakustov123</h1>
+    <p>Рисую карты для путеводителей, музеев и туристических троп. Рельеф, который можно прочитать пальцем.</p>
+    <div class="key"><i></i>горизонталь через 10 м<i class="b"></i>утолщённая через 50 м<i class="w"></i>водоёмы и реки</div>
+  </div>
+  <svg class="compass" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L50 92 L42 50Z" fill="none" stroke="#2b2420"/><path d="M50 8 L58 50 L42 50Z" fill="#8a5a3b"/><text x="46" y="6" font-size="10" font-family="PT Sans Narrow">С</text></svg>
+</section>
+<section>
+  <h2>Изданные карты</h2>
+  <div class="maps">
+    <figure class="mp"><canvas data-s="3"></canvas><div><b>Хибины</b><small>Туристическая карта, 1 : 50 000</small></div></figure>
+    <figure class="mp"><canvas data-s="11"></canvas><div><b>Алтай, Катунский хребет</b><small>Для географического общества</small></div></figure>
+    <figure class="mp"><canvas data-s="27"></canvas><div><b>Остров Кижи</b><small>Музейная экспозиция, 1 : 10 000</small></div></figure>
+  </div>
+</section>
+<section class="about">
+  <h2>Карта — это история, рассказанная рельефом</h2>
+  <div><p>Работаю с данными ArcticDEM и полевыми GPS-треками, а потом вручную чищу каждую горизонталь. Ни одна моя карта не уходит в печать, пока я сам не прошёл по её главной тропе.</p><br><div class="scale"><div class="bar"><span></span><span></span><span></span><span></span></div><span style="font-family:'PT Sans Narrow';font-size:13px">0 — 2 км</span></div></div>
+</section>
+<footer><span style="font-family:'PT Sans Narrow'">Тропы, музеи, издательства, туроператоры</span><a href="mailto:hello@example.com">Заказать карту</a></footer>
+<script>
+function hash(i,j,s){const n=Math.sin(i*127.1+j*311.7+s*74.7)*43758.5453;return n-Math.floor(n)}
+function vnoise(x,y,s){const i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);const a=hash(i,j,s),b=hash(i+1,j,s),c=hash(i,j+1,s),d=hash(i+1,j+1,s);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v}
+function fbm(x,y,s){let t=0,a=.5,f=1;for(let k=0;k<4;k++){t+=a*vnoise(x*f,y*f,s);a*=.5;f*=2}return t}
+function topo(cv,seed,t,levels){
+  const d=Math.min(2,devicePixelRatio||1),W=cv.width=cv.clientWidth*d,H=cv.height=cv.clientHeight*d,x=cv.getContext('2d');
+  const res=Math.max(6,Math.round(W/150)),cols=Math.ceil(W/res)+1,rows=Math.ceil(H/res)+1,sc=3/Math.max(cols,rows)*(levels>20?1.6:1.2);
+  const F=new Float32Array(cols*rows);for(let j=0;j<rows;j++)for(let i=0;i<cols;i++)F[j*cols+i]=fbm(i*sc+t,j*sc-t*.6,seed);
+  x.fillStyle='#ebe7dc';x.fillRect(0,0,W,H);
+  for(let L=1;L<levels;L++){const th=L/levels*.9+.05;const water=th<.28;x.strokeStyle=water?'#4f7ea8':'#8a5a3b';x.lineWidth=(L%5===0?2:1)*d*(water?1.2:1);x.globalAlpha=water?.7:.75;x.beginPath();
+    for(let j=0;j<rows-1;j++)for(let i=0;i<cols-1;i++){const a=F[j*cols+i],b=F[j*cols+i+1],c=F[(j+1)*cols+i+1],e=F[(j+1)*cols+i];
+      const k=(a>th?8:0)|(b>th?4:0)|(c>th?2:0)|(e>th?1:0);if(k===0||k===15)continue;
+      const X=i*res,Y=j*res,lp=(p,q)=>(th-p)/(q-p);
+      const T=[X+lp(a,b)*res,Y],R=[X+res,Y+lp(b,c)*res],B=[X+lp(e,c)*res,Y+res],Lf=[X,Y+lp(a,e)*res];
+      const seg={1:[Lf,B],2:[B,R],3:[Lf,R],4:[T,R],5:[Lf,T,B,R],6:[T,B],7:[Lf,T],8:[Lf,T],9:[T,B],10:[T,R,Lf,B],11:[T,R],12:[Lf,R],13:[B,R],14:[Lf,B]}[k];
+      for(let s=0;s<seg.length;s+=2){x.moveTo(seg[s][0],seg[s][1]);x.lineTo(seg[s+1][0],seg[s+1][1])}}
+    x.stroke()}x.globalAlpha=1}
+const hero=document.getElementById('topo');let t=0;const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function loop(){topo(hero,5,t,26);t+=.0025;if(!red)setTimeout(()=>requestAnimationFrame(loop),50)}loop();
+addEventListener('resize',()=>document.querySelectorAll('.mp canvas').forEach(c=>topo(c,+c.dataset.s,0,22)));
+document.querySelectorAll('.mp canvas').forEach(c=>topo(c,+c.dataset.s,0,22));
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

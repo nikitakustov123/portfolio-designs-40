@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сигма — nikitakustov123, data science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d1b2a;--panel:#13263a;--grid:#1f3a55;--coral:#ff6f61;--teal:#2ec4b6;--sand:#ffe8d6;--muted:#7f9bb5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--sand);font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.6}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1.2fr;gap:4vw;align-items:center;padding:6vh 5vw}
+.hero h1{font-weight:300;font-size:clamp(44px,6vw,96px);line-height:1;letter-spacing:-.03em}
+.hero h1 b{font-weight:700;display:block}
+.hero p{margin-top:24px;max-width:460px;color:var(--muted)}
+.eq{font-family:'IBM Plex Mono';color:var(--teal);margin-top:30px;font-size:15px}
+.chart{background:var(--panel);border:1px solid var(--grid);border-radius:6px;padding:20px;position:relative}
+.chart svg{width:100%;display:block}
+.chart .legend{display:flex;gap:20px;font-size:13px;color:var(--muted);margin-top:10px}
+.chart .legend i{display:inline-block;width:12px;height:3px;vertical-align:middle;margin-right:6px}
+.tip{position:absolute;pointer-events:none;background:var(--sand);color:var(--navy);font:500 12px 'IBM Plex Mono';padding:4px 8px;border-radius:3px;opacity:0;transition:opacity .15s;transform:translate(-50%,-140%)}
+section{padding:12vh 5vw}
+h2{font-weight:500;font-size:clamp(28px,3.6vw,48px);letter-spacing:-.02em;margin-bottom:6vh}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--grid);border:1px solid var(--grid)}
+.case{background:var(--navy);padding:28px;display:flex;flex-direction:column;gap:14px}
+.case .k{font-weight:700;font-size:56px;line-height:1;letter-spacing:-.03em}
+.case .k.c{color:var(--coral)}.case .k.t{color:var(--teal)}
+.case h3{font-weight:500;font-size:20px}
+.case p{color:var(--muted);font-size:15px}
+.spark{height:44px;width:100%}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 6vw}
+.sk{display:grid;grid-template-columns:160px 1fr 48px;align-items:center;gap:16px;font-size:15px}
+.sk .b{height:10px;background:var(--panel);border-radius:5px;overflow:hidden}
+.sk .b i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--coral));width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.sk span{font-family:'IBM Plex Mono';color:var(--muted);font-size:13px;text-align:right}
+footer{padding:12vh 5vw 18vh;border-top:1px solid var(--grid);display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+footer a{font-weight:700;font-size:clamp(30px,5vw,68px);color:var(--sand);text-decoration:none;letter-spacing:-.03em}
+footer a:hover{color:var(--coral)}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+@media(max-width:860px){.hero,.cases,.skills{grid-template-columns:1fr}.sk{grid-template-columns:120px 1fr 40px}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div><h1>nikitakustov123<b>нахожу сигнал в шуме</b></h1><p>Data scientist. Строю модели прогнозирования спроса, рекомендательные системы и объясняю бизнесу, почему график пошёл вниз, — до того, как он пошёл.</p><div class="eq">ŷ = β₀ + Σ βᵢxᵢ + ε, &nbsp; R² = 0.94</div></div>
+  <figure class="chart"><svg id="ch" viewBox="0 0 600 360" aria-label="Интерактивный график: факт и прогноз спроса"></svg><div class="legend"><span><i style="background:var(--teal)"></i>Факт</span><span><i style="background:var(--coral)"></i>Прогноз модели</span><span><i style="background:rgba(255,111,97,.25);height:10px"></i>95% интервал</span></div><div class="tip" id="tip"></div></figure>
+</section>
+<section>
+  <h2>Модели в продакшене</h2>
+  <div class="cases">
+    <article class="case"><div class="k t">−23%</div><h3>Списания в продуктовой сети</h3><p>Прогноз спроса на скоропортящиеся товары по 1 600 магазинам. Градиентный бустинг и погода.</p><svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline fill="none" stroke="#2ec4b6" stroke-width="2" points="0,10 25,14 50,12 75,20 100,22 125,28 150,30 175,34 200,36"/></svg></article>
+    <article class="case"><div class="k c">+18%</div><h3>Конверсия в рекомендациях</h3><p>Двухбашенная нейросеть для маркетплейса с 40 млн товаров. A/B-тест на 2 млн пользователей.</p><svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline fill="none" stroke="#ff6f61" stroke-width="2" points="0,36 25,34 50,35 75,28 100,26 125,20 150,16 175,12 200,8"/></svg></article>
+    <article class="case"><div class="k t">4 мин</div><h3>Поиск фрода в банке</h3><p>Графовая модель находит схемы обналичивания за минуты вместо дней ручного расследования.</p><svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline fill="none" stroke="#2ec4b6" stroke-width="2" points="0,30 25,10 50,32 75,14 100,28 125,22 150,24 175,23 200,23"/></svg></article>
+  </div>
+</section>
+<section>
+  <h2>Инструменты</h2>
+  <div class="skills" id="sk">
+    <div class="sk">Python<div class="b"><i data-w="95"></i></div><span>95</span></div>
+    <div class="sk">SQL<div class="b"><i data-w="92"></i></div><span>92</span></div>
+    <div class="sk">PyTorch<div class="b"><i data-w="80"></i></div><span>80</span></div>
+    <div class="sk">Статистика<div class="b"><i data-w="88"></i></div><span>88</span></div>
+    <div class="sk">Spark<div class="b"><i data-w="72"></i></div><span>72</span></div>
+    <div class="sk">Объяснять<div class="b"><i data-w="99"></i></div><span>99</span></div>
+  </div>
+</section>
+<footer><div style="color:var(--muted)">Консалтинг, менторство, найм на позицию Lead DS</div><a href="mailto:hello@example.com">Обсудить данные</a></footer>
+<script>
+const svg=document.getElementById('ch'),NS='http://www.w3.org/2000/svg',tip=document.getElementById('tip');
+const W=600,H=360,P=40,N=36,cut=24;let seed=3;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+const data=[...Array(N)].map((_,i)=>100+i*3+Math.sin(i/2.2)*22+(rnd()-.5)*18);
+const X=i=>P+i*(W-2*P)/(N-1),Y=v=>H-P-(v-60)/(240-60)*(H-2*P);
+const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
+for(let g=0;g<=4;g++){const y=P+g*(H-2*P)/4;el('line',{x1:P,x2:W-P,y1:y,y2:y,stroke:'#1f3a55'});const t=el('text',{x:4,y:y+4,fill:'#7f9bb5','font-size':11,'font-family':'IBM Plex Mono'});t.textContent=Math.round(240-g*45)}
+const fc=data.map((v,i)=>i<cut-1?null:100+i*3+Math.sin(i/2.2)*22);
+let band='';for(let i=cut-1;i<N;i++)band+=`${i==cut-1?'M':'L'}${X(i)},${Y(fc[i]+6+(i-cut)*2)}`;for(let i=N-1;i>=cut-1;i--)band+=`L${X(i)},${Y(fc[i]-6-(i-cut)*2)}`;
+el('path',{d:band+'Z',fill:'rgba(255,111,97,.18)'});
+el('line',{x1:X(cut-1),x2:X(cut-1),y1:P,y2:H-P,stroke:'#7f9bb5','stroke-dasharray':'4 4'});
+const fact=el('polyline',{points:data.slice(0,cut).map((v,i)=>`${X(i)},${Y(v)}`).join(' '),fill:'none',stroke:'#2ec4b6','stroke-width':3,'stroke-linejoin':'round'});
+const pred=el('polyline',{points:fc.map((v,i)=>v==null?'':`${X(i)},${Y(v)}`).join(' ').trim(),fill:'none',stroke:'#ff6f61','stroke-width':3,'stroke-dasharray':'8 6'});
+[fact].forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 2.2s ease';p.style.strokeDashoffset=0});
+pred.style.opacity=0;pred.style.transition='opacity 1s 2s';requestAnimationFrame(()=>pred.style.opacity=1);
+const dot=el('circle',{r:6,fill:'#ffe8d6',opacity:0});
+svg.addEventListener('mousemove',e=>{const r=svg.getBoundingClientRect(),mx=(e.clientX-r.left)/r.width*W;const i=Math.max(0,Math.min(N-1,Math.round((mx-P)/(W-2*P)*(N-1))));const v=i<cut?data[i]:fc[i];
+  dot.setAttribute('cx',X(i));dot.setAttribute('cy',Y(v));dot.setAttribute('opacity',1);tip.style.opacity=1;tip.style.left=(X(i)/W*r.width+20)+'px';tip.style.top=(Y(v)/H*r.height+20)+'px';tip.textContent=`нед. ${i+1}: ${v.toFixed(0)} ${i<cut?'факт':'прогноз'}`});
+svg.addEventListener('mouseleave',()=>{dot.setAttribute('opacity',0);tip.style.opacity=0});
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('i').forEach(i=>i.style.width=i.dataset.w+'%');o.disconnect()}}),{threshold:.3}).observe(document.getElementById('sk'));
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

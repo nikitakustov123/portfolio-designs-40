@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUBBLE.FM — веб-дизайнер nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff9ad5;--lilac:#c7a8ff;--baby:#a8e6ff;--lime:#d4ff6b;--deep:#2b1458;--chrome1:#ffffff;--chrome2:#b9b4d6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(160deg,#ffe0f3,#e8dcff 40%,#d6f3ff);color:var(--deep);font-family:Manrope,sans-serif;font-size:16px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(43,20,88,.12) 1px,transparent 1.5px);background-size:18px 18px}
+.spark{position:fixed;pointer-events:none;width:20px;height:20px;z-index:50;background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:sp .9s ease-out forwards}
+@keyframes sp{to{transform:scale(0) rotate(180deg);opacity:0}}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:8vh 5vw;position:relative}
+.hero h1{font-family:'Rubik Bubbles',cursive;font-weight:400;font-size:clamp(64px,13vw,200px);line-height:.95;background:linear-gradient(180deg,#fff 0%,#f2c6ff 30%,#8a5ad6 55%,#ffffff 60%,#c7a8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 0 #2b1458) drop-shadow(0 12px 20px rgba(43,20,88,.3))}
+.hero p{max-width:520px;margin:20px auto 0;font-weight:700;font-size:18px}
+.bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0 8%,rgba(255,255,255,.5) 12%,rgba(255,154,213,.25) 40%,rgba(168,230,255,.4) 70%,rgba(199,168,255,.6) 100%);box-shadow:inset -8px -10px 20px rgba(199,168,255,.5),0 10px 30px rgba(43,20,88,.12);animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-24px)}}
+.win{background:rgba(255,255,255,.7);border:2px solid var(--deep);border-radius:18px;box-shadow:6px 6px 0 var(--deep);overflow:hidden;backdrop-filter:blur(8px)}
+.win .bar{display:flex;align-items:center;gap:8px;padding:8px 14px;background:linear-gradient(90deg,var(--pink),var(--lilac),var(--baby));border-bottom:2px solid var(--deep);font-weight:800;font-size:13px}
+.win .bar i{width:12px;height:12px;border-radius:50%;border:2px solid var(--deep);background:#fff}
+.win .bar i:first-child{background:var(--pink)}.win .bar i:nth-child(2){background:var(--lime)}
+.win .bar span{margin-left:auto}
+.win .bd{padding:22px}
+section{padding:10vh 5vw;max-width:1240px;margin:0 auto}
+h2{font-family:'Rubik Bubbles';font-weight:400;font-size:clamp(40px,6vw,80px);color:var(--deep);margin-bottom:5vh;line-height:1}
+.desk{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.desk .win{transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.desk .win:hover{transform:rotate(-2deg) scale(1.03)}
+.desk .shot{height:180px;border-radius:12px;border:2px solid var(--deep);margin-bottom:14px}
+.desk h3{font-weight:800;font-size:20px}
+.stickers{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.st{font-weight:800;padding:10px 20px;border-radius:999px;border:2px solid var(--deep);box-shadow:3px 3px 0 var(--deep);background:#fff;transform:rotate(var(--r,0deg));transition:transform .2s}
+.st:hover{transform:rotate(0) scale(1.1)}
+.mp3{display:flex;align-items:center;gap:18px}
+.disc{width:90px;height:90px;border-radius:50%;flex:none;background:conic-gradient(#fff,#c7a8ff,#a8e6ff,#ff9ad5,#fff);border:2px solid var(--deep);position:relative;animation:rot 3s linear infinite}
+.disc::after{content:'';position:absolute;inset:36%;border-radius:50%;background:var(--deep)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.prog{height:12px;border:2px solid var(--deep);border-radius:6px;margin-top:10px;overflow:hidden;background:#fff}
+.prog i{display:block;height:100%;width:40%;background:repeating-linear-gradient(45deg,var(--pink) 0 8px,var(--lilac) 8px 16px);animation:pr 8s linear infinite}
+@keyframes pr{from{width:0}to{width:100%}}
+footer{text-align:center;padding:8vh 5vw 20vh}
+.cta{display:inline-block;font-family:'Rubik Bubbles';font-size:clamp(28px,4vw,48px);color:var(--deep);text-decoration:none;padding:18px 44px;border-radius:999px;border:3px solid var(--deep);background:linear-gradient(180deg,#fff,#ffd6f0 45%,#ff9ad5 55%,#ffe3f4);box-shadow:0 6px 0 var(--deep),inset 0 3px 0 #fff;transition:transform .1s,box-shadow .1s}
+.cta:active{transform:translateY(6px);box-shadow:0 0 0 var(--deep)}
+a:focus-visible{outline:3px dashed var(--deep);outline-offset:6px}
+@media(max-width:860px){.desk{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.bub,.disc,.prog i{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="bub" style="width:160px;height:160px;left:8%;top:14%"></div>
+  <div class="bub" style="width:90px;height:90px;right:12%;top:20%;animation-delay:-2s"></div>
+  <div class="bub" style="width:220px;height:220px;right:6%;bottom:8%;animation-delay:-4s"></div>
+  <div class="bub" style="width:60px;height:60px;left:22%;bottom:16%;animation-delay:-1s"></div>
+  <div><h1>bubble.fm</h1><p>nikitakustov123 — веб-дизайнер из нулевых, застрявший в будущем. Делаю сайты для музыкантов, косметики и всех, кому скучно быть как все.</p></div>
+</section>
+<section>
+  <h2>мои сайтики</h2>
+  <div class="desk">
+    <div class="win"><div class="bar"><i></i><i></i><i></i><span>glitter.html</span></div><div class="bd"><div class="shot" style="background:radial-gradient(circle at 30% 40%,#fff 0 10%,transparent 11%),linear-gradient(135deg,#ff9ad5,#c7a8ff)"></div><h3>Блеск для губ «Глиттер»</h3><p>Промо-сайт с 3D-тюбиком и голографическим чек-аутом.</p></div></div>
+    <div class="win"><div class="bar"><i></i><i></i><i></i><span>tour_2026.exe</span></div><div class="bd"><div class="shot" style="background:repeating-linear-gradient(90deg,#a8e6ff 0 20px,#d4ff6b 20px 40px)"></div><h3>Тур группы «Сплин-Поп»</h3><p>Афиша с картой городов и плеером в стиле Winamp.</p></div></div>
+    <div class="win"><div class="bar"><i></i><i></i><i></i><span>angel.jpg</span></div><div class="bd"><div class="shot" style="background:conic-gradient(from 90deg,#fff,#a8e6ff,#c7a8ff,#ff9ad5,#fff)"></div><h3>Бренд «Ангел»</h3><p>Магазин одежды в эстетике Y2K: стикеры, курсоры, блёстки.</p></div></div>
+  </div>
+</section>
+<section>
+  <div class="win"><div class="bar"><i></i><i></i><i></i><span>now_playing.mp3</span></div><div class="bd mp3"><div class="disc" aria-hidden="true"></div><div style="flex:1"><b>Сейчас в наушниках</b><br>сборка «диско 2003 навсегда»<div class="prog"><i></i></div></div></div></div>
+</section>
+<section>
+  <h2 style="text-align:center">что умею ✧</h2>
+  <div class="stickers"><span class="st" style="--r:-6deg;background:#ff9ad5">Веб-дизайн</span><span class="st" style="--r:4deg;background:#d4ff6b">Webflow</span><span class="st" style="--r:-3deg;background:#a8e6ff">Three.js</span><span class="st" style="--r:7deg">Айдентика</span><span class="st" style="--r:-5deg;background:#c7a8ff">Курсоры и блёстки</span><span class="st" style="--r:3deg;background:#ffe0f3">Анимация</span></div>
+</section>
+<footer><a class="cta" href="mailto:hello@example.com">написать мне</a></footer>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){let last=0;addEventListener('pointermove',e=>{const n=performance.now();if(n-last<40)return;last=n;const s=document.createElement('i');s.className='spark';s.style.left=e.clientX-10+'px';s.style.top=e.clientY-10+'px';s.style.background=['#fff','#ff9ad5','#c7a8ff','#a8e6ff'][Math.random()*4|0];document.body.appendChild(s);setTimeout(()=>s.remove(),900)})}
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вестник — журналистика nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--news:#ece8de;--ink:#1a1814;--fade:#6d675c;--red:#9e1b1b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#cfc9bb;color:var(--ink);font-family:'PT Serif',serif;font-size:16px;line-height:1.6;padding:3vw 0}
+.sheet{max-width:1180px;margin:0 auto;background:var(--news);padding:34px 44px 60px;box-shadow:0 30px 60px rgba(0,0,0,.25),0 0 0 1px rgba(0,0,0,.05);position:relative;transform:rotate(-.3deg)}
+.sheet::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.35),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(120,90,40,.12),transparent 50%)}
+.mast{text-align:center;border-bottom:4px double var(--ink);padding-bottom:14px}
+.meta{display:flex;justify-content:space-between;font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+.mast h1{font-family:'Old Standard TT';font-weight:700;font-size:clamp(46px,8vw,110px);line-height:1;letter-spacing:-.01em}
+.mast p{font-style:italic;color:var(--fade)}
+.ed{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding:6px 0;font-size:13px;margin-bottom:26px}
+.lead{display:grid;grid-template-columns:2fr 1fr;gap:34px;border-bottom:1px solid var(--ink);padding-bottom:28px}
+.lead h2{font-family:'Old Standard TT';font-size:clamp(32px,4.6vw,62px);line-height:1.02;font-weight:700;margin-bottom:14px}
+.lead .deck{font-style:italic;font-size:20px;color:var(--fade);margin-bottom:18px}
+.cols2{columns:2;column-gap:28px;column-rule:1px solid rgba(26,24,20,.3);text-align:justify;hyphens:auto}
+.cols2 p:first-child::first-letter{float:left;font-family:'Old Standard TT';font-size:68px;line-height:.85;padding:6px 8px 0 0;color:var(--red)}
+.photo{height:260px;background:repeating-radial-gradient(circle at 60% 40%,#2b2822 0 1.4px,transparent 1.6px 4px),linear-gradient(135deg,#8c877b,#3a362e);background-size:4px 4px,100%;filter:contrast(1.2);margin-bottom:8px;position:relative}
+.photo::after{content:'';position:absolute;left:30%;bottom:0;width:40%;height:62%;background:#24211c;clip-path:polygon(40% 0,60% 0,70% 20%,100% 40%,100% 100%,0 100%,0 40%,30% 20%);opacity:.8}
+.cap{font-size:13px;font-style:italic;color:var(--fade)}
+.side h3{font-family:'Old Standard TT';font-size:22px;border-top:3px solid var(--ink);padding-top:8px;margin:18px 0 6px}
+.side ol{padding-left:20px}
+.side li{margin-bottom:8px}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:24px}
+.story{border-right:1px solid rgba(26,24,20,.3);padding-right:28px}
+.story:last-child{border:0}
+.story .k{color:var(--red);font-weight:700;font-size:13px}
+.story h4{font-family:'Old Standard TT';font-size:26px;line-height:1.1;margin:6px 0 10px}
+.story a{color:var(--ink)}
+.story:hover h4{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ad{margin-top:30px;border:3px double var(--ink);text-align:center;padding:26px}
+.ad h4{font-family:'Old Standard TT';font-size:clamp(28px,4vw,48px)}
+.ad a{display:inline-block;margin-top:12px;background:var(--ink);color:var(--news);text-decoration:none;padding:12px 30px;font-weight:700}
+.ad a:hover{background:var(--red)}
+a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+@media(max-width:860px){.sheet{padding:22px;transform:none}.lead,.row{grid-template-columns:1fr}.cols2{columns:1}.story{border:0;padding:0}.meta span:nth-child(2){display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<article class="sheet">
+  <header class="mast">
+    <div class="meta"><span>№ 2026 · Выпуск 11</span><span>Цена: одна хорошая история</span><span>Москва, среда</span></div>
+    <h1>Вестник</h1>
+    <p>Расследования, репортажи и очерки nikitakustov123</p>
+  </header>
+  <div class="ed"><span>Специальный корреспондент</span><span>Тринадцать лет в профессии</span><span>Премия за журналистику, 2025</span></div>
+  <section class="lead">
+    <div>
+      <h2>Город, который ушёл под воду и вернулся</h2>
+      <p class="deck">Как жители затопленного посёлка на Рыбинском водохранилище сорок лет собирали свою историю по фотографиям и письмам</p>
+      <div class="cols2">
+        <p>Каждую весну, когда уровень воды падает, из-под неё показываются фундаменты. Местные называют это «днём, когда город дышит». Я провёл в Брейтове три недели, разговаривая с теми, кто помнит улицы, которых больше нет.</p>
+        <p>Это материал о памяти как о работе: о краеведческом музее в бывшей бане, о тетрадях с адресами, о внуках, которые учат названия переулков по рассказам бабушек. Текст вошёл в шорт-лист журналистской премии и был переведён на три языка.</p>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="photo" role="img" aria-label="Силуэт колокольни над водой"></div>
+      <p class="cap">Колокольня в Мологе. Реконструкция по архивному снимку.</p>
+      <h3>Самое читаемое</h3>
+      <ol><li>Последний смотритель маяка на Белом море</li><li>Кто платит за тишину в Подмосковье</li><li>Дети, которые учат стариков пользоваться Госуслугами</li></ol>
+    </aside>
+  </section>
+  <section class="row">
+    <div class="story"><span class="k">Расследование</span><h4><a href="#">Мусорный полигон, которого нет на карте</a></h4><p>Восемь месяцев работы, два суда и закрытая свалка в Тверской области.</p></div>
+    <div class="story"><span class="k">Репортаж</span><h4><a href="#">Ночная смена в детской реанимации</a></h4><p>Двенадцать часов рядом с врачами детской больницы.</p></div>
+    <div class="story"><span class="k">Очерк</span><h4><a href="#">Учительница из Чукотки</a></h4><p>Одна школа, девять учеников и тундра до горизонта.</p></div>
+  </section>
+  <div class="ad"><h4>Есть история, которую нужно рассказать?</h4><p>Принимаю темы, документы и предложения о сотрудничестве. Источники защищаю.</p><a href="mailto:hello@example.com">Написать в редакцию</a></div>
+</article>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

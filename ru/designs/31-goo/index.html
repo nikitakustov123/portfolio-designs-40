@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Капля — UI-аниматор nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+<style>
+:root{--violet:#2a0f4a;--orange:#ff7b2e;--pink:#ff3d8b;--yellow:#ffd54a;--milk:#fff4ea}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--violet);color:var(--milk);font-family:Montserrat,sans-serif;font-weight:300;font-size:17px;line-height:1.65;overflow-x:hidden}
+.hero{height:100vh;min-height:620px;position:relative;overflow:hidden}
+.lava{position:absolute;inset:0;filter:url(#goo)}
+.b{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--yellow),var(--orange) 45%,var(--pink));will-change:transform}
+.cur{width:140px;height:140px;margin:-70px 0 0 -70px;left:0;top:0;background:radial-gradient(circle at 35% 35%,#fff,var(--yellow) 30%,var(--orange))}
+.txt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;pointer-events:none;mix-blend-mode:difference}
+.txt h1{font-weight:900;font-size:clamp(70px,15vw,240px);line-height:.85;letter-spacing:-.06em;color:#fff}
+.txt p{max-width:420px;margin-top:20px;font-weight:600;color:#fff}
+section{padding:14vh 6vw}
+h2{font-weight:900;font-size:clamp(36px,6vw,90px);line-height:.9;letter-spacing:-.05em;margin-bottom:8vh}
+.btns{display:flex;flex-wrap:wrap;gap:20px;filter:url(#goo);padding:30px 0}
+.gb{position:relative;font:600 18px Montserrat;color:var(--violet);background:var(--orange);border:0;padding:20px 36px;border-radius:999px;cursor:pointer}
+.gb::before,.gb::after{content:'';position:absolute;width:40px;height:40px;border-radius:50%;background:var(--orange);top:50%;margin-top:-20px;transition:transform .7s cubic-bezier(.3,1.6,.5,1);z-index:-1}
+.gb::before{left:10px}.gb::after{right:10px}
+.gb:hover::before{transform:translate(-50px,-34px) scale(.8)}
+.gb:hover::after{transform:translate(56px,30px) scale(.9)}
+.gb.p,.gb.p::before,.gb.p::after{background:var(--pink)}
+.gb.y,.gb.y::before,.gb.y::after{background:var(--yellow)}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.case{background:rgba(255,244,234,.06);border-radius:40px 40px 40px 8px;padding:30px;transition:border-radius .6s,background .3s}
+.case:hover{border-radius:8px 40px 40px 40px;background:rgba(255,244,234,.1)}
+.case .drop{width:70px;height:70px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);margin-bottom:24px}
+.case h3{font-weight:900;font-size:26px;letter-spacing:-.03em}
+footer{padding:12vh 6vw 22vh;text-align:center}
+footer a{display:inline-block;font-weight:900;font-size:clamp(30px,6vw,80px);letter-spacing:-.05em;color:var(--violet);background:var(--yellow);padding:22px 56px;border-radius:999px;text-decoration:none;transition:border-radius .5s}
+footer a:hover{border-radius:40% 60% 50% 50%/60% 40% 60% 40%}
+a:focus-visible,button:focus-visible{outline:3px solid var(--milk);outline-offset:6px}
+@media(max-width:860px){.cases{grid-template-columns:1fr}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="18" result="b"/><feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -11" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>
+<section class="hero" style="padding:0">
+  <div class="lava" id="lava" aria-hidden="true"><div class="b cur" id="cur"></div></div>
+  <div class="txt"><h1>Капля</h1><p>nikitakustov123 — UI-аниматор. Делаю переходы, загрузки и микровзаимодействия, которые текут, как жидкость. Двигайте курсором.</p></div>
+</section>
+<section>
+  <h2>Кнопки, которые хочется нажать</h2>
+  <div class="btns"><button class="gb">Наведи</button><button class="gb p">И на меня</button><button class="gb y">И сюда</button></div>
+</section>
+<section>
+  <h2>Проекты</h2>
+  <div class="cases">
+    <article class="case"><div class="drop" style="background:var(--orange)"></div><h3>Загрузки магазина одежды</h3><p>Семь анимаций ожидания, после которых пользователи стали реже закрывать приложение.</p></article>
+    <article class="case"><div class="drop" style="background:var(--pink)"></div><h3>Жесты в детском приложении</h3><p>Свайпы и тянущиеся карточки для детского приложения — без единой кнопки «Назад».</p></article>
+    <article class="case"><div class="drop" style="background:var(--yellow)"></div><h3>Lottie-библиотека маркетплейса</h3><p>140 иконок в движении, которые весят меньше одной картинки.</p></article>
+  </div>
+</section>
+<footer><a href="mailto:hello@example.com">Написать мне</a></footer>
+<script>
+const lava=document.getElementById('lava'),cur=document.getElementById('cur');
+const bl=[];const W=()=>lava.clientWidth,H=()=>lava.clientHeight;
+for(let i=0;i<9;i++){const e=document.createElement('div');e.className='b';const s=90+Math.random()*200;e.style.width=e.style.height=s+'px';e.style.left=-s/2+'px';e.style.top=-s/2+'px';lava.appendChild(e);bl.push({e,x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.0016,vy:(Math.random()-.5)*.0016})}
+let mx=.75,my=.5,cx=.75,cy=.5;
+lava.parentElement.addEventListener('pointermove',e=>{const r=lava.getBoundingClientRect();mx=(e.clientX-r.left)/r.width;my=(e.clientY-r.top)/r.height});
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function f(){const w=W(),h=H();
+  for(const b of bl){b.x+=b.vx;b.y+=b.vy;if(b.x<.05||b.x>.95)b.vx*=-1;if(b.y<.05||b.y>.95)b.vy*=-1;b.e.style.transform=`translate(${b.x*w}px,${b.y*h}px)`}
+  cx+=(mx-cx)*.08;cy+=(my-cy)*.08;cur.style.transform=`translate(${cx*w}px,${cy*h}px)`;
+  if(!red)requestAnimationFrame(f)}
+f();
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

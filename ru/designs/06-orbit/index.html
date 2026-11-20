@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Орбита — nikitakustov123, научная визуализация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--void:#02030a;--pale:#cfd8ff;--amber:#ffb347;--blue:#4d7cff;--dim:#6b7397}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--pale);font-family:Jura,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%}
+.ui{position:relative;z-index:1}
+header{display:flex;justify-content:space-between;padding:26px 5vw;font-weight:500;letter-spacing:.06em}
+header span{color:var(--dim)}
+.hero{height:88vh;display:flex;flex-direction:column;justify-content:center;padding:0 5vw;pointer-events:none}
+.hero h1{font-weight:300;font-size:clamp(46px,8.5vw,128px);line-height:1;letter-spacing:-.02em;max-width:900px}
+.hero p{max-width:460px;margin-top:22px;color:var(--dim);font-size:19px}
+.coord{position:absolute;right:5vw;bottom:14vh;text-align:right;font-size:13px;color:var(--dim);line-height:1.9}
+.coord b{color:var(--amber);font-weight:500}
+section{padding:14vh 5vw}
+h2{font-weight:300;font-size:clamp(30px,4vw,52px);margin-bottom:6vh}
+.objs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(207,216,255,.12);border:1px solid rgba(207,216,255,.12)}
+.obj{background:rgba(2,3,10,.82);padding:30px;min-height:340px;display:flex;flex-direction:column;backdrop-filter:blur(4px)}
+.obj .planet{width:110px;height:110px;border-radius:50%;margin-bottom:auto;position:relative;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.obj:hover .planet{transform:rotate(200deg) scale(1.08)}
+.obj h3{font-weight:500;font-size:24px;margin-top:30px}
+.obj p{color:var(--dim);font-size:15px}
+.pl1{background:radial-gradient(circle at 35% 30%,#ffd9a0,#ff8a3d 45%,#5a1d00 100%);box-shadow:0 0 60px rgba(255,140,60,.35)}
+.pl2{background:radial-gradient(circle at 35% 30%,#b6ccff,#4d7cff 50%,#0b1440);box-shadow:0 0 50px rgba(77,124,255,.4)}
+.pl2::after{content:'';position:absolute;left:-30%;top:44%;width:160%;height:12%;border:2px solid rgba(207,216,255,.55);border-radius:50%;transform:rotate(-16deg)}
+.pl3{background:repeating-linear-gradient(170deg,#e8d3b5 0 9px,#b88b5e 9px 16px,#d9b48a 16px 24px);box-shadow:inset -22px -10px 30px rgba(0,0,0,.65)}
+.talks{display:grid;grid-template-columns:1fr 2fr;gap:5vw}
+.talks ol{list-style:none}
+.talks li{display:grid;grid-template-columns:110px 1fr;padding:18px 0;border-bottom:1px solid rgba(207,216,255,.12)}
+.talks li span{color:var(--amber)}
+footer{padding:16vh 5vw 22vh;text-align:center}
+footer a{display:inline-block;font-size:clamp(26px,4vw,52px);color:var(--pale);text-decoration:none;border:1px solid var(--pale);border-radius:999px;padding:18px 48px;transition:background .3s,color .3s}
+footer a:hover{background:var(--amber);color:var(--void);border-color:var(--amber)}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:4px}
+@media(max-width:860px){.objs,.talks{grid-template-columns:1fr}.coord{display:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<canvas id="c" aria-hidden="true"></canvas>
+<div class="ui">
+<header><b>ОРБИТА</b><span>nikitakustov123</span></header>
+<section class="hero">
+  <h1>Я рисую то, что видят телескопы</h1>
+  <p>Научная визуализация для обсерваторий, музеев и космических миссий. Данные превращаю в изображения, которые понятны школьнику и точны для астрофизика.</p>
+</section>
+<div class="coord" aria-hidden="true">RA <b>05ч 35м 17с</b><br>DEC <b>−05° 23′ 28″</b><br>Туманность Ориона</div>
+<section>
+  <h2>Миссии и проекты</h2>
+  <div class="objs">
+    <article class="obj"><div class="planet pl1"></div><h3>Солнце в ультрафиолете</h3><p>Интерактивная карта вспышек по данным SDO для городского планетария, 2026.</p></article>
+    <article class="obj"><div class="planet pl2"></div><h3>Кольца Нептуна</h3><p>Реконструкция по снимкам JWST для выставки «Ледяные гиганты», 2025.</p></article>
+    <article class="obj"><div class="planet pl3"></div><h3>Атмосфера Юпитера</h3><p>Анимация вихрей Большого красного пятна за 40 лет наблюдений, 2024.</p></article>
+  </div>
+</section>
+<section class="talks">
+  <h2>Выступления</h2>
+  <ol>
+    <li><span>2026</span>Как показать тёмную материю — открытая лекция в обсерватории</li>
+    <li><span>2025</span>Данные как пейзаж — конференция по визуализации данных</li>
+    <li><span>2024</span>Цвет в астрофотографии — где кончается наука</li>
+  </ol>
+</section>
+<footer><a href="mailto:hello@example.com">Обсудить визуализацию</a></footer>
+</div>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');let w,h,d=devicePixelRatio||1,mx=0,my=0;
+function rs(){w=c.width=innerWidth*d;h=c.height=innerHeight*d}rs();addEventListener('resize',rs);
+addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5)});
+const stars=Array.from({length:500},()=>({x:Math.random(),y:Math.random(),z:Math.random()*.9+.1}));
+const planets=[{r:.16,s:.0006,sz:6,c:'#ffb347'},{r:.25,s:.00037,sz:9,c:'#4d7cff'},{r:.36,s:.00022,sz:5,c:'#cfd8ff'},{r:.48,s:.00013,sz:12,c:'#d9b48a'}];
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;let t=0;
+function f(){
+  x.fillStyle='#02030a';x.fillRect(0,0,w,h);
+  const sy=scrollY*d;
+  for(const s of stars){const px=((s.x*w-mx*40*s.z*d)%w+w)%w,py=((s.y*h-my*40*s.z*d-sy*s.z*.3)%h+h)%h;x.fillStyle=`rgba(207,216,255,${s.z*.9})`;x.fillRect(px,py,s.z*1.8*d,s.z*1.8*d)}
+  const cx=w*.72-mx*20*d,cy=h*.42-my*20*d-sy*.5,R=Math.min(w,h);
+  const g=x.createRadialGradient(cx,cy,0,cx,cy,R*.09);g.addColorStop(0,'#fff3d6');g.addColorStop(.35,'#ffb347');g.addColorStop(1,'rgba(255,179,71,0)');
+  x.fillStyle=g;x.beginPath();x.arc(cx,cy,R*.09,0,7);x.fill();
+  for(const p of planets){
+    x.strokeStyle='rgba(207,216,255,.12)';x.lineWidth=d;x.beginPath();x.ellipse(cx,cy,R*p.r,R*p.r*.35,-.25,0,7);x.stroke();
+    const a=t*p.s,px=cx+Math.cos(a)*R*p.r*Math.cos(-.25)-Math.sin(a)*R*p.r*.35*Math.sin(-.25),py=cy+Math.cos(a)*R*p.r*Math.sin(-.25)+Math.sin(a)*R*p.r*.35*Math.cos(-.25);
+    x.fillStyle=p.c;x.shadowColor=p.c;x.shadowBlur=20*d;x.beginPath();x.arc(px,py,p.sz*d,0,7);x.fill();x.shadowBlur=0;
+  }
+  t+=16;if(!red)requestAnimationFrame(f)}
+f();if(red)addEventListener('scroll',f);
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

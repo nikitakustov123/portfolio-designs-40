@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ТИПО — кинетическая типографика nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+:root{--w:#fff;--k:#000;--blue:#2d3cff;--gray:#e9e9ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--w);color:var(--k);font-family:'Exo 2',sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
+.hero{height:100vh;min-height:620px;display:flex;flex-direction:column;justify-content:center;gap:0;overflow:hidden;position:relative}
+.row{white-space:nowrap;font-weight:900;font-style:italic;font-size:clamp(70px,13vw,210px);line-height:.86;letter-spacing:-.04em;will-change:transform}
+.row span{display:inline-block;padding-right:.25em}
+.row.o{color:transparent;-webkit-text-stroke:2px var(--k)}
+.row.b{color:var(--blue)}
+.row.inv{background:var(--k);color:var(--w)}
+.badge{position:absolute;right:5vw;bottom:6vh;width:150px;height:150px;animation:rot 12s linear infinite}
+.badge text{font-weight:900;font-size:13.5px;letter-spacing:.18em;fill:var(--k)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.badge circle{fill:var(--blue)}
+.intro{padding:14vh 5vw;display:grid;grid-template-columns:1fr 2fr;gap:5vw}
+.intro p{font-size:clamp(24px,3vw,44px);line-height:1.15;font-weight:300}
+.intro p em{font-style:normal;font-weight:900}
+.list{border-top:2px solid var(--k)}
+.it{display:grid;grid-template-columns:1fr auto;align-items:center;padding:3vh 5vw;border-bottom:2px solid var(--k);position:relative;overflow:hidden;cursor:pointer}
+.it h3{font-weight:900;font-style:italic;font-size:clamp(34px,6vw,96px);line-height:1;letter-spacing:-.03em;position:relative;z-index:2;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.it small{position:relative;z-index:2}
+.it::before{content:'';position:absolute;inset:0;background:var(--blue);transform:translateY(101%);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.it:hover::before{transform:none}
+.it:hover{color:var(--w)}
+.it:hover h3{transform:translateX(3vw)}
+.var{padding:16vh 5vw;background:var(--gray);text-align:center}
+.var .live{font-size:clamp(60px,14vw,220px);line-height:1;font-weight:300;letter-spacing:-.03em;transition:font-weight .05s}
+.var label{display:block;margin-top:20px}
+.var input{width:min(500px,80vw);accent-color:var(--blue)}
+footer{background:var(--k);color:var(--w);overflow:hidden;padding:10vh 0 16vh}
+footer .row{font-size:clamp(60px,11vw,180px)}
+footer a{color:var(--w);text-decoration:none}
+footer a:hover{color:var(--blue)}
+footer p{padding:0 5vw;margin-top:5vh}
+a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@media(max-width:800px){.intro{grid-template-columns:1fr}.badge{width:100px;height:100px}}
+@media(prefers-reduced-motion:reduce){.badge{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="nikitakustov123, кинетическая типографика">
+  <div class="row" data-s="1"><span>ТИПО ТИПО ТИПО ТИПО ТИПО ТИПО ТИПО ТИПО</span></div>
+  <div class="row o" data-s="-1.4"><span>ДВИЖЕНИЕ ДВИЖЕНИЕ ДВИЖЕНИЕ ДВИЖЕНИЕ</span></div>
+  <div class="row b" data-s="1.8"><span>БУКВЫ ЖИВЫЕ БУКВЫ ЖИВЫЕ БУКВЫ ЖИВЫЕ</span></div>
+  <div class="row inv" data-s="-1"><span>NIKITAKUSTOV123 NIKITAKUSTOV123 NIKITAKUSTOV123</span></div>
+  <svg class="badge" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="30"/><path id="cp" d="M75 75 m-58 0 a58 58 0 1 1 116 0 a58 58 0 1 1 -116 0" fill="none"/><text><textPath href="#cp">КРУТИТЕ СТРАНИЦУ • КРУТИТЕ СТРАНИЦУ • </textPath></text></svg>
+</section>
+<section class="intro">
+  <div>nikitakustov123<br>Моушн-типограф, Санкт-Петербург</div>
+  <p>Заставляю буквы <em>танцевать</em>, когда бренду нужно, чтобы его заметили за полсекунды. Титры, заставки, промо, вариативные шрифты, которые реагируют на звук.</p>
+</section>
+<section class="list" aria-label="Проекты">
+  <div class="it"><h3>Титры фильма «Ветер»</h3><small>Кино, 2026</small></div>
+  <div class="it"><h3>Ребрендинг «Страница»</h3><small>Айдентика, 2025</small></div>
+  <div class="it"><h3>Шрифт «Импульс»</h3><small>Вариативный, 2025</small></div>
+  <div class="it"><h3>Визуал для концертного тура</h3><small>Live, 2024</small></div>
+</section>
+<section class="var">
+  <div class="live" id="live">Вариатив</div>
+  <label>Потяните ползунок — меняется насыщенность шрифта<br><input type="range" min="100" max="900" value="300" id="wg"></label>
+</section>
+<footer>
+  <div class="row" data-s="1.2"><span><a href="mailto:hello@example.com">НАПИСАТЬ МНЕ • НАПИСАТЬ МНЕ • НАПИСАТЬ МНЕ •</a></span></div>
+  <p>Отвечаю за день. Беру срочные заказы с наценкой 30%.</p>
+</footer>
+<script>
+const rows=[...document.querySelectorAll('.row')];let vel=0,last=scrollY,off=0;
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+rows.forEach(r=>{const s=r.querySelector('span');s.after(s.cloneNode(true))});
+function loop(){const d=scrollY-last;last=scrollY;vel+=(d-vel)*.1;off+=1+Math.abs(vel)*.6;
+  rows.forEach(r=>{const s=+r.dataset.s,wd=r.scrollWidth/2;let p=(off*s)%wd;if(s>0)p-=wd;r.style.transform=`translateX(${p}px) skewX(${Math.max(-15,Math.min(15,vel*-.4))}deg)`});
+  if(!red)requestAnimationFrame(loop)}
+loop();
+const lv=document.getElementById('live');document.getElementById('wg').oninput=e=>lv.style.fontWeight=e.target.value;
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

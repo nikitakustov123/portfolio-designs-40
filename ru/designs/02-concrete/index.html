@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>БЕТОН — архитектурное бюро nikitakustov123</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--con:#c9c6bf;--ink:#000;--sig:#ff4f00;--chalk:#ecebe7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--con);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.55;
+background-image:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1.2px),radial-gradient(rgba(255,255,255,.25) 1px,transparent 1.2px);background-size:7px 7px,11px 11px}
+.grid{border-left:3px solid var(--ink);border-right:3px solid var(--ink);margin:0 2vw;min-height:100vh}
+header{display:grid;grid-template-columns:1fr auto;border-bottom:3px solid var(--ink)}
+header div{padding:18px 20px}
+header nav{display:flex}
+header nav a{padding:18px 26px;border-left:3px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600}
+header nav a:hover{background:var(--ink);color:var(--sig)}
+.mono{font-family:'Dela Gothic One',sans-serif;font-size:clamp(80px,23vw,360px);line-height:.78;letter-spacing:-.05em;padding:2vw 1vw 0;overflow:hidden;white-space:nowrap}
+.mono span{display:inline-block;transform:translateY(100%);animation:up 1s cubic-bezier(.7,0,.2,1) forwards}
+.mono span:nth-child(2){animation-delay:.08s}.mono span:nth-child(3){animation-delay:.16s}.mono span:nth-child(4){animation-delay:.24s}.mono span:nth-child(5){animation-delay:.32s}
+@keyframes up{to{transform:none}}
+.intro{display:grid;grid-template-columns:2fr 1fr 1fr;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.intro>*{padding:24px 20px;border-right:3px solid var(--ink)}.intro>*:last-child{border-right:0}
+.intro p{font-size:19px;max-width:560px}
+.intro .sig{background:var(--sig);display:flex;align-items:flex-end;font-family:'Dela Gothic One';font-size:42px;line-height:1}
+.tape{background:var(--ink);color:var(--sig);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:'Dela Gothic One';font-size:28px}
+.tape div{display:inline-block;animation:run 22s linear infinite}
+@keyframes run{to{transform:translateX(-50%)}}
+table{width:100%;border-collapse:collapse}
+td,th{border-bottom:3px solid var(--ink);padding:22px 20px;text-align:left;vertical-align:middle}
+th{font-weight:600;background:var(--chalk)}
+tr.p{cursor:pointer;position:relative;transition:background .15s}
+tr.p td:nth-child(2){font-family:'Dela Gothic One';font-size:clamp(22px,3.4vw,46px);line-height:1}
+tr.p:hover{background:var(--ink);color:var(--chalk)}
+tr.p:hover td:nth-child(2){color:var(--sig)}
+.slab{position:fixed;width:300px;height:200px;pointer-events:none;border:3px solid var(--ink);opacity:0;transition:opacity .2s;z-index:5;mix-blend-mode:normal}
+.cols{display:grid;grid-template-columns:repeat(3,1fr)}
+.cols>div{padding:30px 20px;border-right:3px solid var(--ink);min-height:240px}.cols>div:last-child{border-right:0}
+.cols h3{font-family:'Dela Gothic One';font-size:28px;margin-bottom:14px;font-weight:400}
+footer{border-top:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr}
+footer a{display:block;padding:40px 20px;font-family:'Dela Gothic One';font-size:clamp(32px,6vw,90px);color:var(--ink);text-decoration:none;background:var(--sig);border-right:3px solid var(--ink);line-height:.9}
+footer a:hover{background:var(--ink);color:var(--sig)}
+footer div{padding:40px 20px}
+a:focus-visible{outline:4px solid var(--sig);outline-offset:-4px}
+@media(max-width:800px){.intro,.cols,footer{grid-template-columns:1fr}.intro>*,.cols>div,footer a{border-right:0;border-bottom:3px solid var(--ink)}header nav a{padding:18px 12px}td:nth-child(3),th:nth-child(3){display:none}}
+@media(prefers-reduced-motion:reduce){.mono span{animation:none;transform:none}.tape div{animation:none}}
+h1{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="grid">
+<header><div>Бюро nikitakustov123, Екатеринбург</div><nav><a href="#obj">Объекты</a><a href="#call">Контакт</a></nav></header>
+<div class="mono" aria-label="Бетон"><span>Б</span><span>Е</span><span>Т</span><span>О</span><span>Н</span></div>
+<div class="intro">
+  <p>Проектируем здания, которые не притворяются. Голый монолит, честные швы опалубки, свет через щели. Двенадцать лет, сорок один построенный объект.</p>
+  <div>Специализация<br><b>Общественные здания, частные дома, реконструкция заводов</b></div>
+  <div class="sig">М 1:1</div>
+</div>
+<div class="tape" aria-hidden="true"><div>МОНОЛИТ ✕ ОПАЛУБКА ✕ ТОРКРЕТ ✕ АРМАТУРА А500 ✕ СВЕТ ✕ ТЕНЬ ✕ МОНОЛИТ ✕ ОПАЛУБКА ✕ ТОРКРЕТ ✕ АРМАТУРА А500 ✕ СВЕТ ✕ ТЕНЬ ✕&nbsp;</div></div>
+<table id="obj">
+  <tr><th>Год</th><th>Объект</th><th>Площадь</th><th>Статус</th></tr>
+  <tr class="p" data-c="#8f8b82"><td>2026</td><td>Библиотека «Карьер»</td><td>4 200 м²</td><td>Строится</td></tr>
+  <tr class="p" data-c="#ff4f00"><td>2025</td><td>Дом на сваях, Чусовая</td><td>310 м²</td><td>Построен</td></tr>
+  <tr class="p" data-c="#3d3b37"><td>2024</td><td>Цех №7 → культурный центр</td><td>9 800 м²</td><td>Построен</td></tr>
+  <tr class="p" data-c="#b7b2a6"><td>2023</td><td>Часовня без окон</td><td>64 м²</td><td>Построен</td></tr>
+  <tr class="p" data-c="#5d5a54"><td>2022</td><td>Школа на склоне</td><td>6 100 м²</td><td>Построен</td></tr>
+</table>
+<div class="cols">
+  <div><h3>Сырость честнее глянца</h3>Мы оставляем следы опалубки, потому что они рассказывают, как здание делали руками.</div>
+  <div><h3>Свет — материал</h3>Каждый проём рассчитываем по инсоляции до сантиметра. Окно — это не дыра, а прибор.</div>
+  <div><h3>Долго, а не модно</h3>Проектируем на сто лет. Тренды уходят за три сезона, бетон остаётся.</div>
+</div>
+<footer id="call"><a href="mailto:hello@example.com">Обсудить объект</a><div>Екатеринбург, ул. Заводская, 14<br>Пн–Пт, 10:00–19:00<br><br>Отвечаем в течение суток. Первую встречу проводим на участке.</div></footer>
+</div>
+<div class="slab" id="slab" aria-hidden="true"></div>
+<script>
+const s=document.getElementById('slab');
+document.querySelectorAll('tr.p').forEach(r=>{
+  r.addEventListener('mouseenter',()=>{s.style.opacity=1;s.style.background=`repeating-linear-gradient(90deg,${r.dataset.c} 0 38px,rgba(0,0,0,.25) 38px 41px),${r.dataset.c}`});
+  r.addEventListener('mouseleave',()=>s.style.opacity=0);
+  r.addEventListener('mousemove',e=>{s.style.left=(e.clientX+24)+'px';s.style.top=(e.clientY-100)+'px'});
+});
+</script>
+<script src="../../assets/back.js" defer></script>
+</body>
+</html>

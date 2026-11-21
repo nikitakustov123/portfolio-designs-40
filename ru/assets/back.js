@@ -1,3 +1,25 @@
+// Русские слова длиннее английских: уменьшаем крупные заголовки, чтобы слова не рвались посередине
+(function () {
+  function fit() {
+    var els = document.querySelectorAll('h1, h2');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], cs = getComputedStyle(el);
+      if (parseFloat(cs.fontSize) < 28 || !el.clientWidth || cs.whiteSpace.indexOf('nowrap') === 0) continue;
+      el.style.fontSize = '';
+      el.style.overflowWrap = 'normal'; el.style.wordBreak = 'normal';
+      var n = 0;
+      while (el.scrollWidth > el.clientWidth + 1 && n++ < 30) {
+        el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * 0.95) + 'px';
+      }
+      el.style.overflowWrap = ''; el.style.wordBreak = '';
+    }
+  }
+  function run() { fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  window.addEventListener('load', fit);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 150); });
+})();
+
 // Ссылка на галерею и пометка «концепт-дизайн» на каждой странице
 (function () {
   if (window.top !== window.self) return; // не показываем внутри превью-фреймов

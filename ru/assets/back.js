@@ -1,22 +1,36 @@
 // Русские слова длиннее английских: уменьшаем крупные заголовки, чтобы слова не рвались посередине
 (function () {
+  function broken(el) {
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, r = document.createRange();
+    while ((n = w.nextNode())) {
+      var re = /\S+/g, m;
+      while ((m = re.exec(n.data))) {
+        r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+        var rects = r.getClientRects(), lines = 0, last = null;
+        for (var i = 0; i < rects.length; i++) {
+          if (rects[i].width < 1) continue;
+          if (last === null || Math.abs(rects[i].top - last) > 2) { lines++; last = rects[i].top; }
+        }
+        if (lines > 1) return true;
+      }
+    }
+    return false;
+  }
   function fit() {
     var els = document.querySelectorAll('h1, h2');
     for (var i = 0; i < els.length; i++) {
-      var el = els[i], cs = getComputedStyle(el);
-      if (parseFloat(cs.fontSize) < 28 || !el.clientWidth || cs.whiteSpace.indexOf('nowrap') === 0) continue;
+      var el = els[i];
+      if (parseFloat(getComputedStyle(el).fontSize) < 28 || !el.offsetWidth) continue;
       el.style.fontSize = '';
-      el.style.overflowWrap = 'normal'; el.style.wordBreak = 'normal';
-      var n = 0;
-      while (el.scrollWidth > el.clientWidth + 1 && n++ < 30) {
+      var k = 0;
+      while (broken(el) && k++ < 30) {
         el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * 0.95) + 'px';
       }
-      el.style.overflowWrap = ''; el.style.wordBreak = '';
     }
   }
   function run() { fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
-  window.addEventListener('load', fit);
+  window.addEventListener('load', function () { fit(); setTimeout(fit, 1200); });
   var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 150); });
 })();
 
